@@ -3,12 +3,12 @@
 **Last updated:** 2026-03-19
 **Updated by:** codex-gpt5
 **Status:** in_progress
-**Current phase:** Phase 0 - the standalone research scaffold is established, the official challenge constraints have been re-grounded from the live README and open PRs, and the repo now has a dedicated branch, `bd` state, hooks, tests, PR-intelligence workflow, public-signal hooks, a dynamic-eval review artifact, and a local-first experiment structure. No baseline reproduction or golden-set candidate exists yet.
+**Current phase:** Phase 0 - the standalone research scaffold is established, the official challenge constraints have been re-grounded from the live README and open PRs, and the repo now has `bd` state, hooks, tests, PR-intelligence workflow, public-signal hooks, a dynamic-eval review artifact, append-only telemetry, local paper caching, and a `main` source-of-truth branch. No baseline reproduction or golden-set candidate exists yet.
 
 ## Active Strategy Lock
 
 - `known`: `parametergolf/` is now a standalone git repository.
-- `known`: the active branch is `research-signal-hooks`.
+- `known`: the active and source-of-truth branch is `main`.
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed; the next ready tasks are `parametergolf-mem`, `parametergolf-7cm`, `parametergolf-2km`, and `parametergolf-7b2`.
@@ -26,6 +26,10 @@
 - `known`: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/pr_snapshots/`, and `research/atomic_experiment_backlog.md` now persist official PR review state and deduped candidate experiments.
 - `known`: `research/x_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_state.json`, `research/arxiv_review_log.md`, and `research/research-queries.md` now exist to keep X and arXiv signal review persistent between iterations.
 - `known`: the live bird-cli X hook works on this machine, and the arXiv hook works after a same-session query/filter bug fix that is now covered by tests.
+- `known`: `results/telemetry/` now stores append-only run, metric, link, and render registries, with `scripts/register_run.py` and `scripts/render_progress_dashboard.py` as the write/render path.
+- `known`: the latest populated telemetry dashboard render is `results/figures/renders/20260319-163500-dashboard/index.html`.
+- `known`: the retained arXiv state now records local PDF/text paths for all retained papers.
+- `observed`: the paper cache under `background-work/papers/files/arxiv/` and `background-work/papers/files/arxiv_text/` is machine-local and gitignored except for the tracked `.gitkeep` directory placeholders.
 - `known`: the current deduped backlog includes ten candidate lanes, now with `eval-document-reset-ttt` split out from pure document-isolated sliding-window accounting.
 - `known`: the experiment stack now has three horizons: smoke/elimination, medium-horizon proxy, and confirmatory.
 - `known`: the current golden set is empty by design. No candidate has earned promotion yet.
@@ -38,3 +42,4 @@
 2. Resolve `parametergolf-7cm`: define the first `pilot`, medium-horizon proxy, and `confirmatory split` methodology for local experimentation.
 3. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
 4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.
+5. Use the telemetry spine for any new run that is important enough to compare or promote.
