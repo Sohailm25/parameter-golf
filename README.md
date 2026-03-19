@@ -5,12 +5,14 @@ This workspace mirrors the operating discipline of `~/creativedecomp` and `~/res
 ## Source Documents
 
 - `researchdocs/parameter_golf_strategy.md`
+- `researchdocs/dynamiceval.md`
 - `researchdocs/compass_artifact_wf-1d75e3e5-2eb7-4acc-b294-9b14e42edcfb_text_markdown.md`
 - `researchdocs/compass_artifact_wf-7f912b62-af2f-4a6b-8858-875fb22f1adb_text_markdown.md`
 - `researchdocs/compass_artifact_wf-be9c2458-2b26-4bc3-979a-bbb71a8446f1_text_markdown.md`
 - `research/challenge-review-20260319.md`
 - `research/approach-space-20260319.md`
 - `research/autoresearch-fit-20260319.md`
+- `results/evaluation/20260319-dynamic-eval-review.md`
 
 ## Local Runtime Assumptions
 
@@ -47,6 +49,9 @@ bd prime
 - `leaderboard.md` tracks promoted iterations, parents, metrics, and atomic changes.
 - `iterations/archive/` stores immutable full file snapshots for promoted iterations.
 - `iterations/golden/` stores the current best integrated candidate.
+- `research/pr_review_state.json` tracks which official Parameter Golf PRs have already been reviewed.
+- `research/atomic_experiment_backlog.md` is the deduped backlog of candidate atomic experiments derived from those PRs.
+- `scripts/review_openai_prs.py` refreshes the official PR intelligence state, snapshots, and backlog.
 - `results/RESULTS_INDEX.md` indexes durable artifacts under `results/`.
 - `scripts/register_iteration.py` snapshots files into the archive and appends the leaderboard entry.
 

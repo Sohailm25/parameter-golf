@@ -21,6 +21,7 @@ This workspace is grounded in the official Parameter Golf repo, the imported `re
 Execute the Parameter Golf research program defined by:
 
 - `researchdocs/parameter_golf_strategy.md`
+- `researchdocs/dynamiceval.md`
 - `researchdocs/compass_artifact_wf-1d75e3e5-2eb7-4acc-b294-9b14e42edcfb_text_markdown.md`
 - `researchdocs/compass_artifact_wf-7f912b62-af2f-4a6b-8858-875fb22f1adb_text_markdown.md`
 - `researchdocs/compass_artifact_wf-be9c2458-2b26-4bc3-979a-bbb71a8446f1_text_markdown.md`
@@ -56,6 +57,8 @@ These are not optional. Every implementation and write-up must preserve them.
 5. Local proxy wins are not leaderboard claims. Do not write as if an M4 result or a short local proxy run proves 8xH100 submission quality.
 6. `autoresearch` is a bounded tuning multiplier, not the main source of architecture ideas.
 7. The current golden set must stay runnable. Do not let speculative work break the repo's best known candidate.
+8. Every iteration begins with an official PR intelligence pass. Launch a bounded `subagent` to review new `openai/parameter-golf` PRs first; if subagents are unavailable, run `scripts/review_openai_prs.py` directly and log the fallback.
+9. A session that finds `no new PRs` must still record that result explicitly. Silence is not a PR review.
 
 ## Runtime Assumptions
 
@@ -132,6 +135,8 @@ Do not re-read everything blindly every session.
 5. `DECISIONS.md`
 6. `history/PREREG.md`
 7. `leaderboard.md`
+8. `research/pr_review_state.json`
+9. `research/atomic_experiment_backlog.md`
 
 ### Read by question
 
@@ -141,6 +146,8 @@ Do not re-read everything blindly every session.
   - `research/approach-space-20260319.md`
 - How should `autoresearch` fit into this repo?
   - `research/autoresearch-fit-20260319.md`
+- What is the repo's current position on dynamic evaluation and TTT?
+  - `results/evaluation/20260319-dynamic-eval-review.md`
 - What did the imported back-and-forth already propose?
   - `researchdocs/*`
 
@@ -170,6 +177,7 @@ During work:
 - Update `CURRENT_STATE.md` whenever the actual repo state changes.
 - Register durable outputs in `results/RESULTS_INDEX.md`.
 - Register promoted script iterations in `leaderboard.md`.
+- Start each iteration by reviewing the official PR frontier. Preferred path: launch a `subagent` to review new PRs; fallback path: run `scripts/review_openai_prs.py` yourself and log whether there were updates or `no new PRs`.
 
 Long-running process rules:
 
@@ -189,6 +197,8 @@ If context is thin or the session resumed after compaction:
 5. Read the latest session log in `sessions/`
 6. Check `results/RESULTS_INDEX.md`
 7. Check `leaderboard.md`
+8. Read `research/pr_review_state.json`
+9. Read `research/atomic_experiment_backlog.md`
 
 Do not re-explore the whole repo if the state docs already answer the question.
 
@@ -197,10 +207,23 @@ Do not re-explore the whole repo if the state docs already answer the question.
 - `research/challenge-review-20260319.md` is the current source of truth for official constraints and the live competition snapshot.
 - `research/approach-space-20260319.md` defines the current lane prioritization.
 - `research/autoresearch-fit-20260319.md` defines the intended role of `autoresearch`.
+- `research/pr_review_state.json` is the machine-readable source of truth for which official PRs have been seen and whether they need re-review.
+- `research/atomic_experiment_backlog.md` is the deduped backlog of candidate atomic experiments derived from official PR review.
+- `research/pr_review_log.md` is the rolling human-readable summary of frontier changes.
 - `history/PREREG.md` defines what counts as a claim-bearing run.
 - `researchdocs/*` are imported ideation artifacts. They are useful inputs, not binding truth.
 
 If these documents conflict, resolve the conflict explicitly in `DECISIONS.md` before coding.
+
+### 3A. PR Frontier Intelligence
+
+- The persistent official PR review state lives in `research/pr_review_state.json`.
+- The rolling human summary lives in `research/pr_review_log.md`.
+- The deduped backlog of candidate atomic experiments lives in `research/atomic_experiment_backlog.md`.
+- The normalized per-PR notes live in `research/pr_snapshots/`.
+- The preferred review path is a `subagent` sweep over the current PR frontier.
+- If subagents fail or are unavailable, run `scripts/review_openai_prs.py` directly and log the fallback in `SCRATCHPAD.md` or the session log.
+- Re-review any PR whose head SHA or `updated_at` changed.
 
 ### 4. Execution Order
 
@@ -224,9 +247,11 @@ Use this as the default phase flow:
 ### 6. Run Design Guardrails
 
 - Every substantial run must record: command, device, data slice, wallclock target, artifact-size method, and score method.
+- Every substantial run or iteration plan must begin from the latest official PR scan result in `research/pr_review_state.json` and `research/atomic_experiment_backlog.md`.
 - Any scoring or tokenizer change needs an independent validation check before it can influence the golden set.
 - Do not bundle tokenizer, architecture, optimizer, and evaluation changes into one iteration unless the task is explicitly an integration checkpoint.
 - If using test-time training, sliding windows, longer context, or document resets, log exactly what state changes during evaluation and exactly what resets between documents.
+- Keep `document-reset TTT` separate from `cross-document dynamic evaluation`. They are different lanes and must not be reported as one result.
 - If a run cannot produce a reproducible full file snapshot, it is not ready for `leaderboard.md`.
 
 ### 7. Required Experiment Lanes

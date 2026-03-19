@@ -34,3 +34,24 @@
 - Decision: keep `autoresearch` in scope for local sweep automation, especially around short-run optimizer and hyperparameter probes, but do not let it define the core architecture strategy.
 - Rationale: `autoresearch` is strong at local search over a fixed training file. It is not strong enough on its own to define the repo's scientific direction.
 - Impact: the repo now has a dedicated `autoresearch` lane and prompt template, but the main strategy still comes from the local research docs.
+
+## [2026-03-19T13:55:00-0500] DECISION: Make official PR review a persistent repo step, not ad hoc browsing
+
+- Trigger: Sohail asked for each iteration to begin with a review of `openai/parameter-golf/pulls`, using a subagent when available, and to dedupe already seen PRs.
+- Decision: add a persistent PR-review workflow centered on `research/pr_review_state.json`, `research/pr_review_log.md`, `research/pr_snapshots/`, `research/atomic_experiment_backlog.md`, and `scripts/review_openai_prs.py`; update `AGENTS.md` so every iteration starts with this step or an explicit `no new PRs` result.
+- Rationale: the public frontier is moving quickly enough that rereading PRs by memory will waste time and create blind spots. We need durable state and a deduped backlog of atomic experiments.
+- Impact: the repo now has a machine-readable frontier state, a human-readable review log, and a backlog seeded from current official PRs.
+
+## [2026-03-19T14:00:00-0500] DECISION: Treat the second-pass frontier as stronger evidence for evaluation and tokenizer priority than for recurrence priority
+
+- Trigger: the second grounded review covered new PRs, issue `#67` on validation-set training pressure, issue `#43` on tokenizer accounting, and the newer seq4096/fp16/int6 records.
+- Decision: keep recurrence alive, but elevate three near-term priorities ahead of it: sliding-window/document accounting, tokenizer and vocabulary scaling, and selective int6 plus fp16 embedding precision.
+- Rationale: the live frontier now contains more concrete and reproducible evidence for those lanes than for recurrence as the first integrated bet.
+- Impact: the backlog and current-state docs now point the next lane selection toward evaluation, tokenizer, or selective-precision work first.
+
+## [2026-03-19T14:20:00-0500] DECISION: Split dynamic evaluation into a document-reset TTT lane and a separate cross-document risk lane
+
+- Trigger: Sohail asked for a review of `researchdocs/dynamiceval.md`, and the live PR review showed that PR `#77`'s own ablation attributes most of its gain to document isolation plus sliding-window scoring rather than TTT itself.
+- Decision: treat dynamic evaluation as two different things. `document-reset TTT` stays in the default research backlog as a disciplined evaluation lane; `cross-document or repeated-pass held-out adaptation` remains visible but belongs to the repo's higher-risk open-rules framing unless proven otherwise.
+- Rationale: collapsing those regimes would overstate what the public evidence currently supports and make it easier to confuse eval-accounting gains with true adaptation gains.
+- Impact: the PR-review system now derives a distinct `eval-document-reset-ttt` experiment, the strategy docs now stage TTT after evaluation-accounting sanity checks, and the repo's policy docs now make the boundary explicit.

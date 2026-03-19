@@ -21,12 +21,14 @@ A local-first workflow built around atomic experiment changes, a confirmatory sp
 2. Larger vocabularies and selective quantization are already competitive enough to outrank many exotic architecture ideas.
 3. `autoresearch` helps most once a stable local proxy exists.
 4. A clear spirit-first lane will reduce self-deception even if it slows apparent progress.
+5. Document-reset TTT may be worthwhile, but only after document handling and sliding-window accounting are already clean.
 
 ## Null And Baseline Conditions
 
 - naive baseline behavior
 - local baseline proxy
 - previous golden-set candidate
+- document-reset TTT should be compared against a clean document-isolated sliding-window baseline, not only the flat-stream baseline
 - any controversial eval method without document reset or clear accounting
 
 ## Required Methods

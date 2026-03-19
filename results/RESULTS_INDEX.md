@@ -15,6 +15,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 |---|---|---|---|
 | Standalone scaffold adaptation from the reference repos into a Parameter Golf local-first workspace | infrastructure | pass | `results/infrastructure/20260319-scaffold-adaptation.md` |
 | Initial challenge and strategy grounding against the official README plus live public PR landscape | infrastructure | pass | `results/infrastructure/20260319-initial-strategy-synthesis.md` |
+| Official PR intelligence automation plus second-pass frontier review and deduped atomic-experiment backlog | infrastructure | pass | `results/infrastructure/20260319-pr-intelligence-second-pass.md` |
 
 ## Baselines
 
@@ -50,6 +51,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
+| Dynamic-eval and TTT review grounded against `researchdocs/dynamiceval.md`, the official README, and PR `#77`/`#85` | evaluation | pass | `results/evaluation/20260319-dynamic-eval-review.md` |
 
 ## Autoresearch
 
