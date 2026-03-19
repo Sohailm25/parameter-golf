@@ -1,6 +1,6 @@
 {
   "last_drained_queries": [],
-  "last_full_scan_at": "2026-03-19T14:37:24Z",
+  "last_full_scan_at": "2026-03-19T15:20:18Z",
   "papers": {
     "1904.08378v1": {
       "arxiv_id": "1904.08378v1",
@@ -43,8 +43,8 @@
       "categories": [
         "cs.CL"
       ],
-      "first_seen_at": "2026-03-19T14:14:51Z",
-      "last_seen_at": "2026-03-19T14:14:51Z",
+      "first_seen_at": "2026-03-19T15:20:18Z",
+      "last_seen_at": "2026-03-19T15:20:18Z",
       "notes_path": "research/arxiv_snapshots/2212.02475v1.md",
       "pdf_path": "background-work/papers/files/arxiv/2212.02475v1.pdf",
       "published": "2022-12-05T18:37:09Z",
@@ -56,6 +56,30 @@
       "title": "Meta-Learning Fast Weight Language Models",
       "updated": "2022-12-05T18:37:09Z",
       "url": "https://arxiv.org/abs/2212.02475v1"
+    },
+    "2305.18466v3": {
+      "arxiv_id": "2305.18466v3",
+      "authors": [
+        "Moritz Hardt",
+        "Yu Sun"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "first_seen_at": "2026-03-19T15:20:18Z",
+      "last_seen_at": "2026-03-19T15:20:18Z",
+      "notes_path": "research/arxiv_snapshots/2305.18466v3.md",
+      "pdf_path": "background-work/papers/files/arxiv/2305.18466v3.pdf",
+      "published": "2023-05-29T08:03:28Z",
+      "source_queries": [
+        "\"test-time training\" transformer language model"
+      ],
+      "summary": "Many recent efforts augment language models with retrieval, by adding retrieved data to the input context. For this approach to succeed, the retrieved data must be added at both training and test time. Moreover, as input length grows linearly with the size of retrieved data, cost in computation and memory grows quadratically for modern Transformers. To avoid these complications, we simply fine-tune the model on retrieved data at test time, using its standard training setup. We build a large-scale distributed index based on text embeddings of the Pile dataset. For each test input, our system retrieves its neighbors and fine-tunes the model on their text. Surprisingly, retrieving and training on as few as 20 neighbors, each for only one gradient iteration, drastically improves performance across more than 20 language modeling tasks in the Pile. For example, test-time training with nearest neighbors significantly narrows the performance gap between a small GPT-2 and a GPT-Neo model more than 10 times larger. Sufficient index quality and size, however, are necessary. Our work establishes a first baseline of test-time training for language modeling.",
+      "text_path": "background-work/papers/files/arxiv_text/2305.18466v3.txt",
+      "title": "Test-Time Training on Nearest Neighbors for Large Language Models",
+      "updated": "2024-02-02T20:28:27Z",
+      "url": "https://arxiv.org/abs/2305.18466v3"
     },
     "2403.01518v1": {
       "arxiv_id": "2403.01518v1",
@@ -73,8 +97,8 @@
         "cs.CL",
         "cs.LG"
       ],
-      "first_seen_at": "2026-03-19T14:37:24Z",
-      "last_seen_at": "2026-03-19T14:37:24Z",
+      "first_seen_at": "2026-03-19T15:20:18Z",
+      "last_seen_at": "2026-03-19T15:20:18Z",
       "notes_path": "research/arxiv_snapshots/2403.01518v1.md",
       "pdf_path": "background-work/papers/files/arxiv/2403.01518v1.pdf",
       "published": "2024-03-03T14:03:48Z",
@@ -166,14 +190,82 @@
       "title": "ARS: Adaptive Reasoning Suppression for Efficient Large Reasoning Language Models",
       "updated": "2025-10-10T15:04:19Z",
       "url": "https://arxiv.org/abs/2510.00071v2"
+    },
+    "2512.23675v2": {
+      "arxiv_id": "2512.23675v2",
+      "authors": [
+        "Arnuv Tandon",
+        "Karan Dalal",
+        "Xinhao Li",
+        "Daniel Koceja",
+        "Marcel R\u00f8d",
+        "Sam Buchanan",
+        "Xiaolong Wang",
+        "Jure Leskovec",
+        "Sanmi Koyejo",
+        "Tatsunori Hashimoto",
+        "Carlos Guestrin",
+        "Jed McCaleb",
+        "Yejin Choi",
+        "Yu Sun"
+      ],
+      "categories": [
+        "cs.LG"
+      ],
+      "first_seen_at": "2026-03-19T15:20:18Z",
+      "last_seen_at": "2026-03-19T15:20:18Z",
+      "notes_path": "research/arxiv_snapshots/2512.23675v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2512.23675v2.pdf",
+      "published": "2025-12-29T18:30:14Z",
+      "source_queries": [
+        "\"test-time training\" transformer language model"
+      ],
+      "summary": "We formulate long-context language modeling as a problem in continual learning rather than architecture design. Under this formulation, we only use a standard architecture -- a Transformer with sliding-window attention. However, our model continues learning at test time via next-token prediction on the given context, compressing the context it reads into its weights. In addition, we improve the model's initialization for learning at test time via meta-learning at training time. Overall, our method, a form of Test-Time Training (TTT), is End-to-End (E2E) both at test time (via next-token prediction) and training time (via meta-learning), in contrast to previous forms. We conduct extensive experiments with a focus on scaling properties. In particular, for 3B models trained with 164B tokens, our method (TTT-E2E) scales with context length in the same way as Transformer with full attention, while others, such as Mamba 2 and Gated DeltaNet, do not. However, similar to RNNs, TTT-E2E has constant inference latency regardless of context length, making it 2.7 times faster than full attention for 128K context. Our code is publicly available.",
+      "text_path": "background-work/papers/files/arxiv_text/2512.23675v2.txt",
+      "title": "End-to-End Test-Time Training for Long Context",
+      "updated": "2025-12-31T18:41:09Z",
+      "url": "https://arxiv.org/abs/2512.23675v2"
+    },
+    "2603.07392v1": {
+      "arxiv_id": "2603.07392v1",
+      "authors": [
+        "Jiyeon Kim",
+        "Hyunji Lee",
+        "Dylan Zhou",
+        "Sue Hyun Park",
+        "Seunghyun Yoon",
+        "Trung Bui",
+        "Franck Dernoncourt",
+        "Sungmin Cha",
+        "Minjoon Seo"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-19T15:20:18Z",
+      "last_seen_at": "2026-03-19T15:20:18Z",
+      "notes_path": "research/arxiv_snapshots/2603.07392v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2603.07392v1.pdf",
+      "published": "2026-03-08T00:38:39Z",
+      "source_queries": [
+        "\"online adaptation\" \"large language models\""
+      ],
+      "summary": "LLMs operating in dynamic real-world contexts often encounter knowledge that evolves continuously or emerges incrementally. To remain accurate and effective, models must adapt to newly arriving information on the fly. We introduce Online Adaptation to Continual Knowledge Streams(OAKS) to evaluate this capability, establishing a benchmark for online adaptation over streaming, continually updating knowledge. Specifically, the benchmark is structured as a sequence of fine-grained context chunks where facts change dynamically across time intervals. OAKS comprises two datasets: OAKS-BABI and OAKS-Novel, where individual facts evolve multiple times across context chunks. These datasets include dense annotations to measure whether models track changes accurately. Evaluating 14 models with varied inference approaches, we observe significant limitations in current methodologies. Both state-of-the-art models and agentic memory systems fail to adapt robustly on OAKS, demonstrating delays in state-tracking and susceptibility to distraction within streaming environments.",
+      "text_path": "background-work/papers/files/arxiv_text/2603.07392v1.txt",
+      "title": "Can Large Language Models Keep Up? Benchmarking Online Adaptation to Continual Knowledge Streams",
+      "updated": "2026-03-08T00:38:39Z",
+      "url": "https://arxiv.org/abs/2603.07392v1"
     }
   },
   "seen_paper_ids": [
     "1904.08378v1",
     "2212.02475v1",
+    "2305.18466v3",
     "2403.01518v1",
     "2502.07985v2",
     "2502.17521v2",
-    "2510.00071v2"
+    "2510.00071v2",
+    "2512.23675v2",
+    "2603.07392v1"
   ]
 }

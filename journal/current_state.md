@@ -7,21 +7,26 @@
 - `bd` exists locally and the scaffold tests define the repo contract.
 - Hooks and `pre-commit` are installed.
 - `origin` now points at Sohail's fork.
+- The official Parameter Golf code is already this workspace root; there is no unresolved import boundary anymore.
 - The imported `researchdocs/` notes are preserved as source inputs.
 - The PR-review system now tracks a separate `eval-document-reset-ttt` lane instead of burying TTT inside generic document-isolated eval notes.
 - The repo now also has persistent X and arXiv review hooks plus a drained `research/research-queries.md` queue.
 - The live hook smoke run succeeded after one arXiv-query bug fix; that fix is now covered by tests.
 - The repo now has append-only telemetry registries plus a dashboard renderer under `results/figures/renders/`.
+- The canonical run path is now `scripts/experiment_runner.py launch`, and the canonical promotion path is `scripts/experiment_runner.py promote`.
+- Minimal reusable validation helpers now exist in `validation/log_audit.py` and `validation/artifact_size.py`.
+- `START_HERE.md` now gives a single bootstrap path for fresh agents.
+- This machine still lacks the local challenge cache under `data/datasets/` and `data/tokenizers/`, so the first real baseline run begins with the documented cache materialization step.
+- A live smoke run through `scripts/experiment_runner.py launch` succeeded and proved the CLI path, telemetry ingestion, log-link registration, outcome metrics, and dashboard refresh against a deterministic mock log writer.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No official Parameter Golf code is wired into this workspace yet.
 - No baseline run, no confirmatory split, and no promoted iteration exist yet.
 
 ## Next Delta To Close
 
-1. Decide how to bring the official challenge code under this repo's archive discipline.
-2. Freeze the baseline proxy and confirmatory split.
-3. Use the new hook sequence at the start of the next real experiment loop.
-4. Register the first real experiment run in the telemetry spine instead of treating the smoke infrastructure run as the only record.
+1. Freeze the baseline proxy and confirmatory split.
+2. Use the new hook sequence and experiment runner for the first real baseline loop after the cache exists.
+3. Register and inspect the first real experiment run in the telemetry spine instead of treating the infrastructure smoke run as the only record.
+4. Promote the first genuinely informative baseline iteration through the archive path once it clears the gate.

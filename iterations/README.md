@@ -18,6 +18,6 @@ This directory is the promotion boundary between local tinkering and repo-tracke
 ## Promotion Workflow
 
 1. Run or inspect a candidate that is worth preserving.
-2. Snapshot the full files with `scripts/register_iteration.py`.
+2. Prefer `scripts/experiment_runner.py promote` so telemetry links, archive snapshots, and dashboard refresh all happen in one path.
 3. Verify the new row in `leaderboard.md`.
 4. If the candidate is best-known, update the `golden set`.

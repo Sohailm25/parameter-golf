@@ -3,10 +3,12 @@
 This fork also carries Sohail's local research scaffold for Parameter Golf experimentation.
 
 - `AGENTS.md` is the repo operating contract.
+- `START_HERE.md` is the canonical bootstrap path for a fresh agent or a resumed session.
 - `CURRENT_STATE.md` is the current research status snapshot.
 - `leaderboard.md` plus `iterations/archive/` track promoted atomic iterations.
 - `results/telemetry/` and `results/figures/renders/` hold append-only telemetry and rendered dashboards.
 - `scripts/review_openai_prs.py`, `scripts/review_x_signal.py`, and `scripts/review_arxiv.py` are the per-iteration intelligence hooks.
+- `scripts/experiment_runner.py` is the canonical launch/promote path for runs that matter.
 
 The upstream challenge README continues below.
 

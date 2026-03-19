@@ -58,3 +58,14 @@
 - [Dynamic Evaluation of Transformer Language Models](https://arxiv.org/abs/1904.08378v1)
 - [Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation](https://arxiv.org/abs/2502.17521v2)
 - [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)
+
+## 2026-03-19T15:20:18Z arXiv review
+- Lane: `infrastructure`
+- Phase: `pre`
+- Topic: `automation smoke`
+- New paper IDs: `2512.23675v2`, `2305.18466v3`, `2603.07392v1`
+- [Meta-Learning Fast Weight Language Models](https://arxiv.org/abs/2212.02475v1)
+- [End-to-End Test-Time Training for Long Context](https://arxiv.org/abs/2512.23675v2)
+- [Test-Time Training on Nearest Neighbors for Large Language Models](https://arxiv.org/abs/2305.18466v3)
+- [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)
+- [Can Large Language Models Keep Up? Benchmarking Online Adaptation to Continual Knowledge Streams](https://arxiv.org/abs/2603.07392v1)

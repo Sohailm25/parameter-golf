@@ -13,6 +13,7 @@ This directory is the append-only telemetry spine for local Parameter Golf resea
 
 - Never edit prior JSONL rows in place.
 - Never reuse a `run_id` for a different run.
+- Prefer `scripts/experiment_runner.py launch` so runs automatically register scratchpad notes, metric ingestion, log links, and run-outcome metadata.
 - Every promoted result should have a link from `run` to `iteration`.
 - Every dashboard render writes to a unique directory under `results/figures/renders/`.
 - Add new rows instead of overwriting prior measurements.

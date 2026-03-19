@@ -132,18 +132,19 @@ Do not re-read everything blindly every session.
 
 ### Always read first in a fresh session
 
-1. `CURRENT_STATE.md`
-2. `journal/current_state.md`
-3. `SCRATCHPAD.md`
-4. `THOUGHT_LOG.md`
-5. `DECISIONS.md`
-6. `history/PREREG.md`
-7. `leaderboard.md`
-8. `research/pr_review_state.json`
-9. `research/atomic_experiment_backlog.md`
-10. `research/x_review_log.md`
-11. `research/arxiv_review_log.md`
-12. `research/research-queries.md`
+1. `START_HERE.md`
+2. `CURRENT_STATE.md`
+3. `journal/current_state.md`
+4. `SCRATCHPAD.md`
+5. `THOUGHT_LOG.md`
+6. `DECISIONS.md`
+7. `history/PREREG.md`
+8. `leaderboard.md`
+9. `research/pr_review_state.json`
+10. `research/atomic_experiment_backlog.md`
+11. `research/x_review_log.md`
+12. `research/arxiv_review_log.md`
+13. `research/research-queries.md`
 
 ### Read by question
 
@@ -191,6 +192,8 @@ During work:
   - `scripts/review_x_signal.py` for bird-cli X search
   - `scripts/review_arxiv.py` for lane-aware arXiv review and draining `research/research-queries.md`
   - or `scripts/review_iteration_signal.py` to run the full sequence in one command
+- Use `scripts/experiment_runner.py launch` as the default run path for any experiment worth comparing. Do not bypass it unless the scratchpad explains why.
+- Use `scripts/experiment_runner.py promote` as the default promotion path so `run -> iteration -> result artifact` lineage lands in telemetry automatically.
 
 Long-running process rules:
 

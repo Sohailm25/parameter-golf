@@ -19,6 +19,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Official PR intelligence automation plus second-pass frontier review and deduped atomic-experiment backlog | infrastructure | pass | `results/infrastructure/20260319-pr-intelligence-second-pass.md` |
 | Review of Vuk Rosic's `BPB@500` opinion plus installation of bird-cli and arXiv research hooks | infrastructure | pass | `results/infrastructure/20260319-vukrosic-opinion-and-research-hooks.md` |
 | Append-only telemetry spine, local arXiv PDF/text ingestion, and `main` source-of-truth branch policy | infrastructure | pass | `results/infrastructure/20260319-telemetry-pdf-ingestion-and-branch-policy.md` |
+| Launch/promotion automation, bootstrap hardening, and live runner smoke validation | infrastructure | pass | `results/infrastructure/20260319-launch-automation-and-bootstrap-hardening.md` |
 
 ## Baselines
 

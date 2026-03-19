@@ -103,3 +103,21 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Latest checkpoint: none
 - Anomalies: the first dashboard render happened before telemetry registration because I launched it in parallel; that row was intentionally kept as append-only history and a later render captured the populated state.
 - Next step: run the full test and hook gates, then merge the task history into `main`
+
+## [2026-03-19T15:20:13Z] PRE-RUN: runner smoke
+- Command: `RUN_ID=20260319-152013-infrastructure-runner-smoke /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/scripts/mock_train_log.py`
+- Device: `local-m4`
+- Lane: `infrastructure`
+- Issue: `parametergolf-kvg`
+- Horizon: `smoke`
+- Topic: `automation smoke`
+- Log path: `logs/20260319-152013-infrastructure-runner-smoke.txt`
+- What I'm testing: runner smoke
+
+## [2026-03-19T15:20:21Z] POST-RUN: runner smoke
+- Run ID: `20260319-152013-infrastructure-runner-smoke`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260319-152013-infrastructure-runner-smoke.txt`
+- Metric rows ingested: `5`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-152021-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted

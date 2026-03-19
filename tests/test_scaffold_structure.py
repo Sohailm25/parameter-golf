@@ -63,6 +63,7 @@ REQUIRED_FILES = {
     "CURRENT_STATE.md",
     "DECISIONS.md",
     "README.md",
+    "START_HERE.md",
     "SCRATCHPAD.md",
     "THOUGHT_LOG.md",
     "leaderboard.md",
@@ -127,6 +128,8 @@ REQUIRED_FILES = {
     "results/tokenizer/.gitkeep",
     "scratch/.gitkeep",
     "scripts/download_reference_papers.py",
+    "scripts/experiment_runner.py",
+    "scripts/mock_train_log.py",
     "scripts/render_progress_dashboard.py",
     "scripts/register_run.py",
     "scripts/register_iteration.py",
@@ -138,6 +141,8 @@ REQUIRED_FILES = {
     "validation/EXPERIMENT_GATES.md",
     "validation/README.md",
     "validation/__init__.py",
+    "validation/artifact_size.py",
+    "validation/log_audit.py",
 }
 
 
