@@ -1,6 +1,6 @@
 {
   "last_drained_queries": [],
-  "last_full_scan_at": "2026-03-19T14:14:51Z",
+  "last_full_scan_at": "2026-03-19T14:37:24Z",
   "papers": {
     "1904.08378v1": {
       "arxiv_id": "1904.08378v1",
@@ -15,14 +15,17 @@
         "cs.NE",
         "stat.ML"
       ],
-      "first_seen_at": "2026-03-19T14:14:51Z",
-      "last_seen_at": "2026-03-19T14:14:51Z",
+      "first_seen_at": "2026-03-19T14:37:24Z",
+      "last_seen_at": "2026-03-19T14:37:24Z",
       "notes_path": "research/arxiv_snapshots/1904.08378v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/1904.08378v1.pdf",
       "published": "2019-04-17T17:26:01Z",
       "source_queries": [
+        "dynamic evaluation transformer language model",
         "\"dynamic evaluation\" transformer language model"
       ],
       "summary": "This research note combines two methods that have recently improved the state of the art in language modeling: Transformers and dynamic evaluation. Transformers use stacked layers of self-attention that allow them to capture long range dependencies in sequential data. Dynamic evaluation fits models to the recent sequence history, allowing them to assign higher probabilities to re-occurring sequential patterns. By applying dynamic evaluation to Transformer-XL models, we improve the state of the art on enwik8 from 0.99 to 0.94 bits/char, text8 from 1.08 to 1.04 bits/char, and WikiText-103 from 18.3 to 16.4 perplexity points.",
+      "text_path": "background-work/papers/files/arxiv_text/1904.08378v1.txt",
       "title": "Dynamic Evaluation of Transformer Language Models",
       "updated": "2019-04-17T17:26:01Z",
       "url": "https://arxiv.org/abs/1904.08378v1"
@@ -43,11 +46,13 @@
       "first_seen_at": "2026-03-19T14:14:51Z",
       "last_seen_at": "2026-03-19T14:14:51Z",
       "notes_path": "research/arxiv_snapshots/2212.02475v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2212.02475v1.pdf",
       "published": "2022-12-05T18:37:09Z",
       "source_queries": [
         "\"dynamic evaluation\" transformer language model"
       ],
       "summary": "Dynamic evaluation of language models (LMs) adapts model parameters at test time using gradient information from previous tokens and substantially improves LM performance. However, it requires over 3x more compute than standard inference. We present Fast Weight Layers (FWLs), a neural component that provides the benefits of dynamic evaluation much more efficiently by expressing gradient updates as linear attention. A key improvement over dynamic evaluation is that FWLs can also be applied at training time so the model learns to make good use of gradient updates. FWLs can easily be added on top of existing transformer models, require relatively little extra compute or memory to run, and significantly improve language modeling perplexity.",
+      "text_path": "background-work/papers/files/arxiv_text/2212.02475v1.txt",
       "title": "Meta-Learning Fast Weight Language Models",
       "updated": "2022-12-05T18:37:09Z",
       "url": "https://arxiv.org/abs/2212.02475v1"
@@ -68,14 +73,16 @@
         "cs.CL",
         "cs.LG"
       ],
-      "first_seen_at": "2026-03-19T14:14:51Z",
-      "last_seen_at": "2026-03-19T14:14:51Z",
+      "first_seen_at": "2026-03-19T14:37:24Z",
+      "last_seen_at": "2026-03-19T14:37:24Z",
       "notes_path": "research/arxiv_snapshots/2403.01518v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2403.01518v1.pdf",
       "published": "2024-03-03T14:03:48Z",
       "source_queries": [
         "\"online adaptation\" \"large language models\""
       ],
       "summary": "We consider the problem of online fine tuning the parameters of a language model at test time, also known as dynamic evaluation. While it is generally known that this approach improves the overall predictive performance, especially when considering distributional shift between training and evaluation data, we here emphasize the perspective that online adaptation turns parameters into temporally changing states and provides a form of context-length extension with memory in weights, more in line with the concept of memory in neuroscience. We pay particular attention to the speed of adaptation (in terms of sample efficiency),sensitivity to the overall distributional drift, and the computational overhead for performing gradient computations and parameter updates. Our empirical study provides insights on when online adaptation is particularly interesting. We highlight that with online adaptation the conceptual distinction between in-context learning and fine tuning blurs: both are methods to condition the model on previously observed tokens.",
+      "text_path": "background-work/papers/files/arxiv_text/2403.01518v1.txt",
       "title": "Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models",
       "updated": "2024-03-03T14:03:48Z",
       "url": "https://arxiv.org/abs/2403.01518v1"
@@ -92,14 +99,50 @@
       "first_seen_at": "2026-03-19T14:14:51Z",
       "last_seen_at": "2026-03-19T14:14:51Z",
       "notes_path": "research/arxiv_snapshots/2502.07985v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2502.07985v2.pdf",
       "published": "2025-02-11T22:06:25Z",
       "source_queries": [
         "dynamic evaluation language models"
       ],
       "summary": "We propose a novel dynamic safety framework that optimizes language model (LM) safety reasoning at inference time without modifying model weights. Building on recent advances in self-critique methods, our approach leverages a meta-critique mechanism that iteratively updates safety prompts-termed specifications-to drive the critique and revision process adaptively. This test-time optimization not only improves performance against adversarial jailbreak requests but also in diverse general safety-related tasks, such as avoiding moral harm or pursuing honest responses. Our empirical evaluations across several language models demonstrate that dynamically optimized safety prompts yield significantly higher safety scores compared to fixed system prompts and static self-critique defenses. Code released at https://github.com/vicgalle/meta-self-critique.git .",
+      "text_path": "background-work/papers/files/arxiv_text/2502.07985v2.txt",
       "title": "MetaSC: Test-Time Safety Specification Optimization for Language Models",
       "updated": "2025-04-07T09:15:30Z",
       "url": "https://arxiv.org/abs/2502.07985v2"
+    },
+    "2502.17521v2": {
+      "arxiv_id": "2502.17521v2",
+      "authors": [
+        "Simin Chen",
+        "Yiming Chen",
+        "Zexin Li",
+        "Yifan Jiang",
+        "Zhongwei Wan",
+        "Yixin He",
+        "Dezhi Ran",
+        "Tianle Gu",
+        "Haizhou Li",
+        "Tao Xie",
+        "Baishakhi Ray"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-19T14:37:24Z",
+      "last_seen_at": "2026-03-19T14:37:24Z",
+      "notes_path": "research/arxiv_snapshots/2502.17521v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2502.17521v2.pdf",
+      "published": "2025-02-23T08:18:37Z",
+      "source_queries": [
+        "dynamic evaluation transformer language model"
+      ],
+      "summary": "Data contamination has received increasing attention in the era of large language models (LLMs) due to their reliance on vast Internet-derived training corpora. To mitigate the risk of potential data contamination, LLM benchmarking has undergone a transformation from static to dynamic benchmarking. In this work, we conduct an in-depth analysis of existing static to dynamic benchmarking methods aimed at reducing data contamination risks. We first examine methods that enhance static benchmarks and identify their inherent limitations. We then highlight a critical gap-the lack of standardized criteria for evaluating dynamic benchmarks. Based on this observation, we propose a series of optimal design principles for dynamic benchmarking and analyze the limitations of existing dynamic benchmarks. This survey provides a concise yet comprehensive overview of recent advancements in data contamination research, offering valuable insights and a clear guide for future research efforts. We maintain a GitHub repository to continuously collect both static and dynamic benchmarking methods for LLMs. The repository can be found at this link.",
+      "text_path": "background-work/papers/files/arxiv_text/2502.17521v2.txt",
+      "title": "Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation",
+      "updated": "2025-09-29T23:26:23Z",
+      "url": "https://arxiv.org/abs/2502.17521v2"
     },
     "2510.00071v2": {
       "arxiv_id": "2510.00071v2",
@@ -113,11 +156,13 @@
       "first_seen_at": "2026-03-19T14:14:51Z",
       "last_seen_at": "2026-03-19T14:14:51Z",
       "notes_path": "research/arxiv_snapshots/2510.00071v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2510.00071v2.pdf",
       "published": "2025-09-29T20:19:41Z",
       "source_queries": [
         "dynamic evaluation language models"
       ],
       "summary": "Large Reasoning Language Models (LRLMs or LRMs) demonstrate remarkable capabilities in complex reasoning tasks, but suffer from significant computational inefficiencies due to overthinking phenomena. Existing efficient reasoning methods face the challenge of balancing reasoning quality with inference cost reduction. We propose \\textbf{Adaptive Reasoning Suppression (ARS)}, a novel training-free approach that dynamically suppresses redundant reasoning steps while preserving accuracy through adaptive certainty monitoring. ARS introduces a multi-checkpoint certainty estimation mechanism with progressive suppression thresholds, achieving superior efficiency compared to static suppression methods. Our extensive evaluation across mathematical reasoning benchmarks using multiple model architectures demonstrates that ARS achieves up to 53%, 46.1%, and 57.9% in token, latency and energy reduction, while maintaining or improving accuracy.",
+      "text_path": "background-work/papers/files/arxiv_text/2510.00071v2.txt",
       "title": "ARS: Adaptive Reasoning Suppression for Efficient Large Reasoning Language Models",
       "updated": "2025-10-10T15:04:19Z",
       "url": "https://arxiv.org/abs/2510.00071v2"
@@ -128,6 +173,7 @@
     "2212.02475v1",
     "2403.01518v1",
     "2502.07985v2",
+    "2502.17521v2",
     "2510.00071v2"
   ]
 }

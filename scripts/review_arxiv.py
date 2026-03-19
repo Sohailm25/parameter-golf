@@ -7,6 +7,8 @@ import argparse
 import copy
 import json
 import re
+import shutil
+import subprocess
 import textwrap
 import urllib.parse
 from datetime import datetime, timezone
@@ -21,6 +23,8 @@ STATE_PATH = ROOT / "research" / "arxiv_review_state.json"
 LOG_PATH = ROOT / "research" / "arxiv_review_log.md"
 QUERY_PATH = ROOT / "research" / "research-queries.md"
 SNAPSHOT_DIR = ROOT / "research" / "arxiv_snapshots"
+PDF_DIR = ROOT / "background-work" / "papers" / "files" / "arxiv"
+TEXT_DIR = ROOT / "background-work" / "papers" / "files" / "arxiv_text"
 ARXIV_API_URL = "https://export.arxiv.org/api/query?search_query={query}&start=0&max_results={max_results}&sortBy=relevance&sortOrder=descending"
 RELEVANT_CATEGORIES = {"cs.LG", "cs.CL", "stat.ML", "cs.AI", "cs.NE"}
 
@@ -304,10 +308,66 @@ def finalize_state(
     return state
 
 
+def normalized_paper_basename(paper_id: str) -> str:
+    return paper_id.replace("/", "_")
+
+
+def build_local_paper_paths(paper_id: str) -> tuple[Path, Path]:
+    basename = normalized_paper_basename(paper_id)
+    return PDF_DIR / f"{basename}.pdf", TEXT_DIR / f"{basename}.txt"
+
+
+def build_pdf_url(paper_id: str) -> str:
+    return f"https://arxiv.org/pdf/{paper_id}.pdf"
+
+
+def relative_repo_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def download_pdf(paper_id: str, pdf_path: Path) -> None:
+    pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    request = Request(build_pdf_url(paper_id), headers={"User-Agent": "parametergolf-arxiv-review"})
+    with urlopen(request) as response:
+        pdf_path.write_bytes(response.read())
+
+
+def extract_pdf_text(pdf_path: Path, text_path: Path) -> None:
+    pdftotext = shutil.which("pdftotext")
+    if pdftotext is None:
+        raise SystemExit("pdftotext is required to extract arXiv paper text locally")
+    text_path.parent.mkdir(parents=True, exist_ok=True)
+    result = subprocess.run(
+        [pdftotext, "-layout", str(pdf_path), str(text_path)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise SystemExit(result.stderr.strip() or f"pdftotext failed for {pdf_path}")
+
+
+def ensure_local_paper_files(paper_id: str) -> dict[str, str]:
+    pdf_path, text_path = build_local_paper_paths(paper_id)
+    if not pdf_path.exists():
+        download_pdf(paper_id, pdf_path)
+    if not text_path.exists() or pdf_path.stat().st_mtime > text_path.stat().st_mtime:
+        extract_pdf_text(pdf_path, text_path)
+    return {
+        "pdf_path": relative_repo_path(pdf_path),
+        "text_path": relative_repo_path(text_path),
+    }
+
+
 def render_snapshot_markdown(entry: dict[str, Any]) -> str:
     authors = ", ".join(entry["authors"]) or "unknown"
     categories = ", ".join(f"`{item}`" for item in entry["categories"]) or "none"
     source_queries = ", ".join(f"`{item}`" for item in entry["source_queries"]) or "none"
+    pdf_path = entry.get("pdf_path", "unknown")
+    text_path = entry.get("text_path", "unknown")
     return textwrap.dedent(
         f"""\
         # {entry['arxiv_id']}
@@ -318,6 +378,8 @@ def render_snapshot_markdown(entry: dict[str, Any]) -> str:
         - Updated: `{entry['updated']}`
         - Categories: {categories}
         - Source queries: {source_queries}
+        - Local PDF: `{pdf_path}`
+        - Local text: `{text_path}`
 
         {entry['summary']}
         """
@@ -403,10 +465,19 @@ def main() -> None:
     previous_state = load_state()
     state = build_empty_state()
     state["papers"].update(carry_forward_relevant_papers(previous_state, selected_ids=selected_ids))
+    for paper_id, entry in state["papers"].items():
+        if entry.get("pdf_path") and entry.get("text_path"):
+            continue
+        local_files = ensure_local_paper_files(paper_id)
+        entry["pdf_path"] = local_files["pdf_path"]
+        entry["text_path"] = local_files["text_path"]
     for query, paper in all_papers:
         if paper["arxiv_id"] not in selected_ids:
             continue
+        local_files = ensure_local_paper_files(paper["arxiv_id"])
         state = merge_paper_into_state(state, paper, query=query, scan_time=scan_time)
+        state["papers"][paper["arxiv_id"]]["pdf_path"] = local_files["pdf_path"]
+        state["papers"][paper["arxiv_id"]]["text_path"] = local_files["text_path"]
     state = finalize_state(state, scan_time=scan_time, drained_queries=pending_queries)
     save_state(state)
     write_snapshots(state)

@@ -4,6 +4,14 @@ __pycache__/
 .pytest_cache/
 background-work/papers/files/*
 !background-work/papers/files/.gitkeep
+!background-work/papers/files/arxiv/
+!background-work/papers/files/arxiv/.gitkeep
+!background-work/papers/files/arxiv_text/
+!background-work/papers/files/arxiv_text/.gitkeep
+background-work/papers/files/arxiv/*
+background-work/papers/files/arxiv_text/*
+!background-work/papers/files/arxiv/.gitkeep
+!background-work/papers/files/arxiv_text/.gitkeep
 !background-work/papers/files/*.pdf
 !background-work/papers/files/*.html
 scratch/external/

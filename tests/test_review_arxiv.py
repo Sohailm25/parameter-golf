@@ -118,6 +118,12 @@ class ReviewArxivTest(unittest.TestCase):
         carried = module.carry_forward_relevant_papers(previous_state, selected_ids=set())
         self.assertEqual(["2"], sorted(carried.keys()))
 
+    def test_build_local_paper_paths_include_pdf_and_text_targets(self) -> None:
+        module = load_module()
+        pdf_path, text_path = module.build_local_paper_paths("1904.08378v1")
+        self.assertTrue(str(pdf_path).endswith("1904.08378v1.pdf"))
+        self.assertTrue(str(text_path).endswith("1904.08378v1.txt"))
+
 
 if __name__ == "__main__":
     unittest.main()

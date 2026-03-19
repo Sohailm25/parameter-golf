@@ -41,3 +41,20 @@
 - [Dynamic Evaluation of Transformer Language Models](https://arxiv.org/abs/1904.08378v1)
 - [Meta-Learning Fast Weight Language Models](https://arxiv.org/abs/2212.02475v1)
 - [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)
+
+## 2026-03-19T14:35:26Z arXiv review
+- Lane: `evaluation`
+- Phase: `pre`
+- Topic: `dynamic evaluation transformer language model`
+- New paper IDs: `2502.17521v2`
+- [Dynamic Evaluation of Transformer Language Models](https://arxiv.org/abs/1904.08378v1)
+- [Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation](https://arxiv.org/abs/2502.17521v2)
+- [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)
+
+## 2026-03-19T14:37:24Z arXiv review
+- Lane: `evaluation`
+- Phase: `pre`
+- Topic: `dynamic evaluation transformer language model`
+- [Dynamic Evaluation of Transformer Language Models](https://arxiv.org/abs/1904.08378v1)
+- [Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation](https://arxiv.org/abs/2502.17521v2)
+- [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)

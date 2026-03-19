@@ -74,3 +74,32 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Latest checkpoint: none
 - Anomalies: first arXiv run was too broad and surfaced irrelevant papers; query/category logic was fixed and re-run successfully in the same session
 - Next step: run the full test suite, then commit and push the hook changes
+
+## [2026-03-19T16:30:00-0500] PRE-RUN: telemetry-and-paper-cache-smoke
+- tmux session: N/A
+- Script: `scripts/register_run.py`, `scripts/render_progress_dashboard.py`, `scripts/review_arxiv.py`
+- Command: `.venv/bin/python scripts/register_run.py ...` and `.venv/bin/python scripts/render_progress_dashboard.py ...` and `.venv/bin/python scripts/review_arxiv.py --lane evaluation --phase pre --topic "dynamic evaluation transformer language model" --results-per-query 2 --max-papers 3`
+- Device: `cpu`
+- Lane: `infrastructure`
+- Data slice: `metadata-only telemetry and literature cache smoke`
+- Output path: `results/telemetry/`, `results/figures/renders/`, `background-work/papers/files/arxiv/`, `background-work/papers/files/arxiv_text/`
+- Iteration target: N/A
+- What I'm testing: verify append-only telemetry, unique render directories, and local PDF/text materialization for the retained arXiv state.
+- Expected outcome: telemetry JSONL rows append, a dashboard bundle is rendered, and all retained papers get local PDF/text paths.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `results/telemetry/render_registry.jsonl` and `research/arxiv_review_log.md`
+- Resume command: rerun the same three scripts sequentially
+- Main confound to watch: parallel execution order can create valid but misleading early render snapshots.
+- Implementation verified: YES - telemetry and arXiv unit tests are green before the live smoke.
+- Status: LAUNCHING
+
+## [2026-03-19T16:40:00-0500] POST-RUN: telemetry-and-paper-cache-smoke
+- Command: `.venv/bin/python scripts/register_run.py ...`, `.venv/bin/python scripts/render_progress_dashboard.py --generated-at 2026-03-19T16:35:00Z`, `.venv/bin/python scripts/review_arxiv.py --lane evaluation --phase pre --topic "dynamic evaluation transformer language model" --results-per-query 2 --max-papers 3`
+- Outcome: SUCCESS
+- Key metric: `1` live run, `2` metric observations, `2` cross-artifact links, and `6` retained arXiv papers with local PDF/text files
+- Artifacts saved: `results/telemetry/*.jsonl`, `results/figures/renders/20260319-163500-dashboard/index.html`, `background-work/papers/files/arxiv/`, `background-work/papers/files/arxiv_text/`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: the first dashboard render happened before telemetry registration because I launched it in parallel; that row was intentionally kept as append-only history and a later render captured the populated state.
+- Next step: run the full test and hook gates, then merge the task history into `main`

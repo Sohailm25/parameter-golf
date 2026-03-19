@@ -69,3 +69,10 @@
 - Decision: add `scripts/review_x_signal.py`, `scripts/review_arxiv.py`, and `scripts/review_iteration_signal.py` plus persistent state, logs, snapshots, and `research/research-queries.md`.
 - Rationale: public frontier chatter and nearby papers are useful inputs, but only if they become stateful, reviewable artifacts instead of ad hoc browsing.
 - Impact: the repo now has a tested external-signal workflow and AGENTS requires it on every iteration.
+
+## [2026-03-19T16:00:00-0500] DECISION: Make telemetry append-only and make `main` the enforced branch landing zone
+
+- Trigger: Sohail asked for durable cross-metric visualization, strong ID mapping, local paper ingestion, and a single branch left open at task end.
+- Decision: add append-only JSONL registries for runs, metrics, links, and renders; render dashboards into unique directories; cache local arXiv PDFs plus extracted text; codify `main` as the source-of-truth branch that every task branch must merge into before session end.
+- Rationale: research progression becomes unreadable if metric history is overwritten, if papers are cited from abstracts alone, or if branches accumulate as semi-canonical histories.
+- Impact: the repo now has a telemetry spine, a dashboard renderer, a local paper cache, and an explicit branch-consolidation rule.

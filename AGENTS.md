@@ -60,8 +60,9 @@ These are not optional. Every implementation and write-up must preserve them.
 7. The current golden set must stay runnable. Do not let speculative work break the repo's best known candidate.
 8. Every iteration begins with an official PR intelligence pass. Launch a bounded `subagent` to review new `openai/parameter-golf` PRs first; if subagents are unavailable, run `scripts/review_openai_prs.py` directly and log the fallback.
 9. Every iteration also runs the public-signal hooks: `bird-cli` search via `scripts/review_x_signal.py` and arXiv review via `scripts/review_arxiv.py` or the combined wrapper `scripts/review_iteration_signal.py`.
-10. `research/research-queries.md` is a drain queue, not a notebook. Any pending query there must be executed by the next arXiv review and then cleared.
-11. A session that finds `no new PRs` must still record that result explicitly. Silence is not a PR review.
+10. Every experiment run worth comparing gets a `run_id` in `results/telemetry/run_registry.jsonl`, append-only metric rows in `results/telemetry/metric_observations.jsonl`, and append-only artifact links in `results/telemetry/id_links.jsonl`.
+11. `research/research-queries.md` is a drain queue, not a notebook. Any pending query there must be executed by the next arXiv review and then cleared.
+12. A session that finds `no new PRs` must still record that result explicitly. Silence is not a PR review.
 
 ## Runtime Assumptions
 
@@ -248,9 +249,12 @@ If these documents conflict, resolve the conflict explicitly in `DECISIONS.md` b
 - The arXiv review state lives in `research/arxiv_review_state.json`.
 - The rolling arXiv summary lives in `research/arxiv_review_log.md`.
 - The normalized paper notes live in `research/arxiv_snapshots/`.
+- The local arXiv PDF cache lives in `background-work/papers/files/arxiv/`.
+- The extracted local paper text lives in `background-work/papers/files/arxiv_text/`.
 - `research/research-queries.md` is the queue for questions that must be drained by the next arXiv review.
 - The preferred one-shot hook is `scripts/review_iteration_signal.py`.
 - If a hook finds no useful public signal, record that explicitly instead of silently skipping the step.
+- If a paper is used to justify an experiment decision, read the saved local PDF or extracted text before writing the claim.
 
 ### 4. Execution Order
 
@@ -305,6 +309,15 @@ The repo must keep these lanes visible even if some are dormant:
 - Every promoted result should name the relevant iteration ID from `leaderboard.md`.
 - Never delete entries; mark superseded artifacts explicitly.
 
+### 8A. Telemetry And Visualization
+
+- `results/telemetry/` is append-only. Do not rewrite old JSONL rows to "clean them up."
+- Register every meaningful run with `scripts/register_run.py run` before or immediately after launch.
+- Append metrics with `scripts/register_run.py metric` at the checkpoints that matter for comparison.
+- Create explicit ID links with `scripts/register_run.py link` so runs, iterations, papers, PRs, tweets, and result artifacts stay connected.
+- Render progress views with `scripts/render_progress_dashboard.py`; every render writes to a unique directory under `results/figures/renders/`.
+- If a run is promoted to `leaderboard.md`, ensure the telemetry contains a link from `run` to `iteration`.
+
 ### 9. Iteration Archive And Golden Set
 
 - `iterations/archive/` stores the immutable **full file snapshot** for each promoted iteration.
@@ -319,3 +332,7 @@ The repo must keep these lanes visible even if some are dormant:
 - Do not pretend the parent home-directory repo or another branch is the source of truth for this work.
 - If no remote is configured yet, say so explicitly in status docs instead of implying the repo is fully landed.
 - When a remote exists, finishing a session includes `bd sync`, `git push`, and a clean `git status`.
+- The source-of-truth branch is `main`.
+- Before a task is done, merge the task branch into `main`.
+- After that merge, delete the previous task branch locally and remotely.
+- The end-state is one active remote branch for ongoing work: `main`.
