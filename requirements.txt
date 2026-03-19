@@ -8,3 +8,4 @@ typing-extensions==4.15.0
 datasets
 tiktoken
 sentencepiece
+pre-commit==4.3.0

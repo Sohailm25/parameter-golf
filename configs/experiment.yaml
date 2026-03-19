@@ -1,0 +1,33 @@
+project:
+  name: parametergolf
+  date_bootstrapped: 2026-03-19
+  mode: local-first
+  machine: m4_macbook_pro_128gb
+
+competition:
+  official_repo: https://github.com/openai/parameter-golf
+  artifact_cap_bytes: 16000000
+  train_budget_minutes: 10
+  eval_budget_minutes: 10
+  metric: val_bpb
+  record_delta_nats: 0.005
+  significance_threshold: 0.01
+
+workflow:
+  default_lane: spirit-first
+  iteration_archive_root: iterations/archive
+  golden_root: iterations/golden
+  leaderboard_path: leaderboard.md
+  results_index_path: results/RESULTS_INDEX.md
+  confirmatory_split_required: true
+
+lanes:
+  - baselines
+  - optimizer_sweeps
+  - tokenizer
+  - architecture
+  - quantization
+  - compression
+  - evaluation
+  - autoresearch
+  - golden
