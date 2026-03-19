@@ -21,15 +21,17 @@
 - A live smoke run through `scripts/experiment_runner.py launch` succeeded and proved the CLI path, telemetry ingestion, log-link registration, outcome metrics, and dashboard refresh against a deterministic mock log writer.
 - The first real local MLX smoke run also succeeded after one workflow correction: keep `VAL_BATCH_SIZE` large or the validator becomes the bottleneck.
 - The baseline workflow is now frozen in `results/baselines/20260319-local-baseline-smoke-and-workflow-freeze.md`.
+- The first `500`-step proxy also succeeded and now has its own result artifact under `results/baselines/20260319-local-baseline-proxy-500.md`.
+- The next tracked baseline task is `parametergolf-75u`, which will run the confirmatory split on shard `000001`.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No medium-horizon proxy run, no confirmatory split execution, and no promoted iteration exist yet.
+- No confirmatory split execution and no promoted iteration exist yet.
 
 ## Next Delta To Close
 
-1. Run the first `500`-step proxy on the frozen MLX baseline path.
-2. Extend the cache to a second train shard and isolate the confirmatory slice.
-3. Register and inspect the next real baseline run in the telemetry spine.
+1. Extend the cache to a second train shard and isolate the confirmatory slice.
+2. Run the `1000`-step confirmatory baseline path on shard `000001`.
+3. Register and inspect the confirmatory run in the telemetry spine.
 4. Promote the first genuinely informative baseline iteration through the archive path once it clears the gate.

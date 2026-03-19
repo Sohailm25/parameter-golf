@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: the next ready tasks after closing the baseline-workflow task are `parametergolf-2km` and `parametergolf-7b2`.
+- `known`: the next ready tasks are `parametergolf-75u`, `parametergolf-2km`, and `parametergolf-7b2`.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -37,6 +37,8 @@
 - `observed`: the first attempted real MLX smoke run (`20260319-154032-baselines-baseline-smoke`) exposed a workflow bug rather than a model bug: `VAL_BATCH_SIZE=8192` with default `GRAD_ACCUM_STEPS=8` reduced validation to one sequence per batch and made the smoke gate impractical.
 - `known`: a corrected real local baseline smoke run through `scripts/experiment_runner.py launch` succeeded with run id `20260319-155403-baselines-baseline-smoke`; it reached `step:200/200 val_bpb=2.4090`, finished the quantized roundtrip at `val_bpb=2.40962829`, produced an `11260722`-byte int8 artifact, and rendered `results/figures/renders/20260319-160759-dashboard/index.html`.
 - `known`: the local MLX smoke gate is now frozen around `VAL_BATCH_SIZE=524288`, and the workflow explicitly accounts for two full end-of-run validation passes.
+- `known`: the first real medium-horizon proxy run through `scripts/experiment_runner.py launch` succeeded with run id `20260319-161653-baselines-baseline-proxy`; it reached `step:500/500 val_bpb=2.1827`, finished the quantized roundtrip at `val_bpb=2.18376301`, produced a `12730412`-byte int8 artifact, and rendered `results/figures/renders/20260319-163215-dashboard/index.html`.
+- `known`: the proxy task `parametergolf-6yf` is now closed with artifact `results/baselines/20260319-local-baseline-proxy-500.md`, and the next tracked baseline step is confirmatory issue `parametergolf-75u`.
 - `known`: populated dashboard renders already exist at `results/figures/renders/20260319-163500-dashboard/index.html` and `results/figures/renders/20260319-152021-dashboard/index.html`.
 - `observed`: because render directories are append-only history, use `results/telemetry/render_registry.jsonl` append order as the source of truth rather than lexicographic path ordering.
 - `known`: the retained arXiv state now records local PDF/text paths for all retained papers.
@@ -49,8 +51,7 @@
 
 ## Immediate Next Steps
 
-1. Run the first `500`-step medium-horizon proxy on the frozen one-shard `sp1024` local baseline path.
-2. Extend the local cache to a second training shard and isolate the confirmatory train slice described in `results/baselines/20260319-local-baseline-smoke-and-workflow-freeze.md`.
-3. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
-4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.
-5. Promote only confirmatory-worthy changes via `scripts/experiment_runner.py promote` so `run -> iteration -> result artifact` lineage stays intact.
+1. Resolve `parametergolf-75u`: extend the local cache to a second training shard, isolate the confirmatory train slice, and run the `1000`-step confirmatory baseline path.
+2. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
+3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.
+4. Promote only confirmatory-worthy changes via `scripts/experiment_runner.py promote` so `run -> iteration -> result artifact` lineage stays intact.

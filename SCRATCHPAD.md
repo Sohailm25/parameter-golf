@@ -273,3 +273,21 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `18`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-160759-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-19T16:16:53Z] PRE-RUN: baseline proxy
+- Command: `DATA_PATH=./data/datasets/fineweb10B_sp1024 ITERATIONS=500 RUN_ID=20260319-161653-baselines-baseline-proxy TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=524288 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `baselines`
+- Issue: `parametergolf-6yf`
+- Horizon: `proxy`
+- Topic: `baseline reproduction`
+- Log path: `logs/20260319-161653-baselines-baseline-proxy.txt`
+- What I'm testing: Run the first 500-step medium-horizon proxy on the frozen local MLX sp1024 baseline path.
+
+## [2026-03-19T16:32:15Z] POST-RUN: baseline proxy
+- Run ID: `20260319-161653-baselines-baseline-proxy`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260319-161653-baselines-baseline-proxy.txt`
+- Metric rows ingested: `24`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-163215-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
