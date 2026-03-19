@@ -25,6 +25,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
+| First real local MLX baseline smoke run plus the frozen smoke/proxy/confirmatory workflow for `sp1024` | baselines | partial | `results/baselines/20260319-local-baseline-smoke-and-workflow-freeze.md` |
 
 ## Optimizer Sweeps
 

@@ -121,3 +121,155 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `5`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-152021-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-19T10:36:00-0500] PRE-RUN: baseline reproduction intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane baselines --phase pre --topic "baseline reproduction"`
+- Device: `cpu`
+- Lane: `baselines`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: N/A
+- What I'm testing: refresh the official PR/X/arXiv state before defining the baseline workflow for `parametergolf-7cm`.
+- Expected outcome: session intelligence state updates cleanly, including an explicit `no new PRs` result if the frontier is unchanged.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane baselines --phase pre --topic "baseline reproduction"`
+- Main confound to watch: external sources may be unchanged or noisy, but silence still needs to be recorded explicitly.
+- Implementation verified: YES - current scaffold tests are green and the combined signal hook was smoke-tested in the prior session.
+- Status: LAUNCHING
+
+## [2026-03-19T10:37:00-0500] POST-RUN: baseline reproduction intelligence pass
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane baselines --phase pre --topic "baseline reproduction"`
+- Outcome: SUCCESS
+- Key metric: official review advanced to new PRs `#90`, `#91`, `#92` with re-review on `#60` and `#61`
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: arXiv results for the baseline topic remained adjacent evaluation-time adaptation papers rather than baseline-specific training papers
+- Next step: verify local challenge cache and define the baseline smoke/proxy/confirmatory loop against the current code
+
+## [2026-03-19T10:38:00-0500] PRE-RUN: challenge cache materialization
+- tmux session: N/A
+- Script: `data/cached_challenge_fineweb.py`
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Device: `cpu`
+- Lane: `baselines`
+- Data slice: `challenge cache bootstrap`
+- Output path: `data/datasets/`, `data/tokenizers/`
+- Iteration target: N/A
+- What I'm testing: materialize the minimum local dataset and tokenizer cache required for the first real baseline loop.
+- Expected outcome: `data/datasets/` and `data/tokenizers/` exist locally with the `sp1024` bootstrap assets.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: terminal output only
+- Resume command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Main confound to watch: the script may depend on external downloads or challenge-specific environment state not yet validated on this machine.
+- Implementation verified: YES - the missing-directory gate was checked locally before launch.
+- Status: LAUNCHING
+
+## [2026-03-19T10:39:00-0500] PRE-RUN: local runtime dependency repair
+- tmux session: N/A
+- Script: environment bootstrap
+- Command: `.venv/bin/pip install mlx numpy sentencepiece huggingface-hub datasets tqdm`
+- Device: `cpu`
+- Lane: `baselines`
+- Data slice: `environment repair`
+- Output path: `.venv/`
+- Iteration target: N/A
+- What I'm testing: bring `.venv` into the repo's documented Apple-Silicon local baseline state so cache/bootstrap scripts can run.
+- Expected outcome: `train_gpt_mlx.py` and `data/cached_challenge_fineweb.py` imports resolve from `.venv`.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: terminal output only
+- Resume command: `.venv/bin/pip install mlx numpy sentencepiece huggingface-hub datasets tqdm`
+- Main confound to watch: binary package resolution for MLX or transitive dependencies may fail on this machine or Python version.
+- Implementation verified: YES - `README.md` install guidance and `train_gpt_mlx.py` imports were checked first.
+- Status: LAUNCHING
+
+## [2026-03-19T10:39:00-0500] POST-RUN: challenge cache materialization
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Outcome: FAILURE
+- Key metric: import failed immediately with `ModuleNotFoundError: No module named 'huggingface_hub'`
+- Artifacts saved: none
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: `.venv` contained tooling dependencies but not the repo's documented MLX/data runtime packages
+- Next step: install the documented local baseline runtime into `.venv`, then retry the cache bootstrap
+
+## [2026-03-19T10:41:00-0500] POST-RUN: local runtime dependency repair
+- Command: `.venv/bin/pip install mlx numpy sentencepiece huggingface-hub datasets tqdm`
+- Outcome: SUCCESS
+- Key metric: `.venv` now contains the documented MLX/data packages required by `train_gpt_mlx.py` and `data/cached_challenge_fineweb.py`
+- Artifacts saved: `.venv/`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: none
+- Next step: retry challenge cache materialization from the repaired `.venv`
+
+## [2026-03-19T10:42:00-0500] PRE-RUN: challenge cache materialization retry
+- tmux session: N/A
+- Script: `data/cached_challenge_fineweb.py`
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Device: `cpu`
+- Lane: `baselines`
+- Data slice: `challenge cache bootstrap`
+- Output path: `data/datasets/`, `data/tokenizers/`
+- Iteration target: N/A
+- What I'm testing: materialize the minimum local dataset and tokenizer cache required for the first real baseline loop after repairing `.venv`.
+- Expected outcome: `data/datasets/` and `data/tokenizers/` exist locally with the `sp1024` bootstrap assets.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: terminal output only
+- Resume command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Main confound to watch: the Hugging Face dataset endpoint may still reject or redirect requests unexpectedly even with the right dependencies installed.
+- Implementation verified: YES - required Python packages now import from `.venv`.
+- Status: LAUNCHING
+
+## [2026-03-19T10:43:00-0500] POST-RUN: challenge cache materialization retry
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 1`
+- Outcome: SUCCESS
+- Key metric: local `sp1024` cache now contains `fineweb_train_000000.bin`, `fineweb_val_000000.bin`, and the tokenizer model/vocab artifacts
+- Artifacts saved: `data/datasets/fineweb10B_sp1024/`, `data/tokenizers/`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: none
+- Next step: freeze the baseline smoke/proxy/confirmatory workflow and launch the first real baseline run through `scripts/experiment_runner.py`
+
+## [2026-03-19T15:40:32Z] PRE-RUN: baseline smoke
+- Command: `DATA_PATH=./data/datasets/fineweb10B_sp1024 ITERATIONS=200 RUN_ID=20260319-154032-baselines-baseline-smoke TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=8192 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `baselines`
+- Issue: `parametergolf-7cm`
+- Horizon: `smoke`
+- Topic: `baseline reproduction`
+- Log path: `logs/20260319-154032-baselines-baseline-smoke.txt`
+- What I'm testing: Establish the local MLX baseline smoke gate on one sp1024 train shard with full validation at end.
+
+## [2026-03-19T15:52:40Z] POST-RUN: baseline smoke
+- Run ID: `20260319-154032-baselines-baseline-smoke`
+- Outcome: `FAILURE`
+- Log path: `logs/20260319-154032-baselines-baseline-smoke.txt`
+- Metric rows ingested: `16`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-155240-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-19T15:54:03Z] PRE-RUN: baseline smoke
+- Command: `DATA_PATH=./data/datasets/fineweb10B_sp1024 ITERATIONS=200 RUN_ID=20260319-155403-baselines-baseline-smoke TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=524288 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `baselines`
+- Issue: `parametergolf-7cm`
+- Horizon: `smoke`
+- Topic: `baseline reproduction`
+- Log path: `logs/20260319-155403-baselines-baseline-smoke.txt`
+- What I'm testing: Establish the corrected local MLX baseline smoke gate with a validation batch sized for default grad accumulation.
+
+## [2026-03-19T16:07:59Z] POST-RUN: baseline smoke
+- Run ID: `20260319-155403-baselines-baseline-smoke`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260319-155403-baselines-baseline-smoke.txt`
+- Metric rows ingested: `18`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-160759-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted

@@ -76,3 +76,17 @@
 - Decision: add append-only JSONL registries for runs, metrics, links, and renders; render dashboards into unique directories; cache local arXiv PDFs plus extracted text; codify `main` as the source-of-truth branch that every task branch must merge into before session end.
 - Rationale: research progression becomes unreadable if metric history is overwritten, if papers are cited from abstracts alone, or if branches accumulate as semi-canonical histories.
 - Impact: the repo now has a telemetry spine, a dashboard renderer, a local paper cache, and an explicit branch-consolidation rule.
+
+## [2026-03-19T10:33:00-0500] DECISION: Default this repo's `bd` workflow to direct storage mode
+
+- Trigger: the first branch checkout for `parametergolf-7cm` reproduced a `bd` post-checkout failure: daemon-backed `sync --import-only` emitted `no database store available for inline import`, even after the repo fingerprint and chained hooks were repaired.
+- Decision: set `no-daemon: true` in `.beads/config.yaml` so the repo's `bd` commands and installed hooks use direct database access by default.
+- Rationale: the failure was in the daemon-backed sync wrapper, not in direct `bd import` or `bd --no-daemon sync --import-only`. Versioning the no-daemon default is cleaner than patching local `.git/hooks` by hand.
+- Impact: branch checkout/import is stable again on this machine, and future fresh sessions inherit the working `bd` mode from tracked repo config.
+
+## [2026-03-19T11:00:00-0500] DECISION: Freeze the local MLX smoke gate around a wide validation batch and explicit double-validation cost
+
+- Trigger: the first real MLX smoke run followed the small-batch local smoke pattern and became impractical because `VAL_BATCH_SIZE=8192` with default `GRAD_ACCUM_STEPS=8` reduced validation to one sequence per batch.
+- Decision: define the local smoke gate with `VAL_BATCH_SIZE=524288` and document that `train_gpt_mlx.py` performs two full end-of-run validation passes: one full-float final pass and one quantized roundtrip pass.
+- Rationale: small validation batches create a wallclock artifact unrelated to model quality and make the baseline loop misleading. The baseline workflow needs to measure the model, not the validator footgun.
+- Impact: `START_HERE.md`, the local README smoke command, and the baseline workflow artifact now use the corrected validation regime, and later proxy/confirmatory runs can compare model changes instead of batch-shape accidents.

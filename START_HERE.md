@@ -34,10 +34,16 @@ Use the launch runner instead of doing the loop manually:
   --issue-id parametergolf-7cm \
   --topic "baseline reproduction" \
   --script-path train_gpt_mlx.py \
-  --env ITERATIONS=200
+  --env ITERATIONS=200 \
+  --env TRAIN_BATCH_TOKENS=8192 \
+  --env TRAIN_LOG_EVERY=50 \
+  --env VAL_BATCH_SIZE=524288 \
+  --env VAL_LOSS_EVERY=0
 ```
 
 This does the PR/X/arXiv review, writes the scratchpad pre-run note, registers a `run_id`, launches the training script, ingests log metrics into telemetry, writes the post-run note, and renders the dashboard.
+
+Keep `VAL_BATCH_SIZE` large on the MLX path unless you also reduce `GRAD_ACCUM_STEPS`. The validator divides `VAL_BATCH_SIZE` by `GRAD_ACCUM_STEPS`, so `VAL_BATCH_SIZE=8192` with the default `GRAD_ACCUM_STEPS=8` degrades final validation to one 1024-token sequence per batch.
 
 ## Promotion Path
 

@@ -87,11 +87,11 @@ RUN_ID=mlx_smoke \
 ITERATIONS=200 \
 TRAIN_BATCH_TOKENS=8192 \
 VAL_LOSS_EVERY=0 \
-VAL_BATCH_SIZE=8192 \
+VAL_BATCH_SIZE=524288 \
 python3 train_gpt_mlx.py
 ```
 
-Validation always runs on the full `fineweb_val_*` split, which is the fixed first-50k-document set. The smoke command above skips periodic validation and just prints the final `val_loss` and `val_bpb` once at the end.
+Validation always runs on the full `fineweb_val_*` split, which is the fixed first-50k-document set. Keep `VAL_BATCH_SIZE` large on the MLX path unless you also reduce `GRAD_ACCUM_STEPS`: the validator divides `VAL_BATCH_SIZE` by `GRAD_ACCUM_STEPS`, so a small validation batch can make the final roundtrip eval disproportionately slow. The smoke command above skips periodic validation and just prints the final `val_loss` and `val_bpb` once at the end.
 
 ### Scaling Up to a Remote Machine
 

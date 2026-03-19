@@ -1,5 +1,5 @@
 {
-  "last_full_scan_at": "2026-03-19T15:20:14Z",
+  "last_full_scan_at": "2026-03-19T15:54:05Z",
   "queries": [
     "\"parameter-golf\" OR \"parameter golf\" OR val_bpb",
     "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
@@ -8,19 +8,22 @@
   "seen_tweet_ids": [
     "2032017558140834256",
     "2032106386390175771",
+    "2032120214335471918",
     "2032643309684830248",
     "2034315602618175846",
     "2034585566646354219",
-    "2034642300333412562"
+    "2034642300333412562",
+    "2034653901102936293",
+    "2034656057616912789"
   ],
   "tweets": {
     "2032017558140834256": {
       "author_name": "Grok",
       "author_username": "grok",
       "created_at": "Thu Mar 12 08:55:13 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:40:34Z",
       "id": "2032017558140834256",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:40:34Z",
       "like_count": 0,
       "notes_path": "research/x_snapshots/tweet-2032017558140834256.md",
       "reply_count": 0,
@@ -37,9 +40,9 @@
       "author_name": "Austin Baggio",
       "author_username": "AustinBaggio",
       "created_at": "Thu Mar 12 14:48:11 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:54:05Z",
       "id": "2032106386390175771",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:54:05Z",
       "like_count": 0,
       "notes_path": "research/x_snapshots/tweet-2032106386390175771.md",
       "reply_count": 0,
@@ -52,13 +55,32 @@
       "url": "https://x.com/AustinBaggio/status/2032106386390175771",
       "utility": "medium"
     },
+    "2032120214335471918": {
+      "author_name": "Daniel Isaac",
+      "author_username": "danpacary",
+      "created_at": "Thu Mar 12 15:43:08 +0000 2026",
+      "first_seen_at": "2026-03-19T15:54:05Z",
+      "id": "2032120214335471918",
+      "last_seen_at": "2026-03-19T15:54:05Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2032120214335471918.md",
+      "reply_count": 1,
+      "retweet_count": 0,
+      "signal_score": 5,
+      "source_queries": [
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "Here's what your results look like after one overnight run:\n\nNeural Engine: 1.672 val_bpb\nMLX GPU: 1.312 val_bpb\n\nSame benchmark Karpathy uses. Lower is better.\n\nSee if you can beat my scores. https://t.co/KkMs48wTzp",
+      "url": "https://x.com/danpacary/status/2032120214335471918",
+      "utility": "medium"
+    },
     "2032643309684830248": {
       "author_name": "Esoteric",
       "author_username": "esotericpigeon",
       "created_at": "Sat Mar 14 02:21:44 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:54:05Z",
       "id": "2032643309684830248",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:54:05Z",
       "like_count": 16,
       "notes_path": "research/x_snapshots/tweet-2032643309684830248.md",
       "reply_count": 1,
@@ -75,9 +97,9 @@
       "author_name": "Igor Kotenkov",
       "author_username": "stalkermustang",
       "created_at": "Wed Mar 18 17:06:50 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:54:05Z",
       "id": "2034315602618175846",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:54:05Z",
       "like_count": 44,
       "notes_path": "research/x_snapshots/tweet-2034315602618175846.md",
       "reply_count": 2,
@@ -95,9 +117,9 @@
       "author_name": "Joey",
       "author_username": "aijoey",
       "created_at": "Thu Mar 19 10:59:34 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:54:05Z",
       "id": "2034585566646354219",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:54:05Z",
       "like_count": 0,
       "notes_path": "research/x_snapshots/tweet-2034585566646354219.md",
       "reply_count": 1,
@@ -114,9 +136,9 @@
       "author_name": "koushik kethamakka",
       "author_username": "koushikkethamak",
       "created_at": "Thu Mar 19 14:45:00 +0000 2026",
-      "first_seen_at": "2026-03-19T15:20:14Z",
+      "first_seen_at": "2026-03-19T15:54:05Z",
       "id": "2034642300333412562",
-      "last_seen_at": "2026-03-19T15:20:14Z",
+      "last_seen_at": "2026-03-19T15:54:05Z",
       "like_count": 0,
       "notes_path": "research/x_snapshots/tweet-2034642300333412562.md",
       "reply_count": 0,
@@ -129,6 +151,44 @@
       ],
       "text": "Day 1 on OpenAI's Parameter Golf challenge. Build the best language model that fits in 16MB, scored by compression on FineWeb. Ran 30 experiments overnight on my MacBook Air. Here's what I found.\n\nCore idea: depth recurrence. Instead of 9 unique transformer layers, use 3 blocks and loop them 3x. Same depth, 1/3 the parameters. Use the freed budget for wider layers. First test beat the baseline\n  immediately.\n\nIterated fast by evaluating on 10% of the validation set. Brought each experiement from 30 min down to 8 min.\n\nThings that didn't work:\n  \u2022 Smear gate + backout from the NanoGPT speedrun, made things worse\n  \u2022 2 unique layers, not enough diversity\n  \u2022 More than 3 recurrences, diminishing returns\n\nThe pivot: wider models looked worse on 1 data shard. Thought something was broken. Turned out they were just data-starved. Scaled to 10 shards and everthing flipped.\n\n  d1024 \u2192 1.996 BPB\n  d896 \u2192 2.010\n  d768 \u2192 2.050\n\nA 5000 step training got down to 1.589 BPB on a MacBook. Leaderboard baseline is 1.224 on 8xH100s. Gap should close with more data and compute.\n\nBuilt an adaptive sweep system that analyzes past results and picks the next config to try. Ran 30 experiements overnight.\n\nNext steps: Winning model compresses to 20MB so need to get it under 16MB. Trying QAT and finding the right size under budget. Then hopefully getting some H100 time.\n\n  #ParameterGolf",
       "url": "https://x.com/koushikkethamak/status/2034642300333412562",
+      "utility": "medium"
+    },
+    "2034653901102936293": {
+      "author_name": "Rotifer Protocol",
+      "author_username": "rotiferdev",
+      "created_at": "Thu Mar 19 15:31:06 +0000 2026",
+      "first_seen_at": "2026-03-19T15:35:24Z",
+      "id": "2034653901102936293",
+      "last_seen_at": "2026-03-19T15:35:24Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2034653901102936293.md",
+      "reply_count": 1,
+      "retweet_count": 0,
+      "signal_score": 3,
+      "source_queries": [
+        "\"parameter-golf\" OR \"parameter golf\" OR val_bpb"
+      ],
+      "text": "autoresearch distills evolution to three files:\n\n\u2022 One file to mutate (https://t.co/XMMszWi4jU)\n\u2022 One metric to optimize (val_bpb)\n\u2022 One constitutional doc (program.md) \u2014 humans only\n\nThree components. All evolution needs: a mutable unit, a fitness function, and a constraint layer.",
+      "url": "https://x.com/rotiferdev/status/2034653901102936293",
+      "utility": "medium"
+    },
+    "2034656057616912789": {
+      "author_name": "Rotifer Protocol",
+      "author_username": "rotiferdev",
+      "created_at": "Thu Mar 19 15:39:40 +0000 2026",
+      "first_seen_at": "2026-03-19T15:54:05Z",
+      "id": "2034656057616912789",
+      "last_seen_at": "2026-03-19T15:54:05Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2034656057616912789.md",
+      "reply_count": 1,
+      "retweet_count": 0,
+      "signal_score": 3,
+      "source_queries": [
+        "\"parameter-golf\" OR \"parameter golf\" OR val_bpb"
+      ],
+      "text": "autoresearch distills evolution to three files:\n\n\u2022 One file to mutate (https://t.co/XMMszWi4jU)\n\u2022 One metric to optimize (val_bpb)\n\u2022 One constitutional doc (program.md) \u2014 humans only\n\nThree components. All evolution needs: a mutable unit, a fitness function, and a constraint layer.",
+      "url": "https://x.com/rotiferdev/status/2034656057616912789",
       "utility": "medium"
     }
   }

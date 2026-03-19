@@ -21,7 +21,8 @@
         58,
         69,
         79,
-        81
+        81,
+        91
       ],
       "status": "candidate",
       "title": "Depth recurrence with iteration awareness",
@@ -37,7 +38,8 @@
         74,
         75,
         78,
-        88
+        88,
+        92
       ],
       "status": "candidate",
       "title": "Long-context seq4096 train/eval lane",
@@ -87,7 +89,9 @@
         81,
         85,
         88,
-        89
+        89,
+        92,
+        96
       ],
       "status": "candidate",
       "title": "Sliding-window context accounting",
@@ -125,7 +129,8 @@
         85,
         86,
         88,
-        89
+        89,
+        92
       ],
       "status": "candidate",
       "title": "Selective int6 plus fp16 embedding passthrough",
@@ -155,7 +160,8 @@
         31,
         37,
         53,
-        78
+        78,
+        92
       ],
       "status": "candidate",
       "title": "Tokenizer and vocabulary scaling",
@@ -172,15 +178,18 @@
         56,
         66,
         80,
-        85
+        85,
+        90,
+        91,
+        96
       ],
       "status": "candidate",
       "title": "Local sweep tooling and autoresearch ingestion",
       "why_it_matters": "PRs #66 and #80 show that better local tooling can change iteration speed even when absolute BPB is not competitive yet."
     }
   },
-  "last_full_scan_at": "2026-03-19T15:20:13Z",
-  "last_reviewed_updated_at": "2026-03-19T15:19:54Z",
+  "last_full_scan_at": "2026-03-19T15:54:03Z",
+  "last_reviewed_updated_at": "2026-03-19T15:52:57Z",
   "pull_requests": {
     "11": {
       "author": "adityawrk",
@@ -192,7 +201,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0011.md",
       "number": 11,
       "status": "reviewed",
@@ -206,7 +215,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "a0709872d51a15aa5f01a564c609a0d904c898ce",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0013.md",
       "number": 13,
       "status": "reviewed",
@@ -220,7 +229,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "7e253d2715d6e3644f2e8b922fef5a3bd8f1a6e0",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0014.md",
       "number": 14,
       "status": "reviewed",
@@ -238,7 +247,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0015.md",
       "number": 15,
       "status": "reviewed",
@@ -252,7 +261,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "1786739717ded4e58868719d833b030b44783a1d",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0016.md",
       "number": 16,
       "status": "reviewed",
@@ -266,7 +275,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "013fc0c9616fc9f0f840bf08264f93a49c192785",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0019.md",
       "number": 19,
       "status": "reviewed",
@@ -284,7 +293,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0020.md",
       "number": 20,
       "status": "reviewed",
@@ -304,7 +313,7 @@
         "architecture",
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0021.md",
       "number": 21,
       "status": "reviewed",
@@ -322,7 +331,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0024.md",
       "number": 24,
       "status": "reviewed",
@@ -342,7 +351,7 @@
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0029.md",
       "number": 29,
       "status": "reviewed",
@@ -362,7 +371,7 @@
         "architecture",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0031.md",
       "number": 31,
       "status": "reviewed",
@@ -384,7 +393,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0033.md",
       "number": 33,
       "status": "reviewed",
@@ -398,7 +407,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "02eb5d1febf8ee5bc0b25ed66c835bdebe3c6617",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0036.md",
       "number": 36,
       "status": "reviewed",
@@ -416,7 +425,7 @@
       "lane_tags": [
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0037.md",
       "number": 37,
       "status": "reviewed",
@@ -435,7 +444,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0038.md",
       "number": 38,
       "status": "reviewed",
@@ -453,7 +462,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0039.md",
       "number": 39,
       "status": "reviewed",
@@ -467,7 +476,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "70c126be428e404f7876f1cd89816f810cd2b792",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0004.md",
       "number": 4,
       "status": "reviewed",
@@ -487,7 +496,7 @@
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0040.md",
       "number": 40,
       "status": "reviewed",
@@ -501,7 +510,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "0610e5f4a2d17134fe59d1400ed645ee71f704db",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0041.md",
       "number": 41,
       "status": "reviewed",
@@ -519,7 +528,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0042.md",
       "number": 42,
       "status": "reviewed",
@@ -533,7 +542,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "a17ff66702d50731c5d6833145875687a2791016",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0044.md",
       "number": 44,
       "status": "reviewed",
@@ -547,7 +556,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "da4e9efe6d4656e65c1fdd00a96ca13a279bc647",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0045.md",
       "number": 45,
       "status": "reviewed",
@@ -561,7 +570,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "1aa8dadd8232798f46e9e58df7517bfe8d28c73d",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0046.md",
       "number": 46,
       "status": "reviewed",
@@ -579,7 +588,7 @@
       "lane_tags": [
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0047.md",
       "number": 47,
       "status": "reviewed",
@@ -593,7 +602,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "d61c36090fdcfdf4050ce2b21cb197bba3187851",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0048.md",
       "number": 48,
       "status": "reviewed",
@@ -607,7 +616,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "99e72b1c02c0b485864c48710fab36dfe9475e6b",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0049.md",
       "number": 49,
       "status": "reviewed",
@@ -627,7 +636,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0005.md",
       "number": 5,
       "status": "reviewed",
@@ -645,7 +654,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0050.md",
       "number": 50,
       "status": "reviewed",
@@ -665,7 +674,7 @@
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0051.md",
       "number": 51,
       "status": "reviewed",
@@ -679,7 +688,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "b6663e7cd939859772250305f8389d085e176951",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0052.md",
       "number": 52,
       "status": "reviewed",
@@ -699,7 +708,7 @@
         "evaluation",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0053.md",
       "number": 53,
       "status": "reviewed",
@@ -717,7 +726,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0054.md",
       "number": 54,
       "status": "reviewed",
@@ -731,7 +740,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "8aea85b63bc4d333ff11e84f4ad81028178e03b9",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0055.md",
       "number": 55,
       "status": "reviewed",
@@ -749,7 +758,7 @@
       "lane_tags": [
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0056.md",
       "number": 56,
       "status": "reviewed",
@@ -769,7 +778,7 @@
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0058.md",
       "number": 58,
       "status": "reviewed",
@@ -783,37 +792,34 @@
         "init-ntk-overtone-rope"
       ],
       "first_seen_at": "2026-03-19T13:42:45Z",
-      "head_sha": "5e0d7e53dafae3ac86a31a54af1a3273c3ad3f88",
+      "head_sha": "2a90936b788360b8138940166d3e9f1a0b69d646",
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0060.md",
       "number": 60,
       "status": "reviewed",
       "title": "NTK Eval + Overtone Init (val_bpb=1.2160)",
-      "updated_at": "2026-03-19T13:30:01Z",
+      "updated_at": "2026-03-19T15:20:15Z",
       "url": "https://github.com/openai/parameter-golf/pull/60"
     },
     "61": {
       "author": "saml212",
       "candidate_experiment_ids": [
-        "eval-sliding-window-context-accounting",
-        "ctx-seq4096-train-eval",
-        "init-ntk-overtone-rope"
+        "eval-sliding-window-context-accounting"
       ],
       "first_seen_at": "2026-03-19T13:42:45Z",
-      "head_sha": "912c3fb6c7f17a530d93b8d7ff1193443d48f4d7",
+      "head_sha": "4a65f694ab16f66ac37668474edb41f11f8fa08c",
       "lane_tags": [
-        "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0061.md",
       "number": 61,
       "status": "reviewed",
       "title": "Long-context sliding window: val_bpb=1.1764",
-      "updated_at": "2026-03-19T11:54:34Z",
+      "updated_at": "2026-03-19T15:51:31Z",
       "url": "https://github.com/openai/parameter-golf/pull/61"
     },
     "62": {
@@ -826,7 +832,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0062.md",
       "number": 62,
       "status": "reviewed",
@@ -840,16 +846,16 @@
         "quant-selective-int6-fp16-embed"
       ],
       "first_seen_at": "2026-03-19T13:42:45Z",
-      "head_sha": "336157d5546c84d374d48352746e45eaf0ce155d",
+      "head_sha": "13ffddc92724efea98c502e55e2d6a1f0e241418",
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0063.md",
       "number": 63,
       "status": "reviewed",
       "title": "Seq2048 + FP16 Tied Embedding + Tuned LR (val_bpb 1.2067)",
-      "updated_at": "2026-03-19T07:19:50Z",
+      "updated_at": "2026-03-19T15:46:27Z",
       "url": "https://github.com/openai/parameter-golf/pull/63"
     },
     "64": {
@@ -864,7 +870,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0064.md",
       "number": 64,
       "status": "reviewed",
@@ -884,7 +890,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0065.md",
       "number": 65,
       "status": "reviewed",
@@ -907,12 +913,12 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0066.md",
       "number": 66,
       "status": "reviewed",
-      "title": "ArjunAutoResearch: MLP 3x + STE int6 QAT + seq4096 + sliding window. val_bpb 1.1628",
-      "updated_at": "2026-03-19T15:19:54Z",
+      "title": "ArjunAutoResearch: MLP 3x + STE int6 QAT + seq4096 + sliding window. val_bpb 1.1632",
+      "updated_at": "2026-03-19T15:21:04Z",
       "url": "https://github.com/openai/parameter-golf/pull/66"
     },
     "68": {
@@ -921,7 +927,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "cfc27f512d4fae3ce205b3104177a1ba987a5d7d",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0068.md",
       "number": 68,
       "status": "reviewed",
@@ -943,7 +949,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0069.md",
       "number": 69,
       "status": "reviewed",
@@ -963,7 +969,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0070.md",
       "number": 70,
       "status": "reviewed",
@@ -977,7 +983,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "2949401a6dc0b306d3a16a9e4d3fea70b0b97f83",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0071.md",
       "number": 71,
       "status": "reviewed",
@@ -991,7 +997,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "ba9cbf8998bc28efc11ed43138fa8bc784446d59",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0072.md",
       "number": 72,
       "status": "reviewed",
@@ -1005,7 +1011,7 @@
       "first_seen_at": "2026-03-19T13:42:45Z",
       "head_sha": "b8a1426d0f4a4e3a6cd3aaa9071eb5a4904dbb58",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0073.md",
       "number": 73,
       "status": "reviewed",
@@ -1023,7 +1029,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0074.md",
       "number": 74,
       "status": "reviewed",
@@ -1042,7 +1048,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0075.md",
       "number": 75,
       "status": "reviewed",
@@ -1062,7 +1068,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0076.md",
       "number": 76,
       "status": "reviewed",
@@ -1082,7 +1088,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0077.md",
       "number": 77,
       "status": "reviewed",
@@ -1104,7 +1110,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0078.md",
       "number": 78,
       "status": "reviewed",
@@ -1122,7 +1128,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0079.md",
       "number": 79,
       "status": "reviewed",
@@ -1140,7 +1146,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0008.md",
       "number": 8,
       "status": "reviewed",
@@ -1158,7 +1164,7 @@
       "lane_tags": [
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0080.md",
       "number": 80,
       "status": "reviewed",
@@ -1180,7 +1186,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0081.md",
       "number": 81,
       "status": "reviewed",
@@ -1194,7 +1200,7 @@
       "first_seen_at": "2026-03-19T13:50:45Z",
       "head_sha": "6853b49028e0dd08e8da6ebebe5a8b08d4ef652d",
       "lane_tags": [],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0084.md",
       "number": 84,
       "status": "reviewed",
@@ -1216,7 +1222,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0085.md",
       "number": 85,
       "status": "reviewed",
@@ -1234,7 +1240,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0086.md",
       "number": 86,
       "status": "reviewed",
@@ -1255,7 +1261,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0088.md",
       "number": 88,
       "status": "reviewed",
@@ -1275,13 +1281,136 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-19T15:20:13Z",
+      "last_seen_at": "2026-03-19T15:54:03Z",
       "notes_path": "research/pr_snapshots/pr-0089.md",
       "number": 89,
       "status": "reviewed",
       "title": "record:  val_bpb=1.1622, NorMuon + int6 STE + SWA + sliding window",
       "updated_at": "2026-03-19T15:18:47Z",
       "url": "https://github.com/openai/parameter-golf/pull/89"
+    },
+    "90": {
+      "author": "gwskier11-design",
+      "candidate_experiment_ids": [
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-19T15:35:22Z",
+      "head_sha": "5c06bf49c3b44e72eabb63c99ca5269fce12c938",
+      "lane_tags": [
+        "autoresearch"
+      ],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0090.md",
+      "number": 90,
+      "status": "reviewed",
+      "title": "[codex] add gw kv2 int7 non-record submission",
+      "updated_at": "2026-03-19T15:35:09Z",
+      "url": "https://github.com/openai/parameter-golf/pull/90"
+    },
+    "91": {
+      "author": "koushikkethamakka",
+      "candidate_experiment_ids": [
+        "arch-depth-recurrence-iteration-embeddings",
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-19T15:35:22Z",
+      "head_sha": "f4ae4d7e6f86a4cc6b0e6daaa0d3f2631a8977d0",
+      "lane_tags": [
+        "architecture",
+        "autoresearch"
+      ],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0091.md",
+      "number": 91,
+      "status": "reviewed",
+      "title": "Depth recurrence: 3 unique layers x 3 loops, 1.589 BPB",
+      "updated_at": "2026-03-19T15:26:21Z",
+      "url": "https://github.com/openai/parameter-golf/pull/91"
+    },
+    "92": {
+      "author": "saikrishnarallabandi",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "tok-vocab-scaling",
+        "quant-selective-int6-fp16-embed",
+        "ctx-seq4096-train-eval"
+      ],
+      "first_seen_at": "2026-03-19T15:35:22Z",
+      "head_sha": "7c2ece57d0c77aad6b062ada4aea898c4ce1b75d",
+      "lane_tags": [
+        "evaluation",
+        "quantization",
+        "tokenizer"
+      ],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0092.md",
+      "number": 92,
+      "status": "reviewed",
+      "title": "Record: 8192 Vocab, Sliding Window Eval, Selective Quantization; 1.194 val_bpb",
+      "updated_at": "2026-03-19T15:33:09Z",
+      "url": "https://github.com/openai/parameter-golf/pull/92"
+    },
+    "93": {
+      "author": "aamodbhatt",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-19T15:40:33Z",
+      "head_sha": "ff2ae8733213535b33db4e9c8a62e8c96106cddc",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0093.md",
+      "number": 93,
+      "status": "reviewed",
+      "title": "Non-record: Compact 12x384 1xH100 10m",
+      "updated_at": "2026-03-19T15:35:35Z",
+      "url": "https://github.com/openai/parameter-golf/pull/93"
+    },
+    "94": {
+      "author": "aamodbhatt",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-19T15:40:33Z",
+      "head_sha": "9c6a7403d9faa82b8dfbfd1e34a0d9319aa9a366",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0094.md",
+      "number": 94,
+      "status": "reviewed",
+      "title": "Non-record: Warmdown fix (9x512) on 1xH100 10m",
+      "updated_at": "2026-03-19T15:35:55Z",
+      "url": "https://github.com/openai/parameter-golf/pull/94"
+    },
+    "95": {
+      "author": "MatoTeziTanka",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-19T15:54:03Z",
+      "head_sha": "1ade96bec4001432d6a0238bde2c0d224139158f",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0095.md",
+      "number": 95,
+      "status": "reviewed",
+      "title": "PROTEUS EMA \u2014 val_bpb: 1.2253",
+      "updated_at": "2026-03-19T15:50:35Z",
+      "url": "https://github.com/openai/parameter-golf/pull/95"
+    },
+    "96": {
+      "author": "saml212",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-19T15:54:03Z",
+      "head_sha": "50225c568f6307636b49c30ac1f5dd9874b12211",
+      "lane_tags": [
+        "autoresearch",
+        "evaluation"
+      ],
+      "last_seen_at": "2026-03-19T15:54:03Z",
+      "notes_path": "research/pr_snapshots/pr-0096.md",
+      "number": 96,
+      "status": "reviewed",
+      "title": "Sliding Window + Long-Context Training: val_bpb=1.1764",
+      "updated_at": "2026-03-19T15:52:57Z",
+      "url": "https://github.com/openai/parameter-golf/pull/96"
     }
   },
   "repo": "openai/parameter-golf",
@@ -1291,38 +1420,43 @@
     "0484ec9da06d1dc64284e62e2e43fb3a44c9ce88",
     "0610e5f4a2d17134fe59d1400ed645ee71f704db",
     "13acc8545800aad5a0b6d421df0a38773c8490bf",
+    "13ffddc92724efea98c502e55e2d6a1f0e241418",
     "1786739717ded4e58868719d833b030b44783a1d",
     "1aa8dadd8232798f46e9e58df7517bfe8d28c73d",
+    "1ade96bec4001432d6a0238bde2c0d224139158f",
     "210b0bad7dfb9d935e10584462ad8d983de7e29e",
     "2790ac088cd3da716664fb6047990745f24e6c4f",
     "28d41a448c462c2d8092e769131c7b72306d917f",
     "2949401a6dc0b306d3a16a9e4d3fea70b0b97f83",
+    "2a90936b788360b8138940166d3e9f1a0b69d646",
     "304a43f7b6a631fe745ddaabdaa10fe205b116cc",
     "31e777e6073a5fc4b6a0f4cebbe9d5fe1f289dff",
-    "336157d5546c84d374d48352746e45eaf0ce155d",
     "3d1780d86d240318b336475bff1fbdbc4d64b0e1",
     "42de8368cdb5617293f98614caa98f594b7f50bd",
     "45db65acf24b1e6529c60c4439a26e41cccb3334",
+    "4a65f694ab16f66ac37668474edb41f11f8fa08c",
     "4a685e4fdbeaec90f474bd75299500888c311757",
     "4bbdf43eb3cc174ea9a9d8de81748bd339b71caf",
+    "50225c568f6307636b49c30ac1f5dd9874b12211",
     "51de17135ee5cc055b40735a49d0a79bbd1ccbca",
+    "5c06bf49c3b44e72eabb63c99ca5269fce12c938",
     "5d3054865de0461a5c6ef099926724e8c27648f7",
     "5db19d204d6730037a032d18e6509cb8a6b1e187",
-    "5e0d7e53dafae3ac86a31a54af1a3273c3ad3f88",
     "613531358ceb7f343e08b5a36b369b2c5b5c011a",
     "6853b49028e0dd08e8da6ebebe5a8b08d4ef652d",
     "70c126be428e404f7876f1cd89816f810cd2b792",
     "73a4a9ddd59c45858169c6b3375c62de7745f635",
     "78f6eff97505f64430b336045df0b3fee4c1cbcf",
     "7b8633a99fee9efaf401c3e63c5ae83cbc085131",
+    "7c2ece57d0c77aad6b062ada4aea898c4ce1b75d",
     "7e253d2715d6e3644f2e8b922fef5a3bd8f1a6e0",
     "7ff5e4491a3e909f006c0bf8dda3ca5117fd4a40",
     "8aea85b63bc4d333ff11e84f4ad81028178e03b9",
     "8cdc834eced5b8262ebdbc620576a223cb50a441",
-    "912c3fb6c7f17a530d93b8d7ff1193443d48f4d7",
     "944fc30d4d6e16d2825c796458edbb10295f49e6",
     "95b80a92f87df3b2acab38048443858a8c0f8e11",
     "99e72b1c02c0b485864c48710fab36dfe9475e6b",
+    "9c6a7403d9faa82b8dfbfd1e34a0d9319aa9a366",
     "9ed0110ef9dc7bd14fbac13bd9134605b6eade57",
     "9fed66c01eb86e9089b68580a2295cbffaef25de",
     "a0709872d51a15aa5f01a564c609a0d904c898ce",
@@ -1346,8 +1480,10 @@
     "e3655fde38c06a93533037029fa85240b2a7fa7f",
     "e6bd4d200de10d84ac3993f49f0941055d9ea3d3",
     "ea3b4b4855a12b883a387afa4aa201b5459225f3",
+    "f4ae4d7e6f86a4cc6b0e6daaa0d3f2631a8977d0",
     "f85c8379c6b210df2dbaecf9083f7b60adeecb85",
-    "fc3c1431ac22bb2e9fa3a11f2963939dfb3ca27a"
+    "fc3c1431ac22bb2e9fa3a11f2963939dfb3ca27a",
+    "ff2ae8733213535b33db4e9c8a62e8c96106cddc"
   ],
   "seen_pr_numbers": [
     4,
@@ -1411,6 +1547,13 @@
     85,
     86,
     88,
-    89
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96
   ]
 }

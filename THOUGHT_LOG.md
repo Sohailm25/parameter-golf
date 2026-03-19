@@ -67,3 +67,20 @@ Suggested entry format:
 
 - The official README explicitly treats evaluation as a separate 10-minute budget.
 - The repo already has an `autoresearch`-inspired PR, which means that lane is not hypothetical anymore.
+
+## [2026-03-19T11:05:00-0500] Local Smoke Gate Reality Check
+- Stage: analysis
+- Feel of the Experiment: The first real smoke run was useful precisely because it broke for a boring systems reason instead of a glamorous ML reason. The local baseline loop is more sensitive to validation bookkeeping than to the first 200 training steps.
+- Working Hypotheses:
+  - the MLX path is good enough for honest local ranking once validation throughput is configured sanely
+- Hunches and Guesses:
+  - future local confusion is more likely to come from evaluation-shape footguns than from optimizer instability
+- Predictions:
+  - the 500-step proxy will still be dominated by the two full validation passes unless the repo keeps `VAL_BATCH_SIZE` high
+- Surprises and Tensions:
+  - `train_gpt_mlx.py` does two full end-of-run validations even when periodic validation is disabled
+  - the original small-batch smoke suggestion looked harmless but almost turned the first real baseline into an hour-scale run
+- Confidence:
+  - medium in the frozen smoke/proxy/confirmatory workflow
+- Interesting facts:
+  - on this machine the corrected 200-step smoke trains in under a minute, but the two validation passes dominate total wallclock

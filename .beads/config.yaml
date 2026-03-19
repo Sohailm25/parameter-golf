@@ -14,7 +14,9 @@
 # no-db: false
 
 # Disable daemon for RPC communication (forces direct database access)
-# no-daemon: false
+# The local bd 0.46.0 daemon-backed `sync --import-only` path is failing on
+# branch checkout in this repo, so keep direct storage mode as the default.
+no-daemon: true
 
 # Disable auto-flush of database to JSONL after mutations
 # no-auto-flush: false

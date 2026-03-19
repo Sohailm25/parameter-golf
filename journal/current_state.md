@@ -16,17 +16,20 @@
 - The canonical run path is now `scripts/experiment_runner.py launch`, and the canonical promotion path is `scripts/experiment_runner.py promote`.
 - Minimal reusable validation helpers now exist in `validation/log_audit.py` and `validation/artifact_size.py`.
 - `START_HERE.md` now gives a single bootstrap path for fresh agents.
-- This machine still lacks the local challenge cache under `data/datasets/` and `data/tokenizers/`, so the first real baseline run begins with the documented cache materialization step.
+- This repo now defaults `bd` to direct storage mode because the daemon-backed checkout import path was unstable on this machine.
+- This machine now has the local `sp1024` challenge cache under `data/datasets/` and `data/tokenizers/`.
 - A live smoke run through `scripts/experiment_runner.py launch` succeeded and proved the CLI path, telemetry ingestion, log-link registration, outcome metrics, and dashboard refresh against a deterministic mock log writer.
+- The first real local MLX smoke run also succeeded after one workflow correction: keep `VAL_BATCH_SIZE` large or the validator becomes the bottleneck.
+- The baseline workflow is now frozen in `results/baselines/20260319-local-baseline-smoke-and-workflow-freeze.md`.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No baseline run, no confirmatory split, and no promoted iteration exist yet.
+- No medium-horizon proxy run, no confirmatory split execution, and no promoted iteration exist yet.
 
 ## Next Delta To Close
 
-1. Freeze the baseline proxy and confirmatory split.
-2. Use the new hook sequence and experiment runner for the first real baseline loop after the cache exists.
-3. Register and inspect the first real experiment run in the telemetry spine instead of treating the infrastructure smoke run as the only record.
+1. Run the first `500`-step proxy on the frozen MLX baseline path.
+2. Extend the cache to a second train shard and isolate the confirmatory slice.
+3. Register and inspect the next real baseline run in the telemetry spine.
 4. Promote the first genuinely informative baseline iteration through the archive path once it clears the gate.
