@@ -1,0 +1,266 @@
+# AGENTS.md - Codex Agent Directives for Parameter Golf Research
+
+## Scope and Precedence
+
+This file governs all work within `parametergolf/` and supersedes any AGENTS.md found in parent directories for this workspace.
+
+Parent-workspace assumptions that do not apply here:
+
+- this repository is standalone; its git history, issue tracking, and branches belong to `parametergolf/`
+- no inherited thesis, benchmark framing, or phase names from `~/creativedecomp` or `~/resattn` belong here
+- the default machine is Sohail's local M4 MacBook Pro with 128GB unified memory
+- this repo is for Parameter Golf research, submission engineering, and iteration tracking, not a generic LLM sandbox
+- remote 8xH100 verification is part of the competition environment, but it is not assumed as the default daily workflow here
+
+Everything below this section is the authoritative directive set for this experiment.
+
+This workspace is grounded in the official Parameter Golf repo, the imported `researchdocs/` conversation artifacts, and the local research notes created here.
+
+## Mission
+
+Execute the Parameter Golf research program defined by:
+
+- `researchdocs/parameter_golf_strategy.md`
+- `researchdocs/compass_artifact_wf-1d75e3e5-2eb7-4acc-b294-9b14e42edcfb_text_markdown.md`
+- `researchdocs/compass_artifact_wf-7f912b62-af2f-4a6b-8858-875fb22f1adb_text_markdown.md`
+- `researchdocs/compass_artifact_wf-be9c2458-2b26-4bc3-979a-bbb71a8446f1_text_markdown.md`
+- `research/challenge-review-20260319.md`
+- `research/approach-space-20260319.md`
+- `research/autoresearch-fit-20260319.md`
+
+The goal is to build a disciplined local research repo for OpenAI's Parameter Golf challenge: understand the true constraints, map the live approach space, run the smallest experiment that can falsify one idea, and archive every meaningful iteration as a full file snapshot tied to `leaderboard.md`.
+
+The default framing is not "we found a winning trick." It is: we are building a credible local system for discovering, evaluating, and formatting a strong submission while keeping challenge-spirit risk and self-deception visible.
+
+## Issue Tracking
+
+This project uses **bd** (beads) for issue tracking.
+Run `bd prime` for workflow context, or install hooks with `bd hooks install`.
+
+Quick reference:
+
+- `bd ready` - find unblocked work
+- `bd create "Title" --type task --priority 2` - create issue
+- `bd update <id> --status in_progress` - claim work
+- `bd close <id>` - complete work
+- `bd sync` - sync issue state at session end
+
+## Competition Locks
+
+These are not optional. Every implementation and write-up must preserve them.
+
+1. The primary deliverable is a credible Parameter Golf submission strategy plus a reproducible local research system, not a pile of untracked hacks.
+2. Every promoted result must map to exactly one archived iteration with a full file snapshot and an atomic change note in `leaderboard.md`.
+3. The public FineWeb validation set is a fragile target. The default workflow is `pilot -> confirmatory split -> submission` so we do not mistake leaderboard overfitting for progress.
+4. Keep two lanes distinct: `spirit-first` and `open-rules`. Anything involving validation-set training or aggressive eval-time adaptation must stay clearly labeled and cannot silently become the default lane.
+5. Local proxy wins are not leaderboard claims. Do not write as if an M4 result or a short local proxy run proves 8xH100 submission quality.
+6. `autoresearch` is a bounded tuning multiplier, not the main source of architecture ideas.
+7. The current golden set must stay runnable. Do not let speculative work break the repo's best known candidate.
+
+## Runtime Assumptions
+
+- Primary machine: local M4 MacBook Pro with 128GB unified memory
+- Python environment: `.venv`
+- Default local backends: MLX, PyTorch CPU, or lightweight local tooling
+- No cloud-first assumptions in day-to-day work
+- Any later 8xH100 validation must be treated as a separate reproducibility step, not hand-waved from local runs
+
+## Epistemic Standards
+
+You are doing scientific and engineering work. Act like it.
+
+1. Assumption quarantine. Any unverified statement is a hypothesis, not a fact. Label claims with `known`, `observed`, `inferred`, or `unknown`.
+2. Evidence-first reasoning. Base conclusions on inspectable artifacts: run logs, artifact sizes, saved scripts, saved score tables, official README text, and archived iteration files.
+3. No score mysticism. If a result looks unusually strong, check leakage, scoring changes, context-window effects, and evaluation protocol before celebrating.
+4. Claim-evidence proportionality. Never write `ready`, `best`, `submission-quality`, or `SOTA-relevant` without the metric, setting, and comparison.
+5. Adversarial self-questioning is mandatory:
+   - Is this a real model improvement or just a metric/eval artifact?
+   - Did we change more than one thing at once?
+   - Does this improve the spirit-first lane, the open-rules lane, or only one controversial corner?
+   - If this looks too good, is the probability of a bug or leakage actually higher than the probability of a breakthrough?
+6. Pre-register before claim-bearing runs. The local prereg lives in `history/PREREG.md`.
+7. Official repo state changes quickly. Re-check the official challenge repo before making "current landscape" claims in new work.
+
+## Directory Map
+
+```text
+parametergolf/
+├── AGENTS.md
+├── CURRENT_STATE.md
+├── DECISIONS.md
+├── README.md
+├── SCRATCHPAD.md
+├── THOUGHT_LOG.md
+├── leaderboard.md
+├── background-work/
+│   ├── COMPETITION_POLICY.md
+│   ├── REFERENCES.md
+│   ├── IMPLEMENTATION_GROUNDING.md
+│   ├── GAPS_SYNTHESIS.md
+│   ├── PROPOSAL_REVIEW.md
+│   ├── RESEARCH_POSITIONING.md
+│   └── papers/
+├── configs/
+├── history/
+├── iterations/
+│   ├── archive/
+│   ├── golden/
+│   └── templates/
+├── journal/
+├── knowledge/
+├── prompts/
+├── research/
+├── researchdocs/
+├── results/
+├── scratch/
+├── scripts/
+├── sessions/
+├── tests/
+└── validation/
+```
+
+## Research Navigation Guide
+
+Do not re-read everything blindly every session.
+
+### Always read first in a fresh session
+
+1. `CURRENT_STATE.md`
+2. `journal/current_state.md`
+3. `SCRATCHPAD.md`
+4. `THOUGHT_LOG.md`
+5. `DECISIONS.md`
+6. `history/PREREG.md`
+7. `leaderboard.md`
+
+### Read by question
+
+- What are the official constraints and live competition state?
+  - `research/challenge-review-20260319.md`
+- Which experiment lanes matter most right now?
+  - `research/approach-space-20260319.md`
+- How should `autoresearch` fit into this repo?
+  - `research/autoresearch-fit-20260319.md`
+- What did the imported back-and-forth already propose?
+  - `researchdocs/*`
+
+### Read only when needed
+
+- `background-work/REFERENCES.md` when you need an official URL, PR link, or paper
+- `background-work/COMPETITION_POLICY.md` when evaluation-time tricks or challenge spirit feel blurry
+- `background-work/IMPLEMENTATION_GROUNDING.md` when deciding the next lane or experiment format
+- `background-work/PROPOSAL_REVIEW.md` when a speculative idea from `researchdocs/` starts sounding more proven than it is
+- `iterations/README.md` when adding or promoting archived full file snapshots
+
+## Operating Rules
+
+### 1. Document Discipline
+
+Before starting a non-trivial work session:
+
+1. Read `CURRENT_STATE.md`
+2. Create or update a session log in `sessions/`
+3. Confirm the next task against the active phase and prereg
+
+During work:
+
+- Update `SCRATCHPAD.md` before and after any substantial local run.
+- Use `THOUGHT_LOG.md` for research reflections throughout the project. Record hunches, surprises, confidence shifts, and worries about challenge-spirit drift.
+- Log non-obvious pivots in `DECISIONS.md` before proceeding.
+- Update `CURRENT_STATE.md` whenever the actual repo state changes.
+- Register durable outputs in `results/RESULTS_INDEX.md`.
+- Register promoted script iterations in `leaderboard.md`.
+
+Long-running process rules:
+
+- Any run that is expensive enough to care about surviving laptop sleep, terminal closure, or disconnects must run inside `tmux`.
+- Long-running runs must save resumable checkpoints when the code supports it.
+- Before launch, record the `tmux` session name, checkpoint path, log path, and resume command in `SCRATCHPAD.md`.
+- After launch, verify that checkpoints are actually being written.
+
+### 2. Session Check-In Protocol
+
+If context is thin or the session resumed after compaction:
+
+1. Read `CURRENT_STATE.md`
+2. Read the latest entries in `SCRATCHPAD.md`
+3. Read the latest entries in `THOUGHT_LOG.md`
+4. Read the latest entries in `DECISIONS.md`
+5. Read the latest session log in `sessions/`
+6. Check `results/RESULTS_INDEX.md`
+7. Check `leaderboard.md`
+
+Do not re-explore the whole repo if the state docs already answer the question.
+
+### 3. The Research Documents Are the Spec
+
+- `research/challenge-review-20260319.md` is the current source of truth for official constraints and the live competition snapshot.
+- `research/approach-space-20260319.md` defines the current lane prioritization.
+- `research/autoresearch-fit-20260319.md` defines the intended role of `autoresearch`.
+- `history/PREREG.md` defines what counts as a claim-bearing run.
+- `researchdocs/*` are imported ideation artifacts. They are useful inputs, not binding truth.
+
+If these documents conflict, resolve the conflict explicitly in `DECISIONS.md` before coding.
+
+### 4. Execution Order
+
+Use this as the default phase flow:
+
+1. Phase 0: scaffold, issue tracking, official challenge review, and source-of-truth setup
+2. Phase 1: local baseline reproduction, measurement harnesses, and confirmatory split design
+3. Phase 2: smallest experiment sweeps across optimizer, tokenizer, evaluation, compression, and architecture lanes
+4. Phase 3: integrated candidate assembly, confirmatory split checks, and golden set promotion
+5. Phase 4: submission formatting, reproducibility hardening, and upstream record packaging
+
+### 5. Experiment Design Defaults
+
+- Prefer the **smallest experiment** that can falsify exactly one idea.
+- Use one atomic change per archived iteration unless the task is explicitly an integration step.
+- Default workflow is `pilot -> confirmatory split -> submission`. Do not skip the confirmatory split just because the official validation set is public.
+- Treat official validation runs as expensive and contamination-prone. Spend most tuning budget on smaller local proxies first.
+- Keep the local golden set conservative. A flashy side lane does not replace the golden set until its run path is cleaner and better documented.
+- If the metric changes because evaluation changed, say so explicitly. Do not present eval-only gains as architecture gains.
+
+### 6. Run Design Guardrails
+
+- Every substantial run must record: command, device, data slice, wallclock target, artifact-size method, and score method.
+- Any scoring or tokenizer change needs an independent validation check before it can influence the golden set.
+- Do not bundle tokenizer, architecture, optimizer, and evaluation changes into one iteration unless the task is explicitly an integration checkpoint.
+- If using test-time training, sliding windows, longer context, or document resets, log exactly what state changes during evaluation and exactly what resets between documents.
+- If a run cannot produce a reproducible full file snapshot, it is not ready for `leaderboard.md`.
+
+### 7. Required Experiment Lanes
+
+The repo must keep these lanes visible even if some are dormant:
+
+1. `baselines` - faithful local baselines and measurement sanity checks
+2. `optimizer_sweeps` - LR, schedule, batch, Muon, and short-run ablations
+3. `tokenizer` - vocab and tokenization experiments with BPB accounting
+4. `architecture` - recurrence, depth/width, attention, MLP, and tying changes
+5. `quantization` - QAT and serialization-friendly weight formats
+6. `compression` - entropy coding and artifact-size engineering
+7. `evaluation` - context length, sliding windows, and clearly labeled TTT variants
+8. `autoresearch` - bounded agentic tuning workflows
+9. `golden` - the current best integrated candidate
+
+### 8. Results Registration
+
+- Every durable artifact saved under `results/` must appear in `results/RESULTS_INDEX.md`.
+- Every summary must say whether the result is `pass`, `fail`, `mixed`, `partial`, or `planning`.
+- Every promoted result should name the relevant iteration ID from `leaderboard.md`.
+- Never delete entries; mark superseded artifacts explicitly.
+
+### 9. Iteration Archive And Golden Set
+
+- `iterations/archive/` stores the immutable **full file snapshot** for each promoted iteration.
+- `leaderboard.md` maps `Iteration ID`, `Parent`, metric, status, and the **atomic change** that distinguishes one iteration from another.
+- `iterations/golden/` holds the current **golden set** candidate files.
+- Once an iteration is registered, do not silently edit its archived files. Create a new iteration instead.
+- If an integration step merges several atomic ideas, the leaderboard entry must say so and list the parents.
+
+### 10. Branch Truth
+
+- Keep branch names truthful to the active task.
+- Do not pretend the parent home-directory repo or another branch is the source of truth for this work.
+- If no remote is configured yet, say so explicitly in status docs instead of implying the repo is fully landed.
+- When a remote exists, finishing a session includes `bd sync`, `git push`, and a clean `git status`.

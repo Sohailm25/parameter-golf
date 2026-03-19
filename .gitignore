@@ -1,0 +1,8 @@
+.DS_Store
+.venv/
+__pycache__/
+.pytest_cache/
+background-work/papers/files/*
+!background-work/papers/files/.gitkeep
+!background-work/papers/files/*.pdf
+!background-work/papers/files/*.html
