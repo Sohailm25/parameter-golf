@@ -1,0 +1,93 @@
+{
+  "last_full_scan_at": "2026-03-19T14:11:28Z",
+  "queries": [
+    "\"parameter-golf\" OR \"parameter golf\" OR val_bpb",
+    "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
+    "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+  ],
+  "seen_tweet_ids": [
+    "2032017558140834256",
+    "2032643309684830248",
+    "2034315602618175846",
+    "2034585566646354219"
+  ],
+  "tweets": {
+    "2032017558140834256": {
+      "author_name": "Grok",
+      "author_username": "grok",
+      "created_at": "Thu Mar 12 08:55:13 +0000 2026",
+      "first_seen_at": "2026-03-19T14:11:28Z",
+      "id": "2032017558140834256",
+      "last_seen_at": "2026-03-19T14:11:28Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2032017558140834256.md",
+      "reply_count": 0,
+      "retweet_count": 0,
+      "signal_score": 3,
+      "source_queries": [
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "Karpathy\u5927\u795e\u7684autoresearch\u601d\u8def\u8d85\u7b80\u5355\uff1a\u628a\u4e00\u4e2a\u5355GPU\u5c0f\u578bLLM\u8bad\u7ec3\u6846\u67b6\uff08nanochat\u7248\uff09\u4ea4\u7ed9AI\u4ee3\u7406\uff0c\u8ba9\u5b83\u81ea\u4e3b\u7f16\u8f91https://t.co/lBSDdGgbHa\u4ee3\u7801\u3001\u56fa\u5b9a\u8dd15\u5206\u949f\u8bad\u7ec3\u3001\u7b97val_bpb\uff08\u8d8a\u4f4e\u8d8a\u597d\uff09\uff0c\u53ea\u4fdd\u7559\u8fdb\u6b65\u7684\u7248\u672c\uff0c\u5faa\u73af\u8fed\u4ee3\u3002\n\n\u4eba\u7c7b\u53ea\u6539program.md\u5199\u9ad8\u5c42\u6b21\u76ee\u6807\u548c\u63d0\u793a\uff0cAI\u5e72\u6240\u6709\u4f4e\u7ea7\u5b9e\u9a8c\u4f18\u5316\uff0c\u4e00\u665a\u4e0a\u80fd\u8dd1\u51e0\u767e\u6b21\u5b9e\u9a8c\uff0c\u65e9\u4e0a\u9192\u6765\u5c31\u6709\u65e5\u5fd7\u548c\u66f4\u597d\u6a21\u578b\u3002\n\n\u6838\u5fc3\u5c31\u662f\u81ea\u52a8\u5316ML\u7814\u7a76\u5faa\u73af\uff01Repo\u5728\u8fd9\u91cc\uff1ahttps://t.co/dWOXRic6JA",
+      "url": "https://x.com/grok/status/2032017558140834256",
+      "utility": "medium"
+    },
+    "2032643309684830248": {
+      "author_name": "Esoteric",
+      "author_username": "esotericpigeon",
+      "created_at": "Sat Mar 14 02:21:44 +0000 2026",
+      "first_seen_at": "2026-03-19T14:11:28Z",
+      "id": "2032643309684830248",
+      "last_seen_at": "2026-03-19T14:11:28Z",
+      "like_count": 16,
+      "notes_path": "research/x_snapshots/tweet-2032643309684830248.md",
+      "reply_count": 1,
+      "retweet_count": 2,
+      "signal_score": 3,
+      "source_queries": [
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "This just got pushed on the site as click-to-copy agent instructions:\n\n# autolab contributor\n\nYou are an autonomous ML research contributor for autolab, a distributed project to push down val_bpb (validation bits per byte) on a small GPT language model.\n\nautolab coordinates a community of contributors. You submit patches (diffs to https://t.co/Eip8ZCNWy9). Each patch goes through automated security review, then GPU workers run the experiment. If your patch achieves a new best val_bpb, it becomes the master \u2014 the starting point for all future experiments. You earn reputation for each improvement.",
+      "url": "https://x.com/esotericpigeon/status/2032643309684830248",
+      "utility": "medium"
+    },
+    "2034315602618175846": {
+      "author_name": "Igor Kotenkov",
+      "author_username": "stalkermustang",
+      "created_at": "Wed Mar 18 17:06:50 +0000 2026",
+      "first_seen_at": "2026-03-19T14:11:28Z",
+      "id": "2034315602618175846",
+      "last_seen_at": "2026-03-19T14:11:28Z",
+      "like_count": 44,
+      "notes_path": "research/x_snapshots/tweet-2034315602618175846.md",
+      "reply_count": 2,
+      "retweet_count": 1,
+      "signal_score": 3,
+      "source_queries": [
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "OpenAI is about to launch \"Parameter Golf\" challenge, $1M in compute grants\n\n> train the best language model that fits in a 16MB artifact and trains in under 10 minutes on 8xH100s, evaluated by compression on the FineWeb validation set (tokenizer-agnostic, bits per byte).\n\nhttps://t.co/4cst5ToEM8\n\ninspired by @karpathy 's NanoGPT speedrunning\n\nThe challenge runs from March 18th to April 30th.\n\nIn June, they plan to hire a small cohort of early-career researchers, targeting current undergraduate students and recent graduates, including Olympiad medalists and elite competitors.",
+      "url": "https://x.com/stalkermustang/status/2034315602618175846",
+      "utility": "medium"
+    },
+    "2034585566646354219": {
+      "author_name": "Joey",
+      "author_username": "aijoey",
+      "created_at": "Thu Mar 19 10:59:34 +0000 2026",
+      "first_seen_at": "2026-03-19T14:11:28Z",
+      "id": "2034585566646354219",
+      "last_seen_at": "2026-03-19T14:11:28Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2034585566646354219.md",
+      "reply_count": 1,
+      "retweet_count": 0,
+      "signal_score": 6,
+      "source_queries": [
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)"
+      ],
+      "text": "left autoresearch running on my 4080 overnight for openai's parameter golf. went to sleep at experiment 8. woke up to experiment 39.  val_bpb: 1.5148 \u2192 1.4531. model fits in under 16mb. 37 experiments, zero human input.\nhttps://t.co/JGN3mzFrZN",
+      "url": "https://x.com/aijoey/status/2034585566646354219",
+      "utility": "medium"
+    }
+  }
+}

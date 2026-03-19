@@ -13,6 +13,8 @@ This workspace mirrors the operating discipline of `~/creativedecomp` and `~/res
 - `research/approach-space-20260319.md`
 - `research/autoresearch-fit-20260319.md`
 - `results/evaluation/20260319-dynamic-eval-review.md`
+- `results/infrastructure/20260319-vukrosic-opinion-and-research-hooks.md`
+- `validation/EXPERIMENT_GATES.md`
 
 ## Local Runtime Assumptions
 
@@ -52,6 +54,9 @@ bd prime
 - `research/pr_review_state.json` tracks which official Parameter Golf PRs have already been reviewed.
 - `research/atomic_experiment_backlog.md` is the deduped backlog of candidate atomic experiments derived from those PRs.
 - `scripts/review_openai_prs.py` refreshes the official PR intelligence state, snapshots, and backlog.
+- `scripts/review_x_signal.py` runs the bird-cli X search hook and stores filtered public signal.
+- `scripts/review_arxiv.py` runs the lane-aware arXiv hook and drains `research/research-queries.md`.
+- `scripts/review_iteration_signal.py` runs the PR, X, and arXiv hooks together.
 - `results/RESULTS_INDEX.md` indexes durable artifacts under `results/`.
 - `scripts/register_iteration.py` snapshots files into the archive and appends the leaderboard entry.
 

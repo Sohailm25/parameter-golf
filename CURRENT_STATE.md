@@ -3,12 +3,12 @@
 **Last updated:** 2026-03-19
 **Updated by:** codex-gpt5
 **Status:** in_progress
-**Current phase:** Phase 0 - the standalone research scaffold is established, the official challenge constraints have been re-grounded from the live README and open PRs, and the repo now has a dedicated branch, `bd` state, hooks, tests, PR-intelligence workflow, a dynamic-eval review artifact, and a local-first experiment structure. No baseline reproduction or golden-set candidate exists yet.
+**Current phase:** Phase 0 - the standalone research scaffold is established, the official challenge constraints have been re-grounded from the live README and open PRs, and the repo now has a dedicated branch, `bd` state, hooks, tests, PR-intelligence workflow, public-signal hooks, a dynamic-eval review artifact, and a local-first experiment structure. No baseline reproduction or golden-set candidate exists yet.
 
 ## Active Strategy Lock
 
 - `known`: `parametergolf/` is now a standalone git repository.
-- `known`: the active branch is `scaffold-parameter-golf-research`.
+- `known`: the active branch is `research-signal-hooks`.
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed; the next ready tasks are `parametergolf-mem`, `parametergolf-7cm`, `parametergolf-2km`, and `parametergolf-7b2`.
@@ -20,17 +20,21 @@
 - `observed`: tokenizer accounting is strategically important partly because issue `#43` notes that tokenizer artifacts are not currently counted toward submission size.
 - `observed`: PR `#77` makes the current public TTT picture clearer: document isolation and sliding-window scoring account for most of the visible gain, while reset-per-document TTT is real but smaller and should be tested as a distinct lane.
 - `observed`: new PR `#85` shows the frontier is still moving on local-sweep tooling, evaluation, and validation-adaptation pressure, so the PR-intelligence loop is already paying for itself.
+- `observed`: Vuk Rosic's public `BPB@500` warning is useful as a methodology caution against over-reading `50-step` or `5s` wins, but it is not strong enough evidence to treat `500` steps as a universal truth across lanes.
 - `inferred`: the strongest early local research path is not to jump straight into ternary QAT or heroic recurrence stacks. It is to establish a trustworthy baseline workflow, short-run optimizer and schedule probes, evaluation-window accounting, and a robust iteration archive first.
 - `known`: `leaderboard.md` plus `iterations/archive/` is the required promotion path for any meaningful script revision in this repo.
 - `known`: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/pr_snapshots/`, and `research/atomic_experiment_backlog.md` now persist official PR review state and deduped candidate experiments.
+- `known`: `research/x_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_state.json`, `research/arxiv_review_log.md`, and `research/research-queries.md` now exist to keep X and arXiv signal review persistent between iterations.
+- `known`: the live bird-cli X hook works on this machine, and the arXiv hook works after a same-session query/filter bug fix that is now covered by tests.
 - `known`: the current deduped backlog includes ten candidate lanes, now with `eval-document-reset-ttt` split out from pure document-isolated sliding-window accounting.
+- `known`: the experiment stack now has three horizons: smoke/elimination, medium-horizon proxy, and confirmatory.
 - `known`: the current golden set is empty by design. No candidate has earned promotion yet.
 - `unknown`: whether the first serious submission lane should center on evaluation accounting, document-reset TTT, tokenizer/vocab, or mixed quantization after the baseline lands.
 - `unknown`: whether `autoresearch` should operate against a local proxy harness inside this repo or against a lightweight fork of the official challenge code in a separate sibling workspace.
 
 ## Immediate Next Steps
 
-1. Push the current branch to Sohail's fork.
-2. Resolve `parametergolf-mem`: decide how the official Parameter Golf code enters this workspace.
-3. Resolve `parametergolf-7cm`: define the first `pilot` and `confirmatory split` methodology for local experimentation.
-4. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
+1. Resolve `parametergolf-mem`: decide how the official Parameter Golf code enters this workspace.
+2. Resolve `parametergolf-7cm`: define the first `pilot`, medium-horizon proxy, and `confirmatory split` methodology for local experimentation.
+3. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
+4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

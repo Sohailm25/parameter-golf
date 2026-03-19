@@ -55,3 +55,17 @@
 - Decision: treat dynamic evaluation as two different things. `document-reset TTT` stays in the default research backlog as a disciplined evaluation lane; `cross-document or repeated-pass held-out adaptation` remains visible but belongs to the repo's higher-risk open-rules framing unless proven otherwise.
 - Rationale: collapsing those regimes would overstate what the public evidence currently supports and make it easier to confuse eval-accounting gains with true adaptation gains.
 - Impact: the PR-review system now derives a distinct `eval-document-reset-ttt` experiment, the strategy docs now stage TTT after evaluation-accounting sanity checks, and the repo's policy docs now make the boundary explicit.
+
+## [2026-03-19T15:05:00-0500] DECISION: Treat BPB@500 as a repo proxy gate, not as a universal law
+
+- Trigger: Sohail asked for a review of Vuk Rosic's public `BPB@500` warning and whether it should affect the experimentation stack.
+- Decision: add a medium-horizon proxy gate to the repo's experiment design, but do not canonize `500` steps as universally decisive across all lanes.
+- Rationale: the early-vs-late reversal warning is valuable, but the current evidence is a public opinion plus anecdotal examples, not a documented multi-lane study we should treat as fact.
+- Impact: `validation/EXPERIMENT_GATES.md` now defines smoke, proxy, and confirmatory horizons; AGENTS and prereg now warn against trusting ultra-short wins.
+
+## [2026-03-19T15:10:00-0500] DECISION: Add persistent bird-cli and arXiv hooks to every iteration
+
+- Trigger: Sohail asked for each pass to include a broad X search via bird-cli plus a lane-aware arXiv searcher with a drained query queue.
+- Decision: add `scripts/review_x_signal.py`, `scripts/review_arxiv.py`, and `scripts/review_iteration_signal.py` plus persistent state, logs, snapshots, and `research/research-queries.md`.
+- Rationale: public frontier chatter and nearby papers are useful inputs, but only if they become stateful, reviewable artifacts instead of ad hoc browsing.
+- Impact: the repo now has a tested external-signal workflow and AGENTS requires it on every iteration.

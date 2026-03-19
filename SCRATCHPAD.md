@@ -45,3 +45,32 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - The first completed verification step is the scaffold test suite.
 - The current repo contains the imported `researchdocs/` conversation artifacts but not yet an official-code working copy.
 - The first promotion-worthy code path should use the iteration archive contract rather than ad hoc local files.
+
+## [2026-03-19T15:18:00-0500] PRE-RUN: iteration-signal-smoke
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "parameter golf methodology"`
+- Device: `cpu`
+- Lane: `evaluation`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: N/A
+- What I'm testing: verify that the PR, X, and arXiv hooks all run successfully and that the arXiv queue drains.
+- Expected outcome: state/log/snapshot files update and `research/research-queries.md` returns to empty.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/x_review_log.md` and `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "parameter golf methodology"`
+- Main confound to watch: external APIs may return mostly noise or no new signal.
+- Implementation verified: YES - unit tests for hook parsing, command building, and query draining are green.
+- Status: LAUNCHING
+
+## [2026-03-19T15:25:00-0500] POST-RUN: iteration-signal-smoke
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "parameter golf methodology"`
+- Outcome: SUCCESS
+- Key metric: hook sequence ran end-to-end; `research/research-queries.md` drained back to empty
+- Artifacts saved: `research/x_review_log.md`, `research/arxiv_review_log.md`, `research/x_review_state.json`, `research/arxiv_review_state.json`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: first arXiv run was too broad and surfaced irrelevant papers; query/category logic was fixed and re-run successfully in the same session
+- Next step: run the full test suite, then commit and push the hook changes

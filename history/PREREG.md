@@ -22,6 +22,7 @@ A local-first workflow built around atomic experiment changes, a confirmatory sp
 3. `autoresearch` helps most once a stable local proxy exists.
 4. A clear spirit-first lane will reduce self-deception even if it slows apparent progress.
 5. Document-reset TTT may be worthwhile, but only after document handling and sliding-window accounting are already clean.
+6. Medium-horizon comparisons are more trustworthy than ultra-short runs when the two disagree.
 
 ## Null And Baseline Conditions
 
@@ -38,6 +39,7 @@ A local-first workflow built around atomic experiment changes, a confirmatory sp
 - explicit lane labeling: `spirit-first` or `open-rules`
 - pilot runs before broader local sweeps
 - a `confirmatory split` before golden-set promotion
+- a medium-horizon proxy gate before trusting architecture or activation-function rankings
 - explicit artifact-size accounting for any serialization change
 - independent scoring checks for tokenizer or evaluation changes
 

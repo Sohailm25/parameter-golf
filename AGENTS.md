@@ -28,6 +28,7 @@ Execute the Parameter Golf research program defined by:
 - `research/challenge-review-20260319.md`
 - `research/approach-space-20260319.md`
 - `research/autoresearch-fit-20260319.md`
+- `validation/EXPERIMENT_GATES.md`
 
 The goal is to build a disciplined local research repo for OpenAI's Parameter Golf challenge: understand the true constraints, map the live approach space, run the smallest experiment that can falsify one idea, and archive every meaningful iteration as a full file snapshot tied to `leaderboard.md`.
 
@@ -58,7 +59,9 @@ These are not optional. Every implementation and write-up must preserve them.
 6. `autoresearch` is a bounded tuning multiplier, not the main source of architecture ideas.
 7. The current golden set must stay runnable. Do not let speculative work break the repo's best known candidate.
 8. Every iteration begins with an official PR intelligence pass. Launch a bounded `subagent` to review new `openai/parameter-golf` PRs first; if subagents are unavailable, run `scripts/review_openai_prs.py` directly and log the fallback.
-9. A session that finds `no new PRs` must still record that result explicitly. Silence is not a PR review.
+9. Every iteration also runs the public-signal hooks: `bird-cli` search via `scripts/review_x_signal.py` and arXiv review via `scripts/review_arxiv.py` or the combined wrapper `scripts/review_iteration_signal.py`.
+10. `research/research-queries.md` is a drain queue, not a notebook. Any pending query there must be executed by the next arXiv review and then cleared.
+11. A session that finds `no new PRs` must still record that result explicitly. Silence is not a PR review.
 
 ## Runtime Assumptions
 
@@ -137,6 +140,9 @@ Do not re-read everything blindly every session.
 7. `leaderboard.md`
 8. `research/pr_review_state.json`
 9. `research/atomic_experiment_backlog.md`
+10. `research/x_review_log.md`
+11. `research/arxiv_review_log.md`
+12. `research/research-queries.md`
 
 ### Read by question
 
@@ -148,6 +154,8 @@ Do not re-read everything blindly every session.
   - `research/autoresearch-fit-20260319.md`
 - What is the repo's current position on dynamic evaluation and TTT?
   - `results/evaluation/20260319-dynamic-eval-review.md`
+- What is the repo's current position on medium-horizon experiment ranking and external-signal hooks?
+  - `results/infrastructure/20260319-vukrosic-opinion-and-research-hooks.md`
 - What did the imported back-and-forth already propose?
   - `researchdocs/*`
 
@@ -178,6 +186,10 @@ During work:
 - Register durable outputs in `results/RESULTS_INDEX.md`.
 - Register promoted script iterations in `leaderboard.md`.
 - Start each iteration by reviewing the official PR frontier. Preferred path: launch a `subagent` to review new PRs; fallback path: run `scripts/review_openai_prs.py` yourself and log whether there were updates or `no new PRs`.
+- Run the public-signal hooks on every iteration:
+  - `scripts/review_x_signal.py` for bird-cli X search
+  - `scripts/review_arxiv.py` for lane-aware arXiv review and draining `research/research-queries.md`
+  - or `scripts/review_iteration_signal.py` to run the full sequence in one command
 
 Long-running process rules:
 
@@ -199,6 +211,9 @@ If context is thin or the session resumed after compaction:
 7. Check `leaderboard.md`
 8. Read `research/pr_review_state.json`
 9. Read `research/atomic_experiment_backlog.md`
+10. Read `research/x_review_log.md`
+11. Read `research/arxiv_review_log.md`
+12. Read `research/research-queries.md`
 
 Do not re-explore the whole repo if the state docs already answer the question.
 
@@ -225,6 +240,18 @@ If these documents conflict, resolve the conflict explicitly in `DECISIONS.md` b
 - If subagents fail or are unavailable, run `scripts/review_openai_prs.py` directly and log the fallback in `SCRATCHPAD.md` or the session log.
 - Re-review any PR whose head SHA or `updated_at` changed.
 
+### 3B. Public Signal Intelligence
+
+- The bird-cli X review state lives in `research/x_review_state.json`.
+- The rolling X summary lives in `research/x_review_log.md`.
+- The normalized tweet notes live in `research/x_snapshots/`.
+- The arXiv review state lives in `research/arxiv_review_state.json`.
+- The rolling arXiv summary lives in `research/arxiv_review_log.md`.
+- The normalized paper notes live in `research/arxiv_snapshots/`.
+- `research/research-queries.md` is the queue for questions that must be drained by the next arXiv review.
+- The preferred one-shot hook is `scripts/review_iteration_signal.py`.
+- If a hook finds no useful public signal, record that explicitly instead of silently skipping the step.
+
 ### 4. Execution Order
 
 Use this as the default phase flow:
@@ -243,6 +270,8 @@ Use this as the default phase flow:
 - Treat official validation runs as expensive and contamination-prone. Spend most tuning budget on smaller local proxies first.
 - Keep the local golden set conservative. A flashy side lane does not replace the golden set until its run path is cleaner and better documented.
 - If the metric changes because evaluation changed, say so explicitly. Do not present eval-only gains as architecture gains.
+- Treat `sub-100-step` or ultra-short wallclock runs as elimination-only. Use them to reject obviously bad ideas, not to rank promising ones.
+- Treat `~500-step` runs or the lane-equivalent medium-horizon proxy from `validation/EXPERIMENT_GATES.md` as a useful comparison gate, not as final truth.
 
 ### 6. Run Design Guardrails
 
@@ -252,6 +281,7 @@ Use this as the default phase flow:
 - Do not bundle tokenizer, architecture, optimizer, and evaluation changes into one iteration unless the task is explicitly an integration checkpoint.
 - If using test-time training, sliding windows, longer context, or document resets, log exactly what state changes during evaluation and exactly what resets between documents.
 - Keep `document-reset TTT` separate from `cross-document dynamic evaluation`. They are different lanes and must not be reported as one result.
+- If a short-run ranking and a medium-horizon ranking disagree, trust the medium-horizon result until a longer confirmatory run says otherwise.
 - If a run cannot produce a reproducible full file snapshot, it is not ready for `leaderboard.md`.
 
 ### 7. Required Experiment Lanes
