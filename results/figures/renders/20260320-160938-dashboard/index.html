@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telemetry Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2eadf;
+      --panel: #fff8ef;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --accent: #115e59;
+      --accent-2: #b45309;
+      --stroke: #d7c8b6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", serif;
+      background:
+        radial-gradient(circle at top left, rgba(17,94,89,0.15), transparent 35%),
+        radial-gradient(circle at top right, rgba(180,83,9,0.18), transparent 30%),
+        var(--bg);
+      color: var(--ink);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    h1, h2 { margin: 0 0 14px; }
+    p { line-height: 1.5; }
+    .hero {
+      background: rgba(255,248,239,0.82);
+      border: 1px solid var(--stroke);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(14px);
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
+      padding: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--stroke);
+      vertical-align: top;
+    }
+    .muted { color: var(--muted); }
+    svg { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Telemetry Dashboard</h1>
+      <p class="muted">Generated at 2026-03-20T16:09:38Z. All charts are built from append-only JSONL telemetry.</p>
+      <div class="summary">
+        <article class="card"><h2>8</h2><p class="muted">Registered runs</p></article>
+        <article class="card"><h2>123</h2><p class="muted">Metric observations</p></article>
+        <article class="card"><h2>11</h2><p class="muted">Cross-artifact links</p></article>
+      </div>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <h2>Best val_bpb Over Time</h2>
+        <svg viewBox="0 0 700 260" role="img" aria-label="best val_bpb over time"><rect x="0" y="0" width="700" height="260" fill="#f7f2e8" rx="18"/><line x1="28" y1="232" x2="672" y2="232" stroke="#6b5c4c" stroke-width="2"/><line x1="28" y1="28" x2="28" y2="232" stroke="#6b5c4c" stroke-width="2"/><polyline fill="none" stroke="#115e59" stroke-width="4" points="28.0,232.0 86.5,232.0 145.1,232.0 203.6,232.0 262.2,232.0 320.7,232.0 379.3,232.0 437.8,232.0 496.4,232.0 554.9,232.0 613.5,232.0 672.0,232.0"/></svg>
+      </article>
+      <article class="card">
+        <h2>Run Count By Lane</h2>
+        <svg viewBox="0 0 700 260" role="img" aria-label="run count by lane"><rect x="0" y="0" width="700" height="260" fill="#f7f2e8" rx="18"/><line x1="28" y1="212" x2="672" y2="212" stroke="#6b5c4c" stroke-width="2"/><rect x="28" y="38.0" width="196" height="174.0" fill="#b45309" rx="10"/><rect x="242" y="125.0" width="196" height="87.0" fill="#b45309" rx="10"/><rect x="456" y="125.0" width="196" height="87.0" fill="#b45309" rx="10"/><text x="126.0" y="232" text-anchor="middle" fill="#3f2d1f" font-size="12">baselines</text><text x="126.0" y="32.0" text-anchor="middle" fill="#3f2d1f" font-size="12">4</text><text x="340.0" y="232" text-anchor="middle" fill="#3f2d1f" font-size="12">evaluation</text><text x="340.0" y="119.0" text-anchor="middle" fill="#3f2d1f" font-size="12">2</text><text x="554.0" y="232" text-anchor="middle" fill="#3f2d1f" font-size="12">infrastructure</text><text x="554.0" y="119.0" text-anchor="middle" fill="#3f2d1f" font-size="12">2</text></svg>
+      </article>
+    </section>
+    <section class="card" style="margin-top: 18px;">
+      <h2>Recent Runs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Run ID</th>
+            <th>Lane</th>
+            <th>Horizon</th>
+            <th>Label</th>
+            <th>Best val_bpb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>20260320-160758-evaluation-sliding-window-accounting-proxy-1m</td><td>evaluation</td><td>proxy</td><td>sliding-window-accounting-proxy-1m</td><td>2.0232809</td></tr><tr><td>20260320-160536-evaluation-sliding-window-accounting</td><td>evaluation</td><td>confirmatory</td><td>sliding-window-accounting</td><td></td></tr><tr><td>20260319-213359-baselines-baseline-confirmatory</td><td>baselines</td><td>confirmatory</td><td>baseline confirmatory</td><td>2.0087</td></tr><tr><td>20260319-161653-baselines-baseline-proxy</td><td>baselines</td><td>proxy</td><td>baseline proxy</td><td>2.1827</td></tr><tr><td>20260319-155403-baselines-baseline-smoke</td><td>baselines</td><td>smoke</td><td>baseline smoke</td><td>2.409</td></tr><tr><td>20260319-154032-baselines-baseline-smoke</td><td>baselines</td><td>smoke</td><td>baseline smoke</td><td>2.4062</td></tr><tr><td>20260319-152013-infrastructure-runner-smoke</td><td>infrastructure</td><td>smoke</td><td>runner smoke</td><td>1.21</td></tr><tr><td>20260319-infrastructure-telemetry-dashboard-smoke</td><td>infrastructure</td><td>smoke</td><td>telemetry dashboard smoke</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

@@ -111,3 +111,10 @@
 - Decision: choose `evaluation` as the first post-baseline lane, and start with `eval-sliding-window-context-accounting` rather than document-isolated eval or TTT.
 - Rationale: sliding-window accounting has the strongest public support and is the smallest implementable experiment on the current local cache. The current cache does not include `docs_selected.jsonl`, so leading with document-isolated eval would bundle metric logic with new data plumbing and violate the repo's atomicity preference.
 - Impact: the immediate follow-up is `parametergolf-2r3`, a flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`. Document isolation stays next in line once the docs cache is materialized or the flat-stream harness is trusted.
+
+## [2026-03-20T16:08:00Z] DECISION: Treat full flat-stream sliding-window evaluation as a separate confirmatory budget, not the first local iteration
+
+- Trigger: the first attempted full-val flat-stream sliding-window accounting run (`20260320-160536-evaluation-sliding-window-accounting`) revealed that the cached validation stream contains `62,021,632` targets after trimming, so stride-`64` evaluation would require `969,073` windows and `60,568` local batches at `window_batch_seqs=16`.
+- Decision: stop the unintended full-val run, preserve the harness plus a bounded `1,048,576`-target proxy result under `parametergolf-2r3`, and open a separate confirmatory follow-up issue (`parametergolf-8o4`) for the larger-budget check.
+- Rationale: letting the first local evaluation iteration silently expand into a surprise multi-order-of-magnitude budget jump would violate the repo's smallest-experiment discipline and blur the meaning of the first preserved result.
+- Impact: the repo now treats the bounded prefix run as the first preserved evaluation proxy, and any promotion discussion for sliding-window accounting requires an explicitly budgeted confirmatory step.

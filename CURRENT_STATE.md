@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: after the lane-selection task landed, the next ready tasks are `parametergolf-2r3` and `parametergolf-2km`.
+- `known`: after the first preserved post-baseline evaluation proxy landed, the next ready tasks are `parametergolf-8o4` and `parametergolf-2km`.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -43,8 +43,13 @@
 - `known`: the confirmatory baseline artifact is `results/baselines/20260320-local-baseline-confirmatory-1000.md`.
 - `known`: the first promoted model iteration is `baseline-sp1024-mlx-confirmed-s1`, registered in `leaderboard.md`, archived under `iterations/archive/`, and mirrored into `iterations/golden/`.
 - `known`: the first post-baseline lane-selection artifact is `results/evaluation/20260320-post-baseline-lane-selection.md`.
-- `known`: the first planned post-baseline execution step is `parametergolf-2r3`, which will run a flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
+- `known`: `parametergolf-2r3` is now closed after the standalone flat-stream sliding-window harness landed and the first preserved proxy comparison was recorded against `baseline-sp1024-mlx-confirmed-s1`.
 - `observed`: the current local cache does not yet include `data/docs_selected.jsonl`, so document-isolated evaluation would currently require extra data plumbing beyond a pure evaluation-accounting change.
+- `known`: `scripts/eval_mlx_checkpoint.py`, `validation/eval_windowing.py`, and `tests/test_eval_windowing.py` now provide a standalone MLX path for loading the promoted baseline checkpoint and comparing flat-stream evaluation-accounting modes without retraining.
+- `observed`: the cached flat validation stream is much larger than the initial local estimate: `62,021,632` targets after `seq_len=1024` trimming, so a full local stride-`64` confirmatory pass is a materially larger budget than the first evaluation iteration should absorb by surprise.
+- `known`: the first preserved post-baseline evaluation result is `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md`.
+- `observed`: on the first `1,048,576` validation targets, stride-`64` flat-stream sliding-window accounting improved the promoted baseline checkpoint from `val_bpb=2.02717341` to `val_bpb=2.02328090`, a `0.00389251` BPB proxy gain with no artifact-size change.
+- `known`: the unintended full-val confirmatory attempt `20260320-160536-evaluation-sliding-window-accounting` was stopped intentionally once the true local batch budget became obvious; the follow-up issue for a larger-budget confirmatory check is `parametergolf-8o4`.
 - `known`: populated dashboard renders already exist at `results/figures/renders/20260319-163500-dashboard/index.html` and `results/figures/renders/20260319-152021-dashboard/index.html`.
 - `observed`: because render directories are append-only history, use `results/telemetry/render_registry.jsonl` append order as the source of truth rather than lexicographic path ordering.
 - `known`: the retained arXiv state now records local PDF/text paths for all retained papers.
@@ -57,7 +62,7 @@
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-2r3`: build and run the flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
+1. Resolve `parametergolf-8o4`: run a larger-budget confirmatory flat-stream sliding-window accounting check now that the local budget mismatch is explicit.
 2. Resolve `parametergolf-2km`: bound `autoresearch` against the now-stable local proxy and confirmed baseline rather than against a moving target.
-3. Materialize docs-cache assets later if `document-isolated` evaluation becomes the next atomic evaluation step.
+3. Decide whether document-isolated evaluation should follow the flat-stream confirmatory check or whether the repo should advance directly to the next high-signal non-eval lane.
 4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

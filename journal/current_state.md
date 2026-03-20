@@ -25,15 +25,19 @@
 - The `1000`-step confirmatory run on isolated shard `000001` also succeeded and now has its own result artifact under `results/baselines/20260320-local-baseline-confirmatory-1000.md`.
 - The repo now has its first promoted baseline iteration, `baseline-sp1024-mlx-confirmed-s1`, mirrored into `iterations/golden/`.
 - The first post-baseline planning pass selected `evaluation` as the next lane and wrote that recommendation to `results/evaluation/20260320-post-baseline-lane-selection.md`.
-- The immediate execution follow-up is `parametergolf-2r3`, a flat-stream sliding-window accounting check against the promoted baseline.
+- The repo now has a standalone MLX checkpoint evaluator plus a tested flat-stream window planner under `scripts/eval_mlx_checkpoint.py` and `validation/eval_windowing.py`.
+- The first preserved post-baseline result is `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md`.
+- On the first `1,048,576` validation targets, stride-`64` flat-stream sliding-window accounting improved the promoted baseline checkpoint from `2.02717341` to `2.02328090` BPB.
+- The first attempt at a full flat-stream confirmatory run was intentionally aborted once the local budget mistake became obvious: the cached validation stream has `62,021,632` targets after trimming, so full stride-`64` evaluation is a separate budgeted step, not an incidental first check.
+- The immediate execution follow-up is `parametergolf-8o4`, a larger-budget confirmatory sliding-window accounting check against the promoted baseline.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No post-baseline single-lane experiment has been run yet.
+- No post-baseline evaluation result has been confirmed at a larger-than-proxy budget yet.
 
 ## Next Delta To Close
 
-1. Resolve `parametergolf-2r3` and run the first flat-stream sliding-window accounting comparison against `baseline-sp1024-mlx-confirmed-s1`.
+1. Resolve `parametergolf-8o4` and run the larger-budget confirmatory sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
 2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
 3. Bound `autoresearch` under `parametergolf-2km` now that the local baseline and proxy reference points are stable.
