@@ -58,6 +58,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
 | Dynamic-eval and TTT review grounded against `researchdocs/dynamiceval.md`, the official README, and PR `#77`/`#85` | evaluation | pass | `results/evaluation/20260319-dynamic-eval-review.md` |
+| Post-baseline lane selection choosing flat-stream sliding-window accounting as the first atomic evaluation experiment | evaluation | planning | `results/evaluation/20260320-post-baseline-lane-selection.md` |
 
 ## Autoresearch
 

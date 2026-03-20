@@ -1,5 +1,5 @@
 {
-  "last_full_scan_at": "2026-03-19T21:34:01Z",
+  "last_full_scan_at": "2026-03-20T15:44:22Z",
   "queries": [
     "\"parameter-golf\" OR \"parameter golf\" OR val_bpb",
     "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
@@ -15,7 +15,14 @@
     "2034642300333412562",
     "2034653901102936293",
     "2034656057616912789",
-    "2034731407021588836"
+    "2034731407021588836",
+    "2034782864664142143",
+    "2034852105861963981",
+    "2034858536468164959",
+    "2034890946588872912",
+    "2034909199835058513",
+    "2034985459655278695",
+    "2035006429736931493"
   ],
   "tweets": {
     "2032017558140834256": {
@@ -98,16 +105,15 @@
       "author_name": "Igor Kotenkov",
       "author_username": "stalkermustang",
       "created_at": "Wed Mar 18 17:06:50 +0000 2026",
-      "first_seen_at": "2026-03-19T21:34:01Z",
+      "first_seen_at": "2026-03-20T15:44:22Z",
       "id": "2034315602618175846",
-      "last_seen_at": "2026-03-19T21:34:01Z",
+      "last_seen_at": "2026-03-20T15:44:22Z",
       "like_count": 46,
       "notes_path": "research/x_snapshots/tweet-2034315602618175846.md",
       "reply_count": 1,
       "retweet_count": 1,
       "signal_score": 3,
       "source_queries": [
-        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
         "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
       ],
       "text": "OpenAI is about to launch \"Parameter Golf\" challenge, $1M in compute grants\n\n> train the best language model that fits in a 16MB artifact and trains in under 10 minutes on 8xH100s, evaluated by compression on the FineWeb validation set (tokenizer-agnostic, bits per byte).\n\nhttps://t.co/4cst5ToEM8\n\ninspired by @karpathy 's NanoGPT speedrunning\n\nThe challenge runs from March 18th to April 30th.\n\nIn June, they plan to hire a small cohort of early-career researchers, targeting current undergraduate students and recent graduates, including Olympiad medalists and elite competitors.",
@@ -137,16 +143,15 @@
       "author_name": "koushik kethamakka",
       "author_username": "koushikkethamak",
       "created_at": "Thu Mar 19 14:45:00 +0000 2026",
-      "first_seen_at": "2026-03-19T21:34:01Z",
+      "first_seen_at": "2026-03-20T15:44:22Z",
       "id": "2034642300333412562",
-      "last_seen_at": "2026-03-19T21:34:01Z",
+      "last_seen_at": "2026-03-20T15:44:22Z",
       "like_count": 0,
       "notes_path": "research/x_snapshots/tweet-2034642300333412562.md",
       "reply_count": 0,
       "retweet_count": 0,
       "signal_score": 6,
       "source_queries": [
-        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
         "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
       ],
       "text": "Day 1 on OpenAI's Parameter Golf challenge. Build the best language model that fits in 16MB, scored by compression on FineWeb. Ran 30 experiments overnight on my MacBook Air. Here's what I found.\n\nCore idea: depth recurrence. Instead of 9 unique transformer layers, use 3 blocks and loop them 3x. Same depth, 1/3 the parameters. Use the freed budget for wider layers. First test beat the baseline\n  immediately.\n\nIterated fast by evaluating on 10% of the validation set. Brought each experiement from 30 min down to 8 min.\n\nThings that didn't work:\n  \u2022 Smear gate + backout from the NanoGPT speedrun, made things worse\n  \u2022 2 unique layers, not enough diversity\n  \u2022 More than 3 recurrences, diminishing returns\n\nThe pivot: wider models looked worse on 1 data shard. Thought something was broken. Turned out they were just data-starved. Scaled to 10 shards and everthing flipped.\n\n  d1024 \u2192 1.996 BPB\n  d896 \u2192 2.010\n  d768 \u2192 2.050\n\nA 5000 step training got down to 1.589 BPB on a MacBook. Leaderboard baseline is 1.224 on 8xH100s. Gap should close with more data and compute.\n\nBuilt an adaptive sweep system that analyzes past results and picks the next config to try. Ran 30 experiements overnight.\n\nNext steps: Winning model compresses to 20MB so need to get it under 16MB. Trying QAT and finding the right size under budget. Then hopefully getting some H100 time.\n\n  #ParameterGolf",
@@ -208,6 +213,142 @@
       ],
       "text": "Hive now adds the Parameter Golf challenge from @OpenAI \n\nJust 12 hours in, val_bpb is already down from 1.26 \u2192 1.19.\n\nPlug in your agents to the Hive mind to accelerate the evolution. \ud83d\udc1d https://t.co/wsENdtx5NV",
       "url": "https://x.com/rllm_project/status/2034731407021588836",
+      "utility": "medium"
+    },
+    "2034782864664142143": {
+      "author_name": "Md Ismail \u0160ojal\uea00 \ud83d\udd77\ufe0f",
+      "author_username": "0x0SojalSec",
+      "created_at": "Fri Mar 20 00:03:34 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034782864664142143",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 17,
+      "notes_path": "research/x_snapshots/tweet-2034782864664142143.md",
+      "reply_count": 1,
+      "retweet_count": 1,
+      "signal_score": 4,
+      "source_queries": [
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "OpenAI Job Challenge for Anyone.\n\na training challenge:\n\n- Fits in 16 MB (weights &amp; code)\n- Trains in 10 min on 8\u00d7H100s\n- Lowest loss on FineWeb wins, validation tokenizer-free bpb\n\n$1M compute credits, live leaderboard, top performers get fast-tracked to interviews in June. \ud83d\ude17 https://t.co/FhycLZUbS3",
+      "url": "https://x.com/0x0SojalSec/status/2034782864664142143",
+      "utility": "medium"
+    },
+    "2034852105861963981": {
+      "author_name": "winning.\ud83d\udc8e\ud83e\udd5c",
+      "author_username": "FarnsworthLLC",
+      "created_at": "Fri Mar 20 04:38:42 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034852105861963981",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 11,
+      "notes_path": "research/x_snapshots/tweet-2034852105861963981.md",
+      "reply_count": 0,
+      "retweet_count": 4,
+      "signal_score": 7,
+      "source_queries": [
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)"
+      ],
+      "text": "Add TTT (Test-Time Training) submission: 1.1767 BPB by timowhite88 \u00b7 Pull Request #152 \u00b7 openai/parameter-golf\n\nhttps://t.co/yKY3g6uFwi",
+      "url": "https://x.com/FarnsworthLLC/status/2034852105861963981",
+      "utility": "high"
+    },
+    "2034858536468164959": {
+      "author_name": "Dex",
+      "author_username": "dexhunt3r",
+      "created_at": "Fri Mar 20 05:04:15 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034858536468164959",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 1,
+      "notes_path": "research/x_snapshots/tweet-2034858536468164959.md",
+      "reply_count": 1,
+      "retweet_count": 0,
+      "signal_score": 3,
+      "source_queries": [
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)"
+      ],
+      "text": "> got my first submission on @openai's parameter golf challenge, val_bpb=1.16019\n> set up a fully autonomous optimization loop insipred by @karpathy autoresearch and utilize the tree-search subagent (AIDE optimizer) from @WecoAI \n> build a monitor skill to fetch the latest PRs and update my md file based on the collective intelligence\n> there is over a month left, many new solutions incoming, the space is heated",
+      "url": "https://x.com/dexhunt3r/status/2034858536468164959",
+      "utility": "medium"
+    },
+    "2034890946588872912": {
+      "author_name": "Julz",
+      "author_username": "jxlz_jwst",
+      "created_at": "Fri Mar 20 07:13:02 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034890946588872912",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2034890946588872912.md",
+      "reply_count": 0,
+      "retweet_count": 0,
+      "signal_score": 6,
+      "source_queries": [
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)"
+      ],
+      "text": "just submitted attempt 2 into @OpenAI's parameter golf challenge\n\nval_bpb: 1.1537 \u2014 top cluster, day 2\n\nBigramHash + SmearGate + mixed int6 + zstd-22. 12 hours of grinding. still not done\n\nCodex tokens go brrr \n\nhttps://t.co/L33KU2cJYk",
+      "url": "https://x.com/jxlz_jwst/status/2034890946588872912",
+      "utility": "medium"
+    },
+    "2034909199835058513": {
+      "author_name": "Frosty40",
+      "author_username": "FrostForger",
+      "created_at": "Fri Mar 20 08:25:34 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034909199835058513",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 0,
+      "notes_path": "research/x_snapshots/tweet-2034909199835058513.md",
+      "reply_count": 0,
+      "retweet_count": 0,
+      "signal_score": 3,
+      "source_queries": [
+        "\"parameter-golf\" OR \"parameter golf\" OR val_bpb"
+      ],
+      "text": "I did it... I hit the evals. 1.1725 = #2 on the boards right now! With the Stinky Frost https://t.co/yASxdMu0AK - Its too early to keep on the leaderboards etc so im going to celebrate my moment. I actually had an awesome time. A huge que of better ones (by other people) are following.",
+      "url": "https://x.com/FrostForger/status/2034909199835058513",
+      "utility": "medium"
+    },
+    "2034985459655278695": {
+      "author_name": "winning.\ud83d\udc8e\ud83e\udd5c",
+      "author_username": "FarnsworthLLC",
+      "created_at": "Fri Mar 20 13:28:36 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2034985459655278695",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 6,
+      "notes_path": "research/x_snapshots/tweet-2034985459655278695.md",
+      "reply_count": 1,
+      "retweet_count": 2,
+      "signal_score": 11,
+      "source_queries": [
+        "\"parameter-golf\" OR \"parameter golf\" OR val_bpb",
+        "(\"parameter-golf\" OR \"parameter golf\") (sliding window OR seq4096 OR tokenizer OR vocab OR int6 OR quantization OR recurrence OR ttt OR \"test-time training\" OR autoresearch)",
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "- Seed 7 completed: val_bpb = 1.1709 (int6+zstd, 6466 steps, 8xH100)\n  - PR #178 updated: https://t.co/2iKLEbwGf2\n    - Added train_seed_7.log\n    - Updated submission.json with 3-seed results\n    - Commented with results table and tagged @0hq\n\n  3-seed mean: 1.16759 BPB",
+      "url": "https://x.com/FarnsworthLLC/status/2034985459655278695",
+      "utility": "high"
+    },
+    "2035006429736931493": {
+      "author_name": "Kshitiz",
+      "author_username": "itsKshitiz36",
+      "created_at": "Fri Mar 20 14:51:56 +0000 2026",
+      "first_seen_at": "2026-03-20T15:44:22Z",
+      "id": "2035006429736931493",
+      "last_seen_at": "2026-03-20T15:44:22Z",
+      "like_count": 1,
+      "notes_path": "research/x_snapshots/tweet-2035006429736931493.md",
+      "reply_count": 0,
+      "retweet_count": 0,
+      "signal_score": 6,
+      "source_queries": [
+        "\"parameter-golf\" OR \"parameter golf\" OR val_bpb",
+        "(fineweb OR val_bpb) (\"bits per byte\" OR bpb OR quantization OR tokenizer OR recurrence)"
+      ],
+      "text": "final numbers:\n\u2022val_bpb: 1.17528 \u2705\n\u2022artifact: 14.67MB (under 16MB) \u2705\n\u2022official merged record: 1.1748\n\u2022my tokenizer: sp4096 (4\u00d7 harder than everyone else)\nbeats the leaderboard. on hard mode.",
+      "url": "https://x.com/itsKshitiz36/status/2035006429736931493",
       "utility": "medium"
     }
   }

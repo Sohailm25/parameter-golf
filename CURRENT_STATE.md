@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: after `parametergolf-75u`, the next ready tasks are `parametergolf-7b2` and `parametergolf-2km`.
+- `known`: after the lane-selection task landed, the next ready tasks are `parametergolf-2r3` and `parametergolf-2km`.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -20,7 +20,7 @@
 - `observed`: some open PRs report extremely strong scores that rely on validation-set training or related evaluation-side behavior; issue `#67` confirms that this is already a live community concern, so those approaches are relevant to the open-rules landscape but not safe to treat as the default spirit-first lane.
 - `observed`: tokenizer accounting is strategically important partly because issue `#43` notes that tokenizer artifacts are not currently counted toward submission size.
 - `observed`: PR `#77` makes the current public TTT picture clearer: document isolation and sliding-window scoring account for most of the visible gain, while reset-per-document TTT is real but smaller and should be tested as a distinct lane.
-- `observed`: newer PRs through `#131` keep reinforcing the same live frontier: sliding-window evaluation, longer context, selective precision, recurrence variants, and better local sweep tooling still matter enough that the PR-intelligence loop is already paying for itself.
+- `observed`: newer PRs through `#224` keep reinforcing the same live frontier: sliding-window evaluation, longer context, selective precision, recurrence variants, and better local sweep tooling still matter enough that the PR-intelligence loop is already paying for itself.
 - `observed`: Vuk Rosic's public `BPB@500` warning is useful as a methodology caution against over-reading `50-step` or `5s` wins, but it is not strong enough evidence to treat `500` steps as a universal truth across lanes.
 - `inferred`: the strongest early local research path is not to jump straight into ternary QAT or heroic recurrence stacks. It is to establish a trustworthy baseline workflow, short-run optimizer and schedule probes, evaluation-window accounting, and a robust iteration archive first.
 - `known`: `leaderboard.md` plus `iterations/archive/` is the required promotion path for any meaningful script revision in this repo.
@@ -42,6 +42,9 @@
 - `known`: the confirmatory task `parametergolf-75u` is now closed; run `20260319-213359-baselines-baseline-confirmatory` completed on isolated shard `000001`, reached `step:1000/1000 val_bpb=2.0087`, finished the quantized roundtrip at `val_bpb=2.00936634`, produced a `13642279`-byte int8 artifact, and rendered `results/figures/renders/20260320-024538-dashboard/index.html`.
 - `known`: the confirmatory baseline artifact is `results/baselines/20260320-local-baseline-confirmatory-1000.md`.
 - `known`: the first promoted model iteration is `baseline-sp1024-mlx-confirmed-s1`, registered in `leaderboard.md`, archived under `iterations/archive/`, and mirrored into `iterations/golden/`.
+- `known`: the first post-baseline lane-selection artifact is `results/evaluation/20260320-post-baseline-lane-selection.md`.
+- `known`: the first planned post-baseline execution step is `parametergolf-2r3`, which will run a flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
+- `observed`: the current local cache does not yet include `data/docs_selected.jsonl`, so document-isolated evaluation would currently require extra data plumbing beyond a pure evaluation-accounting change.
 - `known`: populated dashboard renders already exist at `results/figures/renders/20260319-163500-dashboard/index.html` and `results/figures/renders/20260319-152021-dashboard/index.html`.
 - `observed`: because render directories are append-only history, use `results/telemetry/render_registry.jsonl` append order as the source of truth rather than lexicographic path ordering.
 - `known`: the retained arXiv state now records local PDF/text paths for all retained papers.
@@ -49,12 +52,12 @@
 - `known`: the current deduped backlog includes ten candidate lanes, now with `eval-document-reset-ttt` split out from pure document-isolated sliding-window accounting.
 - `known`: the experiment stack now has three horizons: smoke/elimination, medium-horizon proxy, and confirmatory.
 - `known`: the current golden set now mirrors `baseline-sp1024-mlx-confirmed-s1` as the best-known integrated candidate.
-- `unknown`: whether the first serious submission lane should center on evaluation accounting, document-reset TTT, tokenizer/vocab, or mixed quantization after the baseline lands.
+- `known`: the first serious post-baseline lane should start with evaluation accounting, specifically flat-stream sliding-window comparison before document isolation or TTT.
 - `unknown`: whether `autoresearch` should operate against a local proxy harness inside this repo or against a lightweight fork of the official challenge code in a separate sibling workspace.
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-7b2`: choose the first high-signal lane after the baseline path is frozen, likely starting with evaluation accounting, document-reset TTT, tokenizer scaling, or selective precision.
+1. Resolve `parametergolf-2r3`: build and run the flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
 2. Resolve `parametergolf-2km`: bound `autoresearch` against the now-stable local proxy and confirmed baseline rather than against a moving target.
-3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.
-4. Continue using `scripts/experiment_runner.py promote` so `run -> iteration -> result artifact` lineage stays intact for post-baseline lanes.
+3. Materialize docs-cache assets later if `document-isolated` evaluation becomes the next atomic evaluation step.
+4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

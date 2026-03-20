@@ -357,3 +357,32 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `34`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-024538-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-20T10:43:46-0500] PRE-RUN: post-baseline lane-selection intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "post-baseline lane selection"`
+- Device: `cpu`
+- Lane: `evaluation`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: N/A
+- What I'm testing: refresh the official PR, X, and arXiv state before choosing the first post-baseline experiment lane.
+- Expected outcome: current frontier state is recorded explicitly, including `no new PRs` if the frontier has not moved since the baseline promotion.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "post-baseline lane selection"`
+- Main confound to watch: the newest public PRs may be noisy or heavily open-rules-biased, so the selection still has to respect the repo's `spirit-first` default.
+- Implementation verified: YES - the hook stack and current baseline state were checked before launch.
+- Status: LAUNCHING
+
+## [2026-03-20T10:44:24-0500] POST-RUN: post-baseline lane-selection intelligence pass
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "post-baseline lane selection"`
+- Outcome: SUCCESS
+- Key metric: official PR review advanced from `#131` through `#224`, while the candidate backlog still concentrated most strongly around sliding-window evaluation accounting
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: the current local cache still lacks `docs_selected.jsonl`, so document-isolated evaluation is not the cleanest first atomic step without extra data plumbing
+- Next step: lock the first post-baseline lane and create the execution follow-up issue

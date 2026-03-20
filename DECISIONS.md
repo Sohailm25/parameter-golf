@@ -104,3 +104,10 @@
 - Decision: register the run as iteration `baseline-sp1024-mlx-confirmed-s1` and mirror it into `iterations/golden/` as the current best-known candidate.
 - Rationale: the repo now has the minimum evidence required by the prereg for a baseline promotion: a frozen workflow, a medium-horizon proxy, and a stronger confirmatory split on a distinct local train shard.
 - Impact: the repo is no longer in a pre-promotion baseline state; post-baseline work should now compare new lanes against this promoted candidate rather than against only the smoke or proxy artifacts.
+
+## [2026-03-20T10:45:00-0500] DECISION: Start Phase 2 with flat-stream sliding-window evaluation accounting
+
+- Trigger: `parametergolf-7b2` required choosing the first post-baseline lane after the promoted baseline landed, and the refreshed frontier through PR `#224` still weighted evaluation most heavily.
+- Decision: choose `evaluation` as the first post-baseline lane, and start with `eval-sliding-window-context-accounting` rather than document-isolated eval or TTT.
+- Rationale: sliding-window accounting has the strongest public support and is the smallest implementable experiment on the current local cache. The current cache does not include `docs_selected.jsonl`, so leading with document-isolated eval would bundle metric logic with new data plumbing and violate the repo's atomicity preference.
+- Impact: the immediate follow-up is `parametergolf-2r3`, a flat-stream sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`. Document isolation stays next in line once the docs cache is materialized or the flat-stream harness is trusted.

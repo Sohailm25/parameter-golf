@@ -24,14 +24,16 @@
 - The first `500`-step proxy also succeeded and now has its own result artifact under `results/baselines/20260319-local-baseline-proxy-500.md`.
 - The `1000`-step confirmatory run on isolated shard `000001` also succeeded and now has its own result artifact under `results/baselines/20260320-local-baseline-confirmatory-1000.md`.
 - The repo now has its first promoted baseline iteration, `baseline-sp1024-mlx-confirmed-s1`, mirrored into `iterations/golden/`.
+- The first post-baseline planning pass selected `evaluation` as the next lane and wrote that recommendation to `results/evaluation/20260320-post-baseline-lane-selection.md`.
+- The immediate execution follow-up is `parametergolf-2r3`, a flat-stream sliding-window accounting check against the promoted baseline.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No post-baseline single-lane experiment has been promoted yet.
+- No post-baseline single-lane experiment has been run yet.
 
 ## Next Delta To Close
 
-1. Resolve `parametergolf-7b2` and pick the first atomic post-baseline lane.
-2. Run the first real post-baseline smoke/proxy loop against `baseline-sp1024-mlx-confirmed-s1`.
+1. Resolve `parametergolf-2r3` and run the first flat-stream sliding-window accounting comparison against `baseline-sp1024-mlx-confirmed-s1`.
+2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
 3. Bound `autoresearch` under `parametergolf-2km` now that the local baseline and proxy reference points are stable.
