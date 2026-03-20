@@ -61,6 +61,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Post-baseline lane selection choosing flat-stream sliding-window accounting as the first atomic evaluation experiment | evaluation | planning | `results/evaluation/20260320-post-baseline-lane-selection.md` |
 | First flat-stream sliding-window accounting proxy on `baseline-sp1024-mlx-confirmed-s1`, including the aborted full-val budget mistake and the bounded `1,048,576`-target comparison | evaluation | partial | `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md` |
 
+| apply flat-stream stride-64 sliding-window accounting on a 16,777,216-target confirmatory prefix | evaluation | pass | `results/evaluation/20260320-flat-stream-sliding-window-confirmatory-16m.md` |
 ## Autoresearch
 
 | Artifact | Lane | Status | Path |

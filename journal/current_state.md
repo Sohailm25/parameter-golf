@@ -29,15 +29,16 @@
 - The first preserved post-baseline result is `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md`.
 - On the first `1,048,576` validation targets, stride-`64` flat-stream sliding-window accounting improved the promoted baseline checkpoint from `2.02717341` to `2.02328090` BPB.
 - The first attempt at a full flat-stream confirmatory run was intentionally aborted once the local budget mistake became obvious: the cached validation stream has `62,021,632` targets after trimming, so full stride-`64` evaluation is a separate budgeted step, not an incidental first check.
-- The immediate execution follow-up is `parametergolf-8o4`, a larger-budget confirmatory sliding-window accounting check against the promoted baseline.
+- The larger-budget confirmatory follow-up `parametergolf-8o4` is now closed after a `16,777,216`-target prefix preserved the same stride-`64` gain and promoted evaluation iteration `eval-flat-sw64-confirmed-16m`.
+- The promoted evaluation iteration is archived, but the conservative golden baseline remains `baseline-sp1024-mlx-confirmed-s1`.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No post-baseline evaluation result has been confirmed at a larger-than-proxy budget yet.
+- No post-baseline document-isolated or full-cache evaluation result has been confirmed yet.
 
 ## Next Delta To Close
 
-1. Resolve `parametergolf-8o4` and run the larger-budget confirmatory sliding-window accounting check against `baseline-sp1024-mlx-confirmed-s1`.
+1. Bound `autoresearch` under `parametergolf-2km` now that the local baseline, proxy, and evaluation reference points are stable.
 2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
-3. Bound `autoresearch` under `parametergolf-2km` now that the local baseline and proxy reference points are stable.
+3. Decide whether a full-cache flat-stream run is still necessary before moving to the next lane.

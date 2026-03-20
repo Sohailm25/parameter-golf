@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: after the first preserved post-baseline evaluation proxy landed, the next ready tasks are `parametergolf-8o4` and `parametergolf-2km`.
+- `known`: after the flat-stream sliding-window confirmatory pass landed, the next ready task is `parametergolf-2km`.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -49,7 +49,9 @@
 - `observed`: the cached flat validation stream is much larger than the initial local estimate: `62,021,632` targets after `seq_len=1024` trimming, so a full local stride-`64` confirmatory pass is a materially larger budget than the first evaluation iteration should absorb by surprise.
 - `known`: the first preserved post-baseline evaluation result is `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md`.
 - `observed`: on the first `1,048,576` validation targets, stride-`64` flat-stream sliding-window accounting improved the promoted baseline checkpoint from `val_bpb=2.02717341` to `val_bpb=2.02328090`, a `0.00389251` BPB proxy gain with no artifact-size change.
-- `known`: the unintended full-val confirmatory attempt `20260320-160536-evaluation-sliding-window-accounting` was stopped intentionally once the true local batch budget became obvious; the follow-up issue for a larger-budget confirmatory check is `parametergolf-8o4`.
+- `known`: the unintended full-val confirmatory attempt `20260320-160536-evaluation-sliding-window-accounting` was stopped intentionally once the true local batch budget became obvious.
+- `known`: `parametergolf-8o4` is now closed after a larger-budget confirmatory prefix run (`16,777,216` targets) preserved almost exactly the same stride-`64` gain, improving `val_bpb` from `2.02398643` to `2.02013120`.
+- `known`: the evaluation result is now promoted as iteration `eval-flat-sw64-confirmed-16m`, archived under `iterations/archive/`, and registered in `leaderboard.md` without changing the conservative golden baseline.
 - `known`: populated dashboard renders already exist at `results/figures/renders/20260319-163500-dashboard/index.html` and `results/figures/renders/20260319-152021-dashboard/index.html`.
 - `observed`: because render directories are append-only history, use `results/telemetry/render_registry.jsonl` append order as the source of truth rather than lexicographic path ordering.
 - `known`: the retained arXiv state now records local PDF/text paths for all retained papers.
@@ -62,7 +64,6 @@
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-8o4`: run a larger-budget confirmatory flat-stream sliding-window accounting check now that the local budget mismatch is explicit.
-2. Resolve `parametergolf-2km`: bound `autoresearch` against the now-stable local proxy and confirmed baseline rather than against a moving target.
-3. Decide whether document-isolated evaluation should follow the flat-stream confirmatory check or whether the repo should advance directly to the next high-signal non-eval lane.
-4. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.
+1. Resolve `parametergolf-2km`: bound `autoresearch` against the now-stable local proxy, confirmed baseline, and promoted evaluation iteration rather than against a moving target.
+2. Decide whether document-isolated evaluation should follow the flat-stream confirmatory check or whether the repo should advance directly to the next high-signal non-eval lane.
+3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

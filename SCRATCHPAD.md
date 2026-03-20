@@ -441,3 +441,69 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `6`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-160938-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-20T16:18:00Z] PRE-RUN: sliding-window confirmatory intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "sliding window confirmatory"`
+- Device: `cpu`
+- Lane: `evaluation`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: `parametergolf-8o4`
+- What I'm testing: refresh the official and public signal state immediately before budgeting the larger-budget sliding-window confirmatory run.
+- Expected outcome: the repo records either fresh sliding-window signal or an explicit `no new PRs` style result before the new run launches.
+- Checkpoint path: `logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz`
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "sliding window confirmatory"`
+- Main confound to watch: do not let new public signal silently turn this task into document-isolated eval, TTT, or an open-rules lane bundle.
+- Implementation verified: YES - the hook stack ran successfully in the immediately prior evaluation sessions.
+- Status: LAUNCHING
+
+## [2026-03-20T16:18:42Z] POST-RUN: sliding-window confirmatory intelligence pass
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "sliding window confirmatory"`
+- Outcome: SUCCESS
+- Key metric: no lane-changing public signal surfaced; the official review only flagged re-review for `#223`, and the highest-signal X/arXiv frontier still pointed at sliding-window evaluation rather than a new first-priority lane
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: `logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz`
+- Anomalies: none beyond the already-known flat-stream budget mismatch from the prior session
+- Next step: launch the larger-budget confirmatory flat-stream sliding-window accounting check under tmux
+
+## [2026-03-20T16:19:00Z] PRE-RUN: sliding-window-accounting-confirmatory-16m
+- tmux session: `pg-swconfirm-8o4`
+- Script: `scripts/experiment_runner.py launch`
+- Command: `.venv/bin/python scripts/experiment_runner.py launch --lane evaluation --label sliding-window-accounting-confirmatory-16m --issue-id parametergolf-8o4 --topic "sliding window confirmatory" --script-path scripts/eval_mlx_checkpoint.py --script-arg=--checkpoint-path --script-arg=logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz --script-arg=--stride --script-arg=1024 --script-arg=--stride --script-arg=64 --script-arg=--window-batch-seqs --script-arg=16 --script-arg=--max-targets --script-arg=16777216 --device local-m4 --horizon confirmatory --phase pre --notes "Larger-budget confirmatory prefix comparison for flat-stream non-overlap vs stride-64 sliding-window accounting on baseline-sp1024-mlx-confirmed-s1." --skip-review`
+- Device: `local-m4`
+- Lane: `evaluation`
+- Data slice: flat validation prefix, `16,777,216` targets
+- Output path: `logs/20260320-1619xx-evaluation-sliding-window-accounting-confirmatory-16m.txt`
+- Iteration target: `parametergolf-8o4`
+- What I'm testing: whether the positive 1M sliding-window proxy still holds on a much larger flat validation prefix large enough to count as a real confirmatory gate for this repo.
+- Expected outcome: either the stride-64 gain persists materially on a 16x larger target budget, or the repo learns that the 1M proxy was too optimistic.
+- Checkpoint path: `logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz`
+- Checkpoint cadence: N/A
+- Log path: `logs/20260320-1619xx-evaluation-sliding-window-accounting-confirmatory-16m.txt`
+- Resume command: `tmux attach -t pg-swconfirm-8o4`
+- Main confound to watch: the run must remain flat-stream only; no document isolation, no TTT, no lane bundling, and no accidental interpretation as a model improvement.
+- Implementation verified: YES - the evaluator already reproduced the non-overlapping path and showed a positive 1M proxy.
+- Status: LAUNCHING
+
+## [2026-03-20T16:20:16Z] PRE-RUN: sliding-window-accounting-confirmatory-16m
+- Command: `RUN_ID=20260320-162016-evaluation-sliding-window-accounting-confirmatory-16m /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/scripts/eval_mlx_checkpoint.py --checkpoint-path logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz --stride 1024 --stride 64 --window-batch-seqs 16 --max-targets 16777216`
+- Device: `local-m4`
+- Lane: `evaluation`
+- Issue: `parametergolf-8o4`
+- Horizon: `confirmatory`
+- Topic: `sliding window confirmatory`
+- Log path: `logs/20260320-162016-evaluation-sliding-window-accounting-confirmatory-16m.txt`
+- What I'm testing: Larger-budget confirmatory prefix comparison for flat-stream non-overlap vs stride-64 sliding-window accounting on baseline-sp1024-mlx-confirmed-s1.
+
+## [2026-03-20T16:51:54Z] POST-RUN: sliding-window-accounting-confirmatory-16m
+- Run ID: `20260320-162016-evaluation-sliding-window-accounting-confirmatory-16m`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260320-162016-evaluation-sliding-window-accounting-confirmatory-16m.txt`
+- Metric rows ingested: `6`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-165154-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
