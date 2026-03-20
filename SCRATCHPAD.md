@@ -507,3 +507,32 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `6`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-165154-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-20T17:00:00Z] PRE-RUN: autoresearch boundary intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "bounded local sweeps"`
+- Device: `cpu`
+- Lane: `autoresearch`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: `parametergolf-2km`
+- What I'm testing: refresh the official and public tooling signal before defining the local autoresearch contract for this repo.
+- Expected outcome: capture any new autoresearch-related PR/X/arXiv signal explicitly so the repo contract is based on current evidence, not stale notes.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "bounded local sweeps"`
+- Main confound to watch: do not let public success stories around autoresearch or AIDE blur the repo's rule that local sweep tooling is a bounded multiplier, not the strategy owner.
+- Implementation verified: YES - the hook stack is already stable on this machine.
+- Status: LAUNCHING
+
+## [2026-03-20T18:13:48Z] POST-RUN: autoresearch boundary intelligence pass
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "bounded local sweeps"`
+- Outcome: SUCCESS
+- Key metric: official PR review advanced through new PRs `#226-#244`, including autoresearch reliability PR `#234`
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: the autoresearch-themed arXiv query still returned broad hyperparameter-search papers rather than repo-specific tooling guidance
+- Next step: freeze the in-repo target-file and promotion contract before launching any bounded autoresearch batch

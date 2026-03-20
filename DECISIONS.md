@@ -125,3 +125,10 @@
 - Decision: promote the result as evaluation iteration `eval-flat-sw64-confirmed-16m`, but do not mirror it into `iterations/golden/`.
 - Rationale: the result is now strong enough to count as a real repo iteration rather than a tiny-prefix curiosity, but it is still an evaluation-only prefix confirmation rather than a full submission-style validation path. The repo should keep the golden candidate conservative until a fuller integrated evaluation path is locked down.
 - Impact: `leaderboard.md` now records the evaluation improvement with `baseline-sp1024-mlx-confirmed-s1` as parent, and future work can compare against an archived evaluation iteration without pretending the model itself changed.
+
+## [2026-03-20T13:25:00-0500] DECISION: Keep `autoresearch` in-repo and force it through the normal promotion spine
+
+- Trigger: `parametergolf-2km` required deciding whether `karpathy/autoresearch` should run against the repo's now-stable local proxy inside this workspace or against a looser sibling setup.
+- Decision: keep `autoresearch` as an in-repo sidecar search loop. The first bounded phase is `optimizer_sweeps` only, with `train_gpt_mlx.py` as the sole mutable file and one optimizer/schedule subspace per batch. Any candidate that looks good must be rerun through `scripts/experiment_runner.py launch` and can only reach `leaderboard.md` through the normal audit and promotion path in the substantive lane.
+- Rationale: the repo already has the controls that keep search honest: append-only telemetry, issue discipline, immutable snapshots, scratchpad logging, and explicit lane labeling. A sibling workspace would weaken lineage and make multi-file drift too easy to hide inside overnight search.
+- Impact: the `autoresearch` lane now has a concrete contract, a preserved planning artifact under `results/autoresearch/`, and a first execution follow-up issue `parametergolf-gci`.

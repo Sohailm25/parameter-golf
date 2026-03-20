@@ -1,6 +1,6 @@
 {
   "last_drained_queries": [],
-  "last_full_scan_at": "2026-03-20T16:18:42Z",
+  "last_full_scan_at": "2026-03-20T18:13:48Z",
   "papers": {
     "1904.08378v1": {
       "arxiv_id": "1904.08378v1",
@@ -29,6 +29,30 @@
       "title": "Dynamic Evaluation of Transformer Language Models",
       "updated": "2019-04-17T17:26:01Z",
       "url": "https://arxiv.org/abs/1904.08378v1"
+    },
+    "2007.15745v3": {
+      "arxiv_id": "2007.15745v3",
+      "authors": [
+        "Li Yang",
+        "Abdallah Shami"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "first_seen_at": "2026-03-20T18:13:48Z",
+      "last_seen_at": "2026-03-20T18:13:48Z",
+      "notes_path": "research/arxiv_snapshots/2007.15745v3.md",
+      "pdf_path": "background-work/papers/files/arxiv/2007.15745v3.pdf",
+      "published": "2020-07-30T21:11:01Z",
+      "source_queries": [
+        "experiment selection machine learning"
+      ],
+      "summary": "Machine learning algorithms have been used widely in various applications and areas. To fit a machine learning model into different problems, its hyper-parameters must be tuned. Selecting the best hyper-parameter configuration for machine learning models has a direct impact on the model's performance. It often requires deep knowledge of machine learning algorithms and appropriate hyper-parameter optimization techniques. Although several automatic optimization techniques exist, they have different strengths and drawbacks when applied to different types of problems. In this paper, optimizing the hyper-parameters of common machine learning models is studied. We introduce several state-of-the-art optimization techniques and discuss how to apply them to machine learning algorithms. Many available libraries and frameworks developed for hyper-parameter optimization problems are provided, and some open challenges of hyper-parameter optimization research are also discussed in this paper. Moreover, experiments are conducted on benchmark datasets to compare the performance of different optimization methods and provide practical examples of hyper-parameter optimization. This survey paper will help industrial users, data analysts, and researchers to better develop machine learning models by identifying the proper hyper-parameter configurations effectively.",
+      "text_path": "background-work/papers/files/arxiv_text/2007.15745v3.txt",
+      "title": "On Hyperparameter Optimization of Machine Learning Algorithms: Theory and Practice",
+      "updated": "2022-10-05T03:06:52Z",
+      "url": "https://arxiv.org/abs/2007.15745v3"
     },
     "2212.02475v1": {
       "arxiv_id": "2212.02475v1",
@@ -111,6 +135,90 @@
       "updated": "2024-03-03T14:03:48Z",
       "url": "https://arxiv.org/abs/2403.01518v1"
     },
+    "2406.05872v1": {
+      "arxiv_id": "2406.05872v1",
+      "authors": [
+        "Shreyas Basavatia",
+        "Keerthiram Murugesan",
+        "Shivam Ratnakar"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-20T18:13:48Z",
+      "last_seen_at": "2026-03-20T18:13:48Z",
+      "notes_path": "research/arxiv_snapshots/2406.05872v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2406.05872v1.pdf",
+      "published": "2024-06-09T18:07:47Z",
+      "source_queries": [
+        "automatic research agent machine learning experimentation"
+      ],
+      "summary": "Interactive fiction games have emerged as an important application to improve the generalization capabilities of language-based reinforcement learning (RL) agents. Existing environments for interactive fiction games are domain-specific or time-consuming to generate and do not train the RL agents to master a specific set of skills. In this work, we introduce an interactive environment for self-supervised RL, STARLING, for text-based games that bootstraps the text-based RL agents with automatically generated games (based on the seed set of game ideas) to boost the performance and generalization capabilities to reach a goal of the target environment. These games let the agent hone their skills on a predefined set of tasks. We create and test an environment with 100 games, generated using this automated framework that uses large language models (GPT-3) and an interactive fiction game engine (based on Inform7) to provide the user with the ability to generate more games under minimal human supervision. Experimental results based on both the human participants and baseline text-based RL agents reveal that current state-of-the-art text-based RL agents cannot use previously learned skills in new situations at the level humans can. These results enforce STARLING's potential to serve as a sandbox environment for further research in self-supervised text-based RL.",
+      "text_path": "background-work/papers/files/arxiv_text/2406.05872v1.txt",
+      "title": "STARLING: Self-supervised Training of Text-based Reinforcement Learning Agent with Large Language Models",
+      "updated": "2024-06-09T18:07:47Z",
+      "url": "https://arxiv.org/abs/2406.05872v1"
+    },
+    "2411.03731v1": {
+      "arxiv_id": "2411.03731v1",
+      "authors": [
+        "Abdelmajid Essofi",
+        "Ridwan Salahuddeen",
+        "Munachiso Nwadike",
+        "Elnura Zhalieva",
+        "Kun Zhang",
+        "Eric Xing",
+        "Willie Neiswanger",
+        "Qirong Ho"
+      ],
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "first_seen_at": "2026-03-20T18:13:48Z",
+      "last_seen_at": "2026-03-20T18:13:48Z",
+      "notes_path": "research/arxiv_snapshots/2411.03731v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2411.03731v1.pdf",
+      "published": "2024-11-06T07:53:04Z",
+      "source_queries": [
+        "hyperparameter search language model training"
+      ],
+      "summary": "The training or fine-tuning of machine learning, vision, and language models is often implemented as a pipeline: a sequence of stages encompassing data preparation, model training and evaluation. In this paper, we exploit pipeline structures to reduce the cost of hyperparameter tuning for model training/fine-tuning, which is particularly valuable for language models given their high costs in GPU-days. We propose a \"memoization-aware\" Bayesian Optimization (BO) algorithm, EEIPU, that works in tandem with a pipeline caching system, allowing it to evaluate significantly more hyperparameter candidates per GPU-day than other tuning algorithms. The result is better-quality hyperparameters in the same amount of search time, or equivalently, reduced search time to reach the same hyperparameter quality. In our benchmarks on machine learning (model ensembles), vision (convolutional architecture) and language (T5 architecture) pipelines, we compare EEIPU against recent BO algorithms: EEIPU produces an average of $103\\%$ more hyperparameter candidates (within the same budget), and increases the validation metric by an average of $108\\%$ more than other algorithms (where the increase is measured starting from the end of warm-up iterations).",
+      "text_path": "background-work/papers/files/arxiv_text/2411.03731v1.txt",
+      "title": "Reducing Hyperparameter Tuning Costs in ML, Vision and Language Model Training Pipelines via Memoization-Awareness",
+      "updated": "2024-11-06T07:53:04Z",
+      "url": "https://arxiv.org/abs/2411.03731v1"
+    },
+    "2412.00534v1": {
+      "arxiv_id": "2412.00534v1",
+      "authors": [
+        "Yuchen Shi",
+        "Huaxin Pei",
+        "Liang Feng",
+        "Yi Zhang",
+        "Danya Yao"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "first_seen_at": "2026-03-20T18:13:48Z",
+      "last_seen_at": "2026-03-20T18:13:48Z",
+      "notes_path": "research/arxiv_snapshots/2412.00534v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2412.00534v1.pdf",
+      "published": "2024-11-30T16:56:29Z",
+      "source_queries": [
+        "automatic research agent machine learning experimentation"
+      ],
+      "summary": "Agent faults pose a significant threat to the performance of multi-agent reinforcement learning (MARL) algorithms, introducing two key challenges. First, agents often struggle to extract critical information from the chaotic state space created by unexpected faults. Second, transitions recorded before and after faults in the replay buffer affect training unevenly, leading to a sample imbalance problem. To overcome these challenges, this paper enhances the fault tolerance of MARL by combining optimized model architecture with a tailored training data sampling strategy. Specifically, an attention mechanism is incorporated into the actor and critic networks to automatically detect faults and dynamically regulate the attention given to faulty agents. Additionally, a prioritization mechanism is introduced to selectively sample transitions critical to current training needs. To further support research in this area, we design and open-source a highly decoupled code platform for fault-tolerant MARL, aimed at improving the efficiency of studying related problems. Experimental results demonstrate the effectiveness of our method in handling various types of faults, faults occurring in any agent, and faults arising at random times.",
+      "text_path": "background-work/papers/files/arxiv_text/2412.00534v1.txt",
+      "title": "Towards Fault Tolerance in Multi-Agent Reinforcement Learning",
+      "updated": "2024-11-30T16:56:29Z",
+      "url": "https://arxiv.org/abs/2412.00534v1"
+    },
     "2502.07985v2": {
       "arxiv_id": "2502.07985v2",
       "authors": [
@@ -167,6 +275,41 @@
       "title": "Recent Advances in Large Langauge Model Benchmarks against Data Contamination: From Static to Dynamic Evaluation",
       "updated": "2025-09-29T23:26:23Z",
       "url": "https://arxiv.org/abs/2502.17521v2"
+    },
+    "2503.04715v7": {
+      "arxiv_id": "2503.04715v7",
+      "authors": [
+        "Houyi Li",
+        "Wenzhen Zheng",
+        "Qiufeng Wang",
+        "Hanshan Zhang",
+        "Zili Wang",
+        "Shijie Xuyang",
+        "Yuantao Fan",
+        "Zhenyu Ding",
+        "Haoying Wang",
+        "Ning Ding",
+        "Shuigeng Zhou",
+        "Xiangyu Zhang",
+        "Daxin Jiang"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "first_seen_at": "2026-03-20T18:13:48Z",
+      "last_seen_at": "2026-03-20T18:13:48Z",
+      "notes_path": "research/arxiv_snapshots/2503.04715v7.md",
+      "pdf_path": "background-work/papers/files/arxiv/2503.04715v7.pdf",
+      "published": "2025-03-06T18:58:29Z",
+      "source_queries": [
+        "hyperparameter search language model training"
+      ],
+      "summary": "The impressive capabilities of Large Language Models (LLMs) across diverse tasks are now well established, yet their effective deployment necessitates careful hyperparameter optimization. Although existing methods have explored the influence of hyperparameters on model performance, a principled and generalizable framework across model architectures and data recipes remains absent. In this study, we conduct an unprecedented empirical investigation training over 3,700 LLMs from scratch across 100 trillion tokens, consuming nearly one million NVIDIA H800 GPU hours to establish a universal Scaling Law for hyperparameter optimization in LLM Pre-training, called Step Law. We empirically observe that, under fixed model size ($N$) and dataset size ($D$), the hyperparameter landscape exhibits convexity with a broad optimum, substantially reducing the complexity of hyperparameter search. Building on this insight, we formally define and empirically validate the Step Law: The optimal learning rate follows a power-law relationship with $N$ and $D$, while the optimal batch size is primarily influenced by $D$ and remains largely invariant to $N$.Notably, our estimated optima deviate from the global best performance found via exhaustive search by merely 0.094\\% on the test set. To our best known, Step Law is the first that unifies different model shapes and structures, such as Mixture-of-Experts models and dense transformers, as well as establishes optimal hyperparameter scaling laws across diverse data recipes. We contribute a universal, plug-and-play optimal hyperparameter tool for the community, which is expected to advance efficient LLM training at scale. All experimental code, data and checkpoints are publicly available at https://github.com/step-law/steplaw",
+      "text_path": "background-work/papers/files/arxiv_text/2503.04715v7.txt",
+      "title": "Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining",
+      "updated": "2025-08-19T09:45:25Z",
+      "url": "https://arxiv.org/abs/2503.04715v7"
     },
     "2510.00071v2": {
       "arxiv_id": "2510.00071v2",
@@ -259,11 +402,16 @@
   },
   "seen_paper_ids": [
     "1904.08378v1",
+    "2007.15745v3",
     "2212.02475v1",
     "2305.18466v3",
     "2403.01518v1",
+    "2406.05872v1",
+    "2411.03731v1",
+    "2412.00534v1",
     "2502.07985v2",
     "2502.17521v2",
+    "2503.04715v7",
     "2510.00071v2",
     "2512.23675v2",
     "2603.07392v1"

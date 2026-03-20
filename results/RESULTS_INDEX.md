@@ -66,6 +66,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
+| Bounded in-repo contract for using `autoresearch` as a local sweep sidecar without bypassing the repo's launch, audit, and promotion discipline | autoresearch | planning | `results/autoresearch/20260320-bounded-autoresearch-integration.md` |
 
 ## Golden
 

@@ -31,14 +31,18 @@
 - The first attempt at a full flat-stream confirmatory run was intentionally aborted once the local budget mistake became obvious: the cached validation stream has `62,021,632` targets after trimming, so full stride-`64` evaluation is a separate budgeted step, not an incidental first check.
 - The larger-budget confirmatory follow-up `parametergolf-8o4` is now closed after a `16,777,216`-target prefix preserved the same stride-`64` gain and promoted evaluation iteration `eval-flat-sw64-confirmed-16m`.
 - The promoted evaluation iteration is archived, but the conservative golden baseline remains `baseline-sp1024-mlx-confirmed-s1`.
+- `parametergolf-2km` now fixes the repo boundary for `autoresearch`: keep it in-repo as a sidecar search loop, not as a sibling workspace.
+- The first bounded `autoresearch` phase is now defined as an `optimizer_sweeps` batch on `train_gpt_mlx.py`, one optimizer/schedule subspace at a time, against the frozen `500`-step MLX proxy.
+- Any `autoresearch` candidate now has an explicit import path: summarize the batch under `results/autoresearch/`, rerun the best atomic change through `scripts/experiment_runner.py launch`, audit it, and only then consider promotion in the substantive lane.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
+- No bounded `autoresearch` batch has been executed yet.
 - No post-baseline document-isolated or full-cache evaluation result has been confirmed yet.
 
 ## Next Delta To Close
 
-1. Bound `autoresearch` under `parametergolf-2km` now that the local baseline, proxy, and evaluation reference points are stable.
+1. Execute `parametergolf-gci`, the first optimizer-only bounded `autoresearch` proxy batch.
 2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
 3. Decide whether a full-cache flat-stream run is still necessary before moving to the next lane.

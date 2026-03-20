@@ -60,10 +60,13 @@
 - `known`: the experiment stack now has three horizons: smoke/elimination, medium-horizon proxy, and confirmatory.
 - `known`: the current golden set now mirrors `baseline-sp1024-mlx-confirmed-s1` as the best-known integrated candidate.
 - `known`: the first serious post-baseline lane should start with evaluation accounting, specifically flat-stream sliding-window comparison before document isolation or TTT.
-- `unknown`: whether `autoresearch` should operate against a local proxy harness inside this repo or against a lightweight fork of the official challenge code in a separate sibling workspace.
+- `known`: `parametergolf-2km` now resolves the `autoresearch` boundary in favor of an in-repo sidecar search loop, not a sibling workspace.
+- `known`: the first bounded `autoresearch` phase is scoped to `optimizer_sweeps`, with `train_gpt_mlx.py` as the only mutable file and one optimizer/schedule subspace per batch.
+- `known`: `autoresearch` discoveries do not go straight to `leaderboard.md`; they must be rerun through `scripts/experiment_runner.py launch`, audited, and only then promoted through `scripts/experiment_runner.py promote` in the substantive lane.
+- `known`: the promoted evaluation iteration `eval-flat-sw64-confirmed-16m` is now the scoring reference for judging whether a training-path `autoresearch` candidate is worth preserving, even though the first search metric stays the frozen `500`-step training proxy.
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-2km`: bound `autoresearch` against the now-stable local proxy, confirmed baseline, and promoted evaluation iteration rather than against a moving target.
-2. Decide whether document-isolated evaluation should follow the flat-stream confirmatory check or whether the repo should advance directly to the next high-signal non-eval lane.
+1. Resolve `parametergolf-gci`: run the first bounded `autoresearch` optimizer-only proxy batch against the frozen `500`-step MLX baseline path.
+2. Decide whether document-isolated evaluation should follow that bounded `autoresearch` pass or whether the repo should advance directly to the next high-signal non-eval lane.
 3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

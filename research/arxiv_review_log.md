@@ -169,3 +169,14 @@
 - [Test-Time Training on Nearest Neighbors for Large Language Models](https://arxiv.org/abs/2305.18466v3)
 - [Revisiting Dynamic Evaluation: Online Adaptation for Large Language Models](https://arxiv.org/abs/2403.01518v1)
 - [Can Large Language Models Keep Up? Benchmarking Online Adaptation to Continual Knowledge Streams](https://arxiv.org/abs/2603.07392v1)
+
+## 2026-03-20T18:13:48Z arXiv review
+- Lane: `autoresearch`
+- Phase: `pre`
+- Topic: `bounded local sweeps`
+- New paper IDs: `2412.00534v1`, `2406.05872v1`, `2411.03731v1`, `2503.04715v7`, `2007.15745v3`
+- [Towards Fault Tolerance in Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2412.00534v1)
+- [STARLING: Self-supervised Training of Text-based Reinforcement Learning Agent with Large Language Models](https://arxiv.org/abs/2406.05872v1)
+- [Reducing Hyperparameter Tuning Costs in ML, Vision and Language Model Training Pipelines via Memoization-Awareness](https://arxiv.org/abs/2411.03731v1)
+- [Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining](https://arxiv.org/abs/2503.04715v7)
+- [On Hyperparameter Optimization of Machine Learning Algorithms: Theory and Practice](https://arxiv.org/abs/2007.15745v3)
