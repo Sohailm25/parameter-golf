@@ -386,3 +386,58 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Latest checkpoint: none
 - Anomalies: the current local cache still lacks `docs_selected.jsonl`, so document-isolated evaluation is not the cleanest first atomic step without extra data plumbing
 - Next step: lock the first post-baseline lane and create the execution follow-up issue
+
+## [2026-03-20T10:50:00-0500] PRE-RUN: sliding-window accounting intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "sliding window accounting"`
+- Device: `cpu`
+- Lane: `evaluation`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: N/A
+- What I'm testing: refresh the live frontier immediately before implementing the first flat-stream sliding-window accounting harness.
+- Expected outcome: PR, X, and arXiv state either records new signal explicitly or records `no new PRs` before the evaluation work starts.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane evaluation --phase pre --topic "sliding window accounting"`
+- Main confound to watch: the public frontier may still favor mixed eval plus quantization bundles, but this repo still needs the smallest clean eval-only experiment first.
+- Implementation verified: YES - the hook stack was used successfully in the immediately prior session and the repo is starting from the promoted baseline state.
+- Status: LAUNCHING
+
+## [2026-03-20T16:05:36Z] PRE-RUN: sliding-window-accounting
+- Command: `RUN_ID=20260320-160536-evaluation-sliding-window-accounting /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/scripts/eval_mlx_checkpoint.py --checkpoint-path logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz --stride 1024 --stride 64 --window-batch-seqs 16`
+- Device: `local-m4`
+- Lane: `evaluation`
+- Issue: `parametergolf-2r3`
+- Horizon: `confirmatory`
+- Topic: `sliding window accounting`
+- Log path: `logs/20260320-160536-evaluation-sliding-window-accounting.txt`
+- What I'm testing: Compare flat-stream non-overlap vs stride-64 sliding-window accounting on baseline-sp1024-mlx-confirmed-s1.
+
+## [2026-03-20T16:07:45Z] POST-RUN: sliding-window-accounting
+- Run ID: `20260320-160536-evaluation-sliding-window-accounting`
+- Outcome: `ABORTED`
+- Log path: `logs/20260320-160536-evaluation-sliding-window-accounting.txt`
+- Why stopped: the cached flat validation stream turned out to contain `62,021,632` targets after trimming, so stride-`64` evaluation implied `969,073` windows and `60,568` batches at `window_batch_seqs=16`
+- Decision taken: stop the unintended full-val confirmatory attempt and rerun as a bounded proxy before preserving the result
+- Next step: launch `sliding-window-accounting-proxy-1m` and preserve the first proxy artifact if the direction holds
+
+## [2026-03-20T16:07:58Z] PRE-RUN: sliding-window-accounting-proxy-1m
+- Command: `RUN_ID=20260320-160758-evaluation-sliding-window-accounting-proxy-1m /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/scripts/eval_mlx_checkpoint.py --checkpoint-path logs/20260319-213359-baselines-baseline-confirmatory_mlx_model.int8.ptz --stride 1024 --stride 64 --window-batch-seqs 16 --max-targets 1048576`
+- Device: `local-m4`
+- Lane: `evaluation`
+- Issue: `parametergolf-2r3`
+- Horizon: `proxy`
+- Topic: `sliding window accounting`
+- Log path: `logs/20260320-160758-evaluation-sliding-window-accounting-proxy-1m.txt`
+- What I'm testing: Proxy prefix comparison for flat-stream non-overlap vs stride-64 sliding-window accounting on baseline-sp1024-mlx-confirmed-s1 after aborting the unintended full-val confirmatory run.
+
+## [2026-03-20T16:09:38Z] POST-RUN: sliding-window-accounting-proxy-1m
+- Run ID: `20260320-160758-evaluation-sliding-window-accounting-proxy-1m`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260320-160758-evaluation-sliding-window-accounting-proxy-1m.txt`
+- Metric rows ingested: `6`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-160938-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
