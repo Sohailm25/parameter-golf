@@ -291,3 +291,69 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `24`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260319-163215-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-19T16:30:35-0500] PRE-RUN: confirmatory cache extension
+- tmux session: N/A
+- Script: `data/cached_challenge_fineweb.py`
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 2`
+- Device: `cpu`
+- Lane: `baselines`
+- Data slice: `challenge cache extension for confirmatory split`
+- Output path: `data/datasets/fineweb10B_sp1024/`
+- Iteration target: N/A
+- What I'm testing: extend the local cache from one to two train shards so the confirmatory split can use `fineweb_train_000001.bin`.
+- Expected outcome: `fineweb_train_000001.bin` exists locally alongside the current pilot shard and tokenizer assets.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: terminal output only
+- Resume command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 2`
+- Main confound to watch: remote cache/download latency or a manifest mismatch could block the confirmatory split before the actual baseline run starts.
+- Implementation verified: YES - the cached-data layout and `train_gpt_mlx.py` shard-loading behavior were checked first.
+- Status: LAUNCHING
+
+## [2026-03-19T16:32:47-0500] POST-RUN: confirmatory cache extension
+- Command: `.venv/bin/python data/cached_challenge_fineweb.py --variant sp1024 --train-shards 2`
+- Outcome: SUCCESS
+- Key metric: local `sp1024` cache now includes `fineweb_train_000001.bin`, and the isolated confirmatory slice directory is populated with shard `000001` plus the fixed validation shard
+- Artifacts saved: `data/datasets/fineweb10B_sp1024/`, `data/datasets/fineweb10B_sp1024_confirmatory_shard1/`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: none
+- Next step: launch the `1000`-step confirmatory baseline through `scripts/experiment_runner.py launch` inside `tmux`
+
+## [2026-03-19T16:32:47-0500] PRE-RUN: baseline confirmatory
+- tmux session: `baseline-confirmatory-75u`
+- Script: `scripts/experiment_runner.py`
+- Command: `.venv/bin/python scripts/experiment_runner.py launch --lane baselines --label "baseline confirmatory" --issue-id parametergolf-75u --topic "baseline reproduction" --script-path train_gpt_mlx.py --horizon confirmatory --notes "Run the first 1000-step confirmatory baseline on isolated shard 000001 with the frozen local MLX sp1024 workflow." --env DATA_PATH=./data/datasets/fineweb10B_sp1024_confirmatory_shard1 --env TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model --env ITERATIONS=1000 --env TRAIN_BATCH_TOKENS=8192 --env TRAIN_LOG_EVERY=50 --env VAL_BATCH_SIZE=524288 --env VAL_LOSS_EVERY=0`
+- Device: `local-m4`
+- Lane: `baselines`
+- Data slice: `confirmatory split on local shard 000001`
+- Output path: `results/baselines/`
+- Iteration target: N/A
+- What I'm testing: whether the frozen baseline path still holds at confirmatory horizon when the local training slice changes from shard `000000` to shard `000001`.
+- Expected outcome: a successful `1000`-step confirmatory run with parseable final metrics and an artifact still under the challenge size cap.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `logs/<runner-generated-run-id>.txt` and `scratch/confirmatory-launch-75u.stdout`
+- Resume command: `tmux new-session -d -s baseline-confirmatory-75u 'cd /Users/sohailmo/parametergolf && .venv/bin/python scripts/experiment_runner.py launch --lane baselines --label "baseline confirmatory" --issue-id parametergolf-75u --topic "baseline reproduction" --script-path train_gpt_mlx.py --horizon confirmatory --notes "Run the first 1000-step confirmatory baseline on isolated shard 000001 with the frozen local MLX sp1024 workflow." --env DATA_PATH=./data/datasets/fineweb10B_sp1024_confirmatory_shard1 --env TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model --env ITERATIONS=1000 --env TRAIN_BATCH_TOKENS=8192 --env TRAIN_LOG_EVERY=50 --env VAL_BATCH_SIZE=524288 --env VAL_LOSS_EVERY=0 > scratch/confirmatory-launch-75u.stdout 2>&1; printf "\n__EXIT_CODE__=%s\n" $? >> scratch/confirmatory-launch-75u.stdout'`
+- Main confound to watch: the run will still spend most wallclock in the two full validation passes, so apparent slowness near the end is not automatically a training failure.
+- Implementation verified: YES - shard `000001` exists locally, the isolated confirmatory slice contains only the intended train shard plus validation shard, and `train_gpt_mlx.py` was checked to ensure the default wallclock cap will not truncate a `1000`-step run at this batch size.
+- Status: LAUNCHING
+
+## [2026-03-19T21:33:59Z] PRE-RUN: baseline confirmatory
+- Command: `DATA_PATH=./data/datasets/fineweb10B_sp1024_confirmatory_shard1 ITERATIONS=1000 RUN_ID=20260319-213359-baselines-baseline-confirmatory TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=524288 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `baselines`
+- Issue: `parametergolf-75u`
+- Horizon: `confirmatory`
+- Topic: `baseline reproduction`
+- Log path: `logs/20260319-213359-baselines-baseline-confirmatory.txt`
+- What I'm testing: Run the first 1000-step confirmatory baseline on isolated shard 000001 with the frozen local MLX sp1024 workflow.
+
+## [2026-03-20T02:45:38Z] POST-RUN: baseline confirmatory
+- Run ID: `20260319-213359-baselines-baseline-confirmatory`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260319-213359-baselines-baseline-confirmatory.txt`
+- Metric rows ingested: `34`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-024538-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted

@@ -90,3 +90,17 @@
 - Decision: define the local smoke gate with `VAL_BATCH_SIZE=524288` and document that `train_gpt_mlx.py` performs two full end-of-run validation passes: one full-float final pass and one quantized roundtrip pass.
 - Rationale: small validation batches create a wallclock artifact unrelated to model quality and make the baseline loop misleading. The baseline workflow needs to measure the model, not the validator footgun.
 - Impact: `START_HERE.md`, the local README smoke command, and the baseline workflow artifact now use the corrected validation regime, and later proxy/confirmatory runs can compare model changes instead of batch-shape accidents.
+
+## [2026-03-19T16:30:35-0500] DECISION: Isolate the confirmatory baseline on a separate local shard-slice directory
+
+- Trigger: `parametergolf-75u` requires a confirmatory run on `fineweb_train_000001.bin`, while the frozen smoke/proxy path still depends on `fineweb_train_000000.bin`.
+- Decision: extend the local cache to two training shards, then launch the confirmatory run from a separate local dataset directory that exposes only `fineweb_train_000001.bin` plus the fixed public validation shard.
+- Rationale: mutating the pilot cache in place would blur the baseline lineage and make the confirmatory split less trustworthy. An isolated slice keeps the frozen pilot path intact.
+- Impact: the confirmatory run will remain reproducible as a distinct local data slice without overwriting or hiding the pilot-shard baseline.
+
+## [2026-03-20T10:10:00-0500] DECISION: Promote the confirmed local MLX baseline as the first golden candidate
+
+- Trigger: the shard-`000001` confirmatory run finished with `final_int8_zlib_roundtrip_exact val_bpb=2.00936634` and a `13642279`-byte artifact, materially improving on the smoke and proxy baselines while clearing the audit gates.
+- Decision: register the run as iteration `baseline-sp1024-mlx-confirmed-s1` and mirror it into `iterations/golden/` as the current best-known candidate.
+- Rationale: the repo now has the minimum evidence required by the prereg for a baseline promotion: a frozen workflow, a medium-horizon proxy, and a stronger confirmatory split on a distinct local train shard.
+- Impact: the repo is no longer in a pre-promotion baseline state; post-baseline work should now compare new lanes against this promoted candidate rather than against only the smoke or proxy artifacts.

@@ -20,5 +20,5 @@ This file tracks promoted experiment revisions for this repo. Every row here mus
 | Iteration ID | Parent | Lane | Status | Metric | Atomic change | Snapshot |
 |---|---|---|---|---|---|---|
 <!-- leaderboard:entries:start -->
-| pending | none | infrastructure | planning | n/a | scaffold only; no promoted model iteration yet | `iterations/archive/` |
+| baseline-sp1024-mlx-confirmed-s1 | none | baselines | pass | val_bpb=2.00936634 | confirm the frozen local MLX sp1024 baseline on isolated train shard 000001 | `iterations/archive/baseline-sp1024-mlx-confirmed-s1/` |
 <!-- leaderboard:entries:end -->

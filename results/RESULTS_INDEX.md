@@ -27,7 +27,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 |---|---|---|---|
 | First real local MLX baseline smoke run plus the frozen smoke/proxy/confirmatory workflow for `sp1024` | baselines | partial | `results/baselines/20260319-local-baseline-smoke-and-workflow-freeze.md` |
 | First `500`-step medium-horizon proxy on the frozen local MLX `sp1024` baseline path | baselines | pass | `results/baselines/20260319-local-baseline-proxy-500.md` |
-
+| First `1000`-step confirmatory baseline on isolated shard `000001` for the frozen local MLX `sp1024` path | baselines | pass | `results/baselines/20260320-local-baseline-confirmatory-1000.md` |
 ## Optimizer Sweeps
 
 | Artifact | Lane | Status | Path |
