@@ -118,3 +118,10 @@
 - Decision: stop the unintended full-val run, preserve the harness plus a bounded `1,048,576`-target proxy result under `parametergolf-2r3`, and open a separate confirmatory follow-up issue (`parametergolf-8o4`) for the larger-budget check.
 - Rationale: letting the first local evaluation iteration silently expand into a surprise multi-order-of-magnitude budget jump would violate the repo's smallest-experiment discipline and blur the meaning of the first preserved result.
 - Impact: the repo now treats the bounded prefix run as the first preserved evaluation proxy, and any promotion discussion for sliding-window accounting requires an explicitly budgeted confirmatory step.
+
+## [2026-03-20T16:53:00Z] DECISION: Promote flat-stream stride-64 sliding-window accounting as an evaluation iteration, but keep the golden baseline conservative
+
+- Trigger: the larger-budget confirmatory run (`20260320-162016-evaluation-sliding-window-accounting-confirmatory-16m`) preserved almost exactly the same gain as the earlier 1M proxy: `val_bpb` improved from `2.02398643` to `2.02013120`, a `0.00385523` BPB gain on `16,777,216` targets.
+- Decision: promote the result as evaluation iteration `eval-flat-sw64-confirmed-16m`, but do not mirror it into `iterations/golden/`.
+- Rationale: the result is now strong enough to count as a real repo iteration rather than a tiny-prefix curiosity, but it is still an evaluation-only prefix confirmation rather than a full submission-style validation path. The repo should keep the golden candidate conservative until a fuller integrated evaluation path is locked down.
+- Impact: `leaderboard.md` now records the evaluation improvement with `baseline-sp1024-mlx-confirmed-s1` as parent, and future work can compare against an archived evaluation iteration without pretending the model itself changed.

@@ -1,6 +1,6 @@
 {
   "last_drained_queries": [],
-  "last_full_scan_at": "2026-03-20T16:08:02Z",
+  "last_full_scan_at": "2026-03-20T16:18:42Z",
   "papers": {
     "1904.08378v1": {
       "arxiv_id": "1904.08378v1",
@@ -43,8 +43,8 @@
       "categories": [
         "cs.CL"
       ],
-      "first_seen_at": "2026-03-20T16:08:02Z",
-      "last_seen_at": "2026-03-20T16:08:02Z",
+      "first_seen_at": "2026-03-20T16:18:42Z",
+      "last_seen_at": "2026-03-20T16:18:42Z",
       "notes_path": "research/arxiv_snapshots/2212.02475v1.md",
       "pdf_path": "background-work/papers/files/arxiv/2212.02475v1.pdf",
       "published": "2022-12-05T18:37:09Z",
@@ -67,8 +67,8 @@
         "cs.CL",
         "cs.LG"
       ],
-      "first_seen_at": "2026-03-20T16:08:02Z",
-      "last_seen_at": "2026-03-20T16:08:02Z",
+      "first_seen_at": "2026-03-20T16:18:42Z",
+      "last_seen_at": "2026-03-20T16:18:42Z",
       "notes_path": "research/arxiv_snapshots/2305.18466v3.md",
       "pdf_path": "background-work/papers/files/arxiv/2305.18466v3.pdf",
       "published": "2023-05-29T08:03:28Z",
@@ -97,8 +97,8 @@
         "cs.CL",
         "cs.LG"
       ],
-      "first_seen_at": "2026-03-20T16:08:02Z",
-      "last_seen_at": "2026-03-20T16:08:02Z",
+      "first_seen_at": "2026-03-20T16:18:42Z",
+      "last_seen_at": "2026-03-20T16:18:42Z",
       "notes_path": "research/arxiv_snapshots/2403.01518v1.md",
       "pdf_path": "background-work/papers/files/arxiv/2403.01518v1.pdf",
       "published": "2024-03-03T14:03:48Z",
@@ -212,8 +212,8 @@
       "categories": [
         "cs.LG"
       ],
-      "first_seen_at": "2026-03-20T16:08:02Z",
-      "last_seen_at": "2026-03-20T16:08:02Z",
+      "first_seen_at": "2026-03-20T16:18:42Z",
+      "last_seen_at": "2026-03-20T16:18:42Z",
       "notes_path": "research/arxiv_snapshots/2512.23675v2.md",
       "pdf_path": "background-work/papers/files/arxiv/2512.23675v2.pdf",
       "published": "2025-12-29T18:30:14Z",
@@ -242,8 +242,8 @@
       "categories": [
         "cs.CL"
       ],
-      "first_seen_at": "2026-03-20T16:08:02Z",
-      "last_seen_at": "2026-03-20T16:08:02Z",
+      "first_seen_at": "2026-03-20T16:18:42Z",
+      "last_seen_at": "2026-03-20T16:18:42Z",
       "notes_path": "research/arxiv_snapshots/2603.07392v1.md",
       "pdf_path": "background-work/papers/files/arxiv/2603.07392v1.pdf",
       "published": "2026-03-08T00:38:39Z",
