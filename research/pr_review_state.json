@@ -316,7 +316,8 @@
         232,
         236,
         238,
-        243
+        243,
+        246
       ],
       "status": "candidate",
       "title": "Selective int6 plus fp16 embedding passthrough",
@@ -406,8 +407,8 @@
       "why_it_matters": "PRs #66 and #80 show that better local tooling can change iteration speed even when absolute BPB is not competitive yet."
     }
   },
-  "last_full_scan_at": "2026-03-20T18:13:45Z",
-  "last_reviewed_updated_at": "2026-03-20T18:13:18Z",
+  "last_full_scan_at": "2026-03-20T18:30:06Z",
+  "last_reviewed_updated_at": "2026-03-20T18:29:47Z",
   "pull_requests": {
     "102": {
       "author": "unnir",
@@ -923,7 +924,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0135.md",
       "number": 135,
       "status": "reviewed",
@@ -937,7 +938,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "d465c9851e57d36426f3682a47ad4d613a2e6d16",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0136.md",
       "number": 136,
       "status": "reviewed",
@@ -957,7 +958,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0137.md",
       "number": 137,
       "status": "reviewed",
@@ -978,7 +979,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0139.md",
       "number": 139,
       "status": "reviewed",
@@ -1012,7 +1013,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0141.md",
       "number": 141,
       "status": "reviewed",
@@ -1026,7 +1027,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "aaeb0a9abfde47a0bb4ee41f3b9a7d398df539cf",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0142.md",
       "number": 142,
       "status": "reviewed",
@@ -1040,7 +1041,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "54b67d4c91c679a3508edc4c054485c07cff4e14",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0143.md",
       "number": 143,
       "status": "reviewed",
@@ -1060,7 +1061,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0145.md",
       "number": 145,
       "status": "reviewed",
@@ -1074,7 +1075,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "d3cbde1b2a004334d657dfa6d9b705a1474afc3e",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0146.md",
       "number": 146,
       "status": "reviewed",
@@ -1092,7 +1093,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0147.md",
       "number": 147,
       "status": "reviewed",
@@ -1112,7 +1113,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0148.md",
       "number": 148,
       "status": "reviewed",
@@ -1134,7 +1135,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0149.md",
       "number": 149,
       "status": "reviewed",
@@ -1172,7 +1173,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0150.md",
       "number": 150,
       "status": "reviewed",
@@ -1186,7 +1187,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "d5762bac5f7ce4ec928c0849280f554ff3c67e69",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0152.md",
       "number": 152,
       "status": "reviewed",
@@ -1200,7 +1201,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "e25989d70b26f9940367edc3c8e765c7cf7d5358",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0153.md",
       "number": 153,
       "status": "reviewed",
@@ -1218,7 +1219,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0154.md",
       "number": 154,
       "status": "reviewed",
@@ -1240,7 +1241,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0155.md",
       "number": 155,
       "status": "reviewed",
@@ -1260,7 +1261,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0156.md",
       "number": 156,
       "status": "reviewed",
@@ -1294,7 +1295,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0160.md",
       "number": 160,
       "status": "reviewed",
@@ -1308,7 +1309,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "4f6750742803b7f905f58aa6d83ac0e5d1754563",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0161.md",
       "number": 161,
       "status": "reviewed",
@@ -1326,7 +1327,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0162.md",
       "number": 162,
       "status": "reviewed",
@@ -1346,7 +1347,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0163.md",
       "number": 163,
       "status": "reviewed",
@@ -1370,7 +1371,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0164.md",
       "number": 164,
       "status": "reviewed",
@@ -1384,7 +1385,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "95b7e0a5dc076eb476e7481be0ae1b38697b3610",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0165.md",
       "number": 165,
       "status": "reviewed",
@@ -1409,7 +1410,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0166.md",
       "number": 166,
       "status": "reviewed",
@@ -1433,7 +1434,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0167.md",
       "number": 167,
       "status": "reviewed",
@@ -1447,7 +1448,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "83aee2852eb3375309580957f7d3ae6934488428",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0168.md",
       "number": 168,
       "status": "reviewed",
@@ -1465,7 +1466,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0169.md",
       "number": 169,
       "status": "reviewed",
@@ -1485,7 +1486,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0170.md",
       "number": 170,
       "status": "reviewed",
@@ -1503,7 +1504,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0171.md",
       "number": 171,
       "status": "reviewed",
@@ -1521,7 +1522,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0172.md",
       "number": 172,
       "status": "reviewed",
@@ -1543,7 +1544,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0173.md",
       "number": 173,
       "status": "reviewed",
@@ -1561,7 +1562,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0174.md",
       "number": 174,
       "status": "reviewed",
@@ -1583,7 +1584,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0175.md",
       "number": 175,
       "status": "reviewed",
@@ -1603,7 +1604,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0176.md",
       "number": 176,
       "status": "reviewed",
@@ -1621,7 +1622,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0177.md",
       "number": 177,
       "status": "reviewed",
@@ -1639,7 +1640,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0178.md",
       "number": 178,
       "status": "reviewed",
@@ -1661,7 +1662,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0179.md",
       "number": 179,
       "status": "reviewed",
@@ -1681,7 +1682,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0180.md",
       "number": 180,
       "status": "reviewed",
@@ -1695,7 +1696,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "68a361890813785f0f76d1b626ae072ea60177bd",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0181.md",
       "number": 181,
       "status": "reviewed",
@@ -1715,7 +1716,7 @@
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0182.md",
       "number": 182,
       "status": "reviewed",
@@ -1735,7 +1736,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0183.md",
       "number": 183,
       "status": "reviewed",
@@ -1749,7 +1750,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "bdaa22a14366916994fcc4c49b0e1302e12c9d8b",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0185.md",
       "number": 185,
       "status": "reviewed",
@@ -1773,7 +1774,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0186.md",
       "number": 186,
       "status": "reviewed",
@@ -1795,7 +1796,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0187.md",
       "number": 187,
       "status": "reviewed",
@@ -1809,7 +1810,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "3a64757524b1d0a704034192dc932e1f13b8b251",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0188.md",
       "number": 188,
       "status": "reviewed",
@@ -1829,7 +1830,7 @@
         "autoresearch",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0189.md",
       "number": 189,
       "status": "reviewed",
@@ -1863,7 +1864,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0190.md",
       "number": 190,
       "status": "reviewed",
@@ -1883,7 +1884,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0191.md",
       "number": 191,
       "status": "reviewed",
@@ -1903,7 +1904,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0192.md",
       "number": 192,
       "status": "reviewed",
@@ -1917,7 +1918,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "3c4e03c5c62ce335501a1c7211485b3f5c6ae778",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0193.md",
       "number": 193,
       "status": "reviewed",
@@ -1937,7 +1938,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0194.md",
       "number": 194,
       "status": "reviewed",
@@ -1951,7 +1952,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "74bf8e5c8d61d67b6a7b7969e32872700125abb6",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0195.md",
       "number": 195,
       "status": "reviewed",
@@ -1965,7 +1966,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "80065c1c8efd2b6a151d475011dea5edbaa4522a",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0196.md",
       "number": 196,
       "status": "reviewed",
@@ -1979,7 +1980,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "b7a199376e2f888febe1d4cb69085ada34cdc4db",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0197.md",
       "number": 197,
       "status": "reviewed",
@@ -2001,7 +2002,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0198.md",
       "number": 198,
       "status": "reviewed",
@@ -2023,7 +2024,7 @@
         "autoresearch",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0199.md",
       "number": 199,
       "status": "reviewed",
@@ -2061,7 +2062,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0200.md",
       "number": 200,
       "status": "reviewed",
@@ -2075,16 +2076,16 @@
         "quant-selective-int6-fp16-embed"
       ],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "9deb4af94cca9cb2ea3dc43483c9bddf77fd459e",
+      "head_sha": "3693d956c8811155caaae8d9a8fdc595338d9741",
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0201.md",
       "number": 201,
       "status": "reviewed",
       "title": "Staging: LAWA-EMA frontier fork (pr162 base, SWA\u2192LAWA)",
-      "updated_at": "2026-03-20T17:49:31Z",
+      "updated_at": "2026-03-20T18:27:52Z",
       "url": "https://github.com/openai/parameter-golf/pull/201"
     },
     "203": {
@@ -2097,7 +2098,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0203.md",
       "number": 203,
       "status": "reviewed",
@@ -2119,7 +2120,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0204.md",
       "number": 204,
       "status": "reviewed",
@@ -2139,7 +2140,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0205.md",
       "number": 205,
       "status": "reviewed",
@@ -2159,7 +2160,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0206.md",
       "number": 206,
       "status": "reviewed",
@@ -2177,7 +2178,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0208.md",
       "number": 208,
       "status": "reviewed",
@@ -2197,7 +2198,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0209.md",
       "number": 209,
       "status": "reviewed",
@@ -2235,7 +2236,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0211.md",
       "number": 211,
       "status": "reviewed",
@@ -2260,7 +2261,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0212.md",
       "number": 212,
       "status": "reviewed",
@@ -2278,7 +2279,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0213.md",
       "number": 213,
       "status": "reviewed",
@@ -2296,7 +2297,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0214.md",
       "number": 214,
       "status": "reviewed",
@@ -2320,7 +2321,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0215.md",
       "number": 215,
       "status": "reviewed",
@@ -2338,7 +2339,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0216.md",
       "number": 216,
       "status": "reviewed",
@@ -2362,7 +2363,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0217.md",
       "number": 217,
       "status": "reviewed",
@@ -2376,7 +2377,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "9d6b92ebe41cdb7baf8464eaf23ea1e13a750b5a",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0218.md",
       "number": 218,
       "status": "reviewed",
@@ -2396,7 +2397,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0219.md",
       "number": 219,
       "status": "reviewed",
@@ -2417,7 +2418,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0220.md",
       "number": 220,
       "status": "reviewed",
@@ -2436,7 +2437,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0221.md",
       "number": 221,
       "status": "reviewed",
@@ -2457,7 +2458,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0222.md",
       "number": 222,
       "status": "reviewed",
@@ -2477,7 +2478,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0223.md",
       "number": 223,
       "status": "reviewed",
@@ -2489,14 +2490,14 @@
       "author": "Complexity-ML",
       "candidate_experiment_ids": [],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "6f483d8886957ffe8a97ad4254e7514a0e28819c",
+      "head_sha": "823d3bbda3f005ba8a1f51508ca3fe4e38fd3078",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0224.md",
       "number": 224,
       "status": "reviewed",
       "title": "Complexity MoE + PID Dynamics (Token-Routed I64)",
-      "updated_at": "2026-03-20T16:31:05Z",
+      "updated_at": "2026-03-20T18:24:24Z",
       "url": "https://github.com/openai/parameter-golf/pull/224"
     },
     "225": {
@@ -2515,7 +2516,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0225.md",
       "number": 225,
       "status": "reviewed",
@@ -2529,7 +2530,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "714530f059018fb971bcf26fcafbb4aae1470a40",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0226.md",
       "number": 226,
       "status": "reviewed",
@@ -2543,7 +2544,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "109f2619bf1d81a2b636d6e1a02207e60cd32f31",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0227.md",
       "number": 227,
       "status": "reviewed",
@@ -2557,7 +2558,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "4204bffefcd3aa7ef425ab186b6d8899771dffb9",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0228.md",
       "number": 228,
       "status": "reviewed",
@@ -2571,7 +2572,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "969b3b8dad48173ae2bb213db56dfe874e0e9e36",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0229.md",
       "number": 229,
       "status": "reviewed",
@@ -2589,7 +2590,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0230.md",
       "number": 230,
       "status": "reviewed",
@@ -2612,7 +2613,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0231.md",
       "number": 231,
       "status": "reviewed",
@@ -2630,7 +2631,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0232.md",
       "number": 232,
       "status": "reviewed",
@@ -2648,7 +2649,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0233.md",
       "number": 233,
       "status": "reviewed",
@@ -2666,7 +2667,7 @@
       "lane_tags": [
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0234.md",
       "number": 234,
       "status": "reviewed",
@@ -2684,7 +2685,7 @@
       "lane_tags": [
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0235.md",
       "number": 235,
       "status": "reviewed",
@@ -2704,7 +2705,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0236.md",
       "number": 236,
       "status": "reviewed",
@@ -2722,7 +2723,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0237.md",
       "number": 237,
       "status": "reviewed",
@@ -2740,7 +2741,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0238.md",
       "number": 238,
       "status": "reviewed",
@@ -2772,7 +2773,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "b2bcd556fea04e49b01a43f0644bcbc1143fc451",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0240.md",
       "number": 240,
       "status": "reviewed",
@@ -2790,7 +2791,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0241.md",
       "number": 241,
       "status": "reviewed",
@@ -2804,7 +2805,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "ea6acc85aa0640a47af6a81e4239a01675f31484",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0242.md",
       "number": 242,
       "status": "reviewed",
@@ -2844,13 +2845,59 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:13:45Z",
+      "last_seen_at": "2026-03-20T18:30:06Z",
       "notes_path": "research/pr_snapshots/pr-0244.md",
       "number": 244,
       "status": "reviewed",
       "title": "Non-record: leader-core valid-eval parity run + 1xH100 proxy screens",
       "updated_at": "2026-03-20T18:11:03Z",
       "url": "https://github.com/openai/parameter-golf/pull/244"
+    },
+    "246": {
+      "author": "kvmukilan",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-20T18:30:06Z",
+      "head_sha": "f635c664e2856872e450c8368de2a9fa6933d3fe",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-20T18:30:06Z",
+      "notes_path": "research/pr_snapshots/pr-0246.md",
+      "number": 246,
+      "status": "reviewed",
+      "title": "non-record: int6 3xMLP + cosine warmdown (1.1704 bpb)",
+      "updated_at": "2026-03-20T18:25:35Z",
+      "url": "https://github.com/openai/parameter-golf/pull/246"
+    },
+    "247": {
+      "author": "riatzukiza",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-20T18:30:06Z",
+      "head_sha": "c739b4ae8a4c7cb6e4a1d3b1fa5182c17c7b4304",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-20T18:30:06Z",
+      "notes_path": "research/pr_snapshots/pr-0247.md",
+      "number": 247,
+      "status": "reviewed",
+      "title": "Non-record: local RTX 4070 SP1024 8x512 KV4 seq768 500-step run",
+      "updated_at": "2026-03-20T18:26:05Z",
+      "url": "https://github.com/openai/parameter-golf/pull/247"
+    },
+    "248": {
+      "author": "riatzukiza",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-20T18:30:06Z",
+      "head_sha": "f5027810bdfbb59e4488e5e0da55791e3ee9c7a1",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-20T18:30:06Z",
+      "notes_path": "research/pr_snapshots/pr-0248.md",
+      "number": 248,
+      "status": "reviewed",
+      "title": "Non-record: local RTX 4070 SP1024 8x512 KV4 500-step run",
+      "updated_at": "2026-03-20T18:29:47Z",
+      "url": "https://github.com/openai/parameter-golf/pull/248"
     },
     "29": {
       "author": "nidhilak-Aquarius",
@@ -4018,6 +4065,7 @@
     "304a43f7b6a631fe745ddaabdaa10fe205b116cc",
     "3131670eaa558ac4cade159a2ab9ba44f650bb47",
     "31e777e6073a5fc4b6a0f4cebbe9d5fe1f289dff",
+    "3693d956c8811155caaae8d9a8fdc595338d9741",
     "372bddea57f465c7217c5e26af2252a803221518",
     "37e6f39834561bc81cb2c4daf32402f93e2ae655",
     "395a7e2974df7fe4b52436180d389e4a20f76a57",
@@ -4061,7 +4109,6 @@
     "68a361890813785f0f76d1b626ae072ea60177bd",
     "6a1e68e9e4b13f7a8e994f15b096dbfe9e18fae5",
     "6d8eb28a1c3877660f35fe98b0cef461aeaf7fa3",
-    "6f483d8886957ffe8a97ad4254e7514a0e28819c",
     "6f4a46e1bfd9800a72501401c0f3a4dadc49bef9",
     "70c126be428e404f7876f1cd89816f810cd2b792",
     "710c4fd578a689a1c234e243db94c74d416bd167",
@@ -4077,6 +4124,7 @@
     "7ff5e4491a3e909f006c0bf8dda3ca5117fd4a40",
     "80065c1c8efd2b6a151d475011dea5edbaa4522a",
     "81056de88bef19657026c76165477969c078d0a7",
+    "823d3bbda3f005ba8a1f51508ca3fe4e38fd3078",
     "83aee2852eb3375309580957f7d3ae6934488428",
     "87a6137f5287d78c38b4c9a4dbde490b0a3c9044",
     "88e6b76f7dd78b18bc337414a8b6f339d766adc7",
@@ -4095,7 +4143,6 @@
     "9c4146af4b677f92bffa83282b4d3584a91b2d3b",
     "9c6a7403d9faa82b8dfbfd1e34a0d9319aa9a366",
     "9d6b92ebe41cdb7baf8464eaf23ea1e13a750b5a",
-    "9deb4af94cca9cb2ea3dc43483c9bddf77fd459e",
     "9ed0110ef9dc7bd14fbac13bd9134605b6eade57",
     "9fed66c01eb86e9089b68580a2295cbffaef25de",
     "9ff83034d80103a067eaac71d80f6263349b76e9",
@@ -4135,6 +4182,7 @@
     "c4f56326f8547635794b4046a484bc67b190effb",
     "c60b5a892e38278d78a932291a7e3faedc27adb3",
     "c6ad6cccc6c1be94e912669f9817b7697d0e94dd",
+    "c739b4ae8a4c7cb6e4a1d3b1fa5182c17c7b4304",
     "c887ef4354609c26532212f5ea6ead752c65988c",
     "cb598b3fe774fbe50c946a810b652284ca6ae987",
     "ccc5f2529f07dc65341af671881dc69bdc0e46e2",
@@ -4168,6 +4216,8 @@
     "ed1654a7b9a1c73086abd90e7db953343d7fbfc9",
     "ee15b370efa7d2fafd3c3b9fc38e3f6ee3c52356",
     "f4ae4d7e6f86a4cc6b0e6daaa0d3f2631a8977d0",
+    "f5027810bdfbb59e4488e5e0da55791e3ee9c7a1",
+    "f635c664e2856872e450c8368de2a9fa6933d3fe",
     "f85c8379c6b210df2dbaecf9083f7b60adeecb85",
     "fa293060e34a5cc455e6392fbcb337c4f1a5b42f",
     "fb1b0345b4dd831035f5f2783ff73f5642b48219",
@@ -4370,6 +4420,9 @@
     241,
     242,
     243,
-    244
+    244,
+    246,
+    247,
+    248
   ]
 }

@@ -32,6 +32,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
+| Canonical `500`-step proxy rerun of the first bounded autoresearch LR-down10 winner, showing a real but much smaller gain than the batch-local search implied | optimizer_sweeps | pass | `results/optimizer_sweeps/20260320-lr-scale-down10-canonical-proxy.md` |
 
 ## Architecture
 
@@ -67,6 +68,7 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
 | Bounded in-repo contract for using `autoresearch` as a local sweep sidecar without bypassing the repo's launch, audit, and promotion discipline | autoresearch | planning | `results/autoresearch/20260320-bounded-autoresearch-integration.md` |
+| First bounded optimizer-only local batch showing that autoresearch can surface a useful LR direction while still badly overstating its magnitude before canonical rerun | autoresearch | mixed | `results/autoresearch/20260320-first-bounded-optimizer-proxy-batch.md` |
 
 ## Golden
 

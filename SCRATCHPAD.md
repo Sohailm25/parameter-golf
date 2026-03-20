@@ -536,3 +536,98 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Latest checkpoint: none
 - Anomalies: the autoresearch-themed arXiv query still returned broad hyperparameter-search papers rather than repo-specific tooling guidance
 - Next step: freeze the in-repo target-file and promotion contract before launching any bounded autoresearch batch
+
+## [2026-03-20T18:30:00Z] PRE-RUN: autoresearch optimizer proxy intelligence pass
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "optimizer-only bounded proxy batch"`
+- Device: `cpu`
+- Lane: `autoresearch`
+- Data slice: `metadata-only public-signal review`
+- Output path: `research/pr_review_state.json`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: `parametergolf-gci`
+- What I'm testing: refresh the frontier immediately before the first bounded optimizer-only autoresearch batch.
+- Expected outcome: explicit PR/X/arXiv state for this batch, even if the result is `no new PRs`.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "optimizer-only bounded proxy batch"`
+- Main confound to watch: do not let newer public search tooling change the repo's one-subspace-only rule for this first batch.
+- Implementation verified: YES - the review hook is already working on this machine.
+- Status: LAUNCHING
+
+## [2026-03-20T18:30:10Z] POST-RUN: autoresearch optimizer proxy intelligence pass
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane autoresearch --phase pre --topic "optimizer-only bounded proxy batch"`
+- Outcome: SUCCESS
+- Key metric: official PR review advanced to new PRs `#246`, `#247`, and `#248`
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: the arXiv hook still returned adjacent hyperparameter-search literature rather than a paper directly about bounded local sweep tooling
+- Next step: run the first bounded LR-scale proxy batch and force any winner back through the canonical runner
+
+## [2026-03-20T18:32:00Z] PRE-RUN: gci-lr-scale-batch
+- tmux session: `pg-autors-gci`
+- Script: `scratch/autoresearch/20260320-gci-lr-scale-batch/run_batch.sh`
+- Command: `tmux new-session -d -s pg-autors-gci 'cd /Users/sohailmo/parametergolf && ./scratch/autoresearch/20260320-gci-lr-scale-batch/run_batch.sh'`
+- Device: `mlx`
+- Lane: `optimizer_sweeps`
+- Data slice: `local 500-step proxy on fineweb_train_000000.bin plus the fixed public validation shard`
+- Output path: `scratch/autoresearch/20260320-gci-lr-scale-batch/`
+- Iteration target: `parametergolf-gci`
+- What I'm testing: whether a bounded global LR-scale sweep can improve the frozen local MLX proxy without changing evaluation or architecture.
+- Expected outcome: at most one candidate beats the control cleanly enough to justify a canonical rerun through `scripts/experiment_runner.py launch`.
+- Checkpoint path: N/A
+- Checkpoint cadence: none - `train_gpt_mlx.py` does not write resumable intermediate checkpoints on this path
+- Log path: `scratch/autoresearch/20260320-gci-lr-scale-batch/<candidate>/<candidate>.txt`
+- Resume command: `tmux attach -t pg-autors-gci`
+- Main confound to watch: batch-local wins do not count until a winner is rerun through the canonical runner in the substantive lane.
+- Implementation verified: YES - the batch manifest and exact candidate commands are written under `scratch/autoresearch/20260320-gci-lr-scale-batch/`.
+- Status: LAUNCHING
+
+## [2026-03-20T20:40:00Z] PRE-RUN: lr-scale-down10-canonical-rerun
+- tmux session: `pg-gci-rerun`
+- Script: `scripts/experiment_runner.py`
+- Command: `tmux new-session -d -s pg-gci-rerun 'cd /Users/sohailmo/parametergolf && .venv/bin/python scripts/experiment_runner.py launch --lane optimizer_sweeps --label lr-scale-down10-proxy-rerun --issue-id parametergolf-gci --topic "bounded lr-scale canonical rerun" --script-path train_gpt_mlx.py --env ITERATIONS=500 --env TRAIN_BATCH_TOKENS=8192 --env TRAIN_LOG_EVERY=50 --env VAL_BATCH_SIZE=524288 --env VAL_LOSS_EVERY=0 --env TIED_EMBED_LR=0.045 --env MATRIX_LR=0.036 --env SCALAR_LR=0.036 --device local-m4 --horizon proxy --phase pre --notes "Canonical rerun of the first bounded autoresearch LR-scale winner after the batch-local control/down10 comparison." --skip-review'`
+- Device: `mlx`
+- Lane: `optimizer_sweeps`
+- Data slice: `local 500-step proxy on fineweb_train_000000.bin plus the fixed public validation shard`
+- Output path: `logs/<runner-generated>.txt`, `results/telemetry/`
+- Iteration target: `parametergolf-gci`
+- What I'm testing: whether the batch-local down-10 LR winner survives the normal repo launch path with telemetry, scratchpad lineage, and runner-managed logging.
+- Expected outcome: a clean `optimizer_sweeps` proxy run that either confirms the batch-local gain or exposes the batch as a misleading local search artifact.
+- Checkpoint path: N/A
+- Checkpoint cadence: none - `train_gpt_mlx.py` does not write resumable intermediate checkpoints on this path
+- Log path: `logs/<runner-generated>.txt`
+- Resume command: `tmux attach -t pg-gci-rerun`
+- Main confound to watch: the large batch-local gain may still be a search-path artifact until it is reproduced through the canonical runner.
+- Implementation verified: YES - the candidate env tuple already passed batch-local log-audit and artifact-size checks.
+- Status: LAUNCHING
+
+## [2026-03-20T20:39:00Z] POST-RUN: gci-lr-scale-batch
+- Command: `tmux new-session -d -s pg-autors-gci 'cd /Users/sohailmo/parametergolf && ./scratch/autoresearch/20260320-gci-lr-scale-batch/run_batch.sh'`
+- Outcome: PARTIAL
+- Key metric: control `2.18594291`, batch-local down10 `2.10816927`, up10 truncated at `step:100/500`
+- Artifacts saved: `scratch/autoresearch/20260320-gci-lr-scale-batch/`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: the batch-local down10 magnitude was suspiciously strong, so the opposite-direction probe was stopped early in favor of the canonical rerun
+- Next step: judge the down10 tuple only by the `scripts/experiment_runner.py launch` rerun
+
+## [2026-03-20T19:12:23Z] PRE-RUN: lr-scale-down10-proxy-rerun
+- Command: `ITERATIONS=500 MATRIX_LR=0.036 RUN_ID=20260320-191223-optimizer-sweeps-lr-scale-down10-proxy-rerun SCALAR_LR=0.036 TIED_EMBED_LR=0.045 TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=524288 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `optimizer_sweeps`
+- Issue: `parametergolf-gci`
+- Horizon: `proxy`
+- Topic: `bounded lr-scale canonical rerun`
+- Log path: `logs/20260320-191223-optimizer-sweeps-lr-scale-down10-proxy-rerun.txt`
+- What I'm testing: Canonical rerun of the first bounded autoresearch LR-scale winner after the batch-local control/down10 comparison.
+
+## [2026-03-20T19:29:06Z] POST-RUN: lr-scale-down10-proxy-rerun
+- Run ID: `20260320-191223-optimizer-sweeps-lr-scale-down10-proxy-rerun`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260320-191223-optimizer-sweeps-lr-scale-down10-proxy-rerun.txt`
+- Metric rows ingested: `24`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-192906-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted

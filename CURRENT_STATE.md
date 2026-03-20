@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: after the flat-stream sliding-window confirmatory pass landed, the next ready task is `parametergolf-2km`.
+- `known`: after the first bounded autoresearch optimizer batch landed, the next ready task is `parametergolf-2s4`.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -64,9 +64,12 @@
 - `known`: the first bounded `autoresearch` phase is scoped to `optimizer_sweeps`, with `train_gpt_mlx.py` as the only mutable file and one optimizer/schedule subspace per batch.
 - `known`: `autoresearch` discoveries do not go straight to `leaderboard.md`; they must be rerun through `scripts/experiment_runner.py launch`, audited, and only then promoted through `scripts/experiment_runner.py promote` in the substantive lane.
 - `known`: the promoted evaluation iteration `eval-flat-sw64-confirmed-16m` is now the scoring reference for judging whether a training-path `autoresearch` candidate is worth preserving, even though the first search metric stays the frozen `500`-step training proxy.
+- `known`: `parametergolf-gci` is now closed after the first bounded optimizer-only autoresearch batch and one canonical rerun through `scripts/experiment_runner.py launch`.
+- `observed`: the batch-local down-10 LR candidate (`TIED_EMBED_LR=0.045`, `MATRIX_LR=0.036`, `SCALAR_LR=0.036`) looked dramatically stronger than control at `2.10816927`, but the canonical rerun shrank that to `2.17839092`.
+- `known`: despite that shrinkage, the canonical down-10 rerun still improved on both the in-batch control (`2.18594291`) and the archived baseline proxy (`2.18376301`) while staying within the artifact cap.
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-gci`: run the first bounded `autoresearch` optimizer-only proxy batch against the frozen `500`-step MLX baseline path.
-2. Decide whether document-isolated evaluation should follow that bounded `autoresearch` pass or whether the repo should advance directly to the next high-signal non-eval lane.
+1. Resolve `parametergolf-2s4`: confirm the canonical LR-down10 tuple on the isolated shard `000001` path and keep current evaluation accounting visible before any promotion discussion.
+2. Decide whether document-isolated evaluation should follow that confirmatory optimizer check or whether the repo should advance directly to another high-signal non-eval lane.
 3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

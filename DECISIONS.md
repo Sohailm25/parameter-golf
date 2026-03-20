@@ -132,3 +132,10 @@
 - Decision: keep `autoresearch` as an in-repo sidecar search loop. The first bounded phase is `optimizer_sweeps` only, with `train_gpt_mlx.py` as the sole mutable file and one optimizer/schedule subspace per batch. Any candidate that looks good must be rerun through `scripts/experiment_runner.py launch` and can only reach `leaderboard.md` through the normal audit and promotion path in the substantive lane.
 - Rationale: the repo already has the controls that keep search honest: append-only telemetry, issue discipline, immutable snapshots, scratchpad logging, and explicit lane labeling. A sibling workspace would weaken lineage and make multi-file drift too easy to hide inside overnight search.
 - Impact: the `autoresearch` lane now has a concrete contract, a preserved planning artifact under `results/autoresearch/`, and a first execution follow-up issue `parametergolf-gci`.
+
+## [2026-03-20T14:35:00-0500] DECISION: Treat batch-local autoresearch wins as direction signals only until a canonical rerun lands
+
+- Trigger: the first bounded LR-scale batch under `parametergolf-gci` produced a dramatic batch-local down-10 result (`val_bpb=2.10816927`) that shrank materially on the canonical rerun (`2.17839092`).
+- Decision: preserve the batch as a mixed autoresearch artifact, but treat the canonical rerun as the only metric source of truth for the candidate. Batch-local autoresearch runs can nominate a direction; they do not get to rank candidates for this repo by themselves.
+- Rationale: the down-10 tuple still improved the real proxy, but the batch-local magnitude was overstated by `0.07022165` BPB. Without the canonical rerun, the repo would have overclaimed badly.
+- Impact: future bounded autoresearch passes should keep using the same search pattern, but any promising candidate must be judged by its `scripts/experiment_runner.py launch` rerun before follow-up prioritization or promotion discussion.

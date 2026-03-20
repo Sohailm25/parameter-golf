@@ -34,15 +34,19 @@
 - `parametergolf-2km` now fixes the repo boundary for `autoresearch`: keep it in-repo as a sidecar search loop, not as a sibling workspace.
 - The first bounded `autoresearch` phase is now defined as an `optimizer_sweeps` batch on `train_gpt_mlx.py`, one optimizer/schedule subspace at a time, against the frozen `500`-step MLX proxy.
 - Any `autoresearch` candidate now has an explicit import path: summarize the batch under `results/autoresearch/`, rerun the best atomic change through `scripts/experiment_runner.py launch`, audit it, and only then consider promotion in the substantive lane.
+- `parametergolf-gci` is now closed after the first bounded LR-scale batch and the canonical rerun of the down-10 winner.
+- The batch-local down-10 result was directionally useful but numerically untrustworthy: `2.10816927` batch-local shrank to `2.17839092` on the canonical rerun.
+- Even after that shrinkage, the canonical down-10 rerun still beat both the in-batch control and the archived baseline proxy, so the optimizer lane now has a real confirmatory follow-up instead of only a search hunch.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
 - No bounded `autoresearch` batch has been executed yet.
 - No post-baseline document-isolated or full-cache evaluation result has been confirmed yet.
+- No optimizer_sweeps confirmatory rerun has been completed yet.
 
 ## Next Delta To Close
 
-1. Execute `parametergolf-gci`, the first optimizer-only bounded `autoresearch` proxy batch.
+1. Execute `parametergolf-2s4`, the confirmatory shard-`000001` rerun for the canonical LR-down10 tuple.
 2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
 3. Decide whether a full-cache flat-stream run is still necessary before moving to the next lane.
