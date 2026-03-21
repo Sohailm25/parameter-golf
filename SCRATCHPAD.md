@@ -631,3 +631,106 @@ Use this file for execution checkpoints and transient notes. Every substantial l
 - Metric rows ingested: `24`
 - Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260320-192906-dashboard/index.html`
 - Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-20T19:04:26-0500] PRE-RUN: lr-scale-confirmatory-intelligence
+- tmux session: N/A
+- Script: `scripts/review_iteration_signal.py`
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane optimizer_sweeps --phase pre --topic "lr-scale confirmatory"`
+- Device: `cpu`
+- Lane: `optimizer_sweeps`
+- Data slice: `metadata-only PR/X/arXiv review`
+- Output path: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration target: N/A
+- What I'm testing: refresh the official/public frontier before the shard-`000001` confirmatory optimizer rerun.
+- Expected outcome: current review state records either new frontier changes or an explicit `no new PRs` result before the confirmatory launch.
+- Checkpoint path: N/A
+- Checkpoint cadence: N/A
+- Log path: `research/pr_review_log.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Resume command: `.venv/bin/python scripts/review_iteration_signal.py --lane optimizer_sweeps --phase pre --topic "lr-scale confirmatory"`
+- Main confound to watch: subagents are unavailable in this environment, so the official PR pass must be logged as a direct-script fallback rather than silently skipped.
+- Implementation verified: YES - `scripts/review_iteration_signal.py` calls `scripts/review_openai_prs.py`, `scripts/review_x_signal.py`, and `scripts/review_arxiv.py` in sequence.
+- Status: LAUNCHING
+
+## [2026-03-20T19:05:27-0500] POST-RUN: lr-scale-confirmatory-intelligence
+- Command: `.venv/bin/python scripts/review_iteration_signal.py --lane optimizer_sweeps --phase pre --topic "lr-scale confirmatory"`
+- Outcome: SUCCESS
+- Key metric: official PR review advanced to new PRs `#249` through `#290` with re-review triggers on `#182`, `#194`, `#201`, `#221`, `#224`, `#230`, and `#234`
+- Artifacts saved: `research/pr_review_state.json`, `research/pr_review_log.md`, `research/atomic_experiment_backlog.md`, `research/x_review_log.md`, `research/arxiv_review_log.md`
+- Iteration registered: no
+- Latest checkpoint: none
+- Anomalies: subagents were unavailable in this environment, so the required PR frontier pass was completed via direct local script fallback and logged here
+- Next step: launch the shard-`000001` confirmatory LR-down10 rerun under `tmux`
+
+## [2026-03-20T19:06:13-0500] PRE-RUN: lr-scale-down10-confirmatory
+- tmux session: `pg-optconfirm-2s4`
+- Script: `scripts/experiment_runner.py`
+- Command: `tmux new-session -d -s pg-optconfirm-2s4 'cd /Users/sohailmo/parametergolf && .venv/bin/python scripts/experiment_runner.py launch --lane optimizer_sweeps --label lr-scale-down10-confirmatory --issue-id parametergolf-2s4 --topic "lr-scale confirmatory" --script-path train_gpt_mlx.py --env DATA_PATH=./data/datasets/fineweb10B_sp1024_confirmatory_shard1 --env TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model --env ITERATIONS=1000 --env TRAIN_BATCH_TOKENS=8192 --env TRAIN_LOG_EVERY=50 --env VAL_BATCH_SIZE=524288 --env VAL_LOSS_EVERY=0 --env TIED_EMBED_LR=0.045 --env MATRIX_LR=0.036 --env SCALAR_LR=0.036 --device local-m4 --horizon confirmatory --phase pre --notes "Confirm the canonical LR-down10 optimizer tuple on isolated shard 000001 before any promotion discussion." --skip-review > scratch/optimizer-confirmatory-2s4.stdout 2>&1; printf \"\\n__EXIT_CODE__=%s\\n\" $? >> scratch/optimizer-confirmatory-2s4.stdout'`
+- Device: `mlx`
+- Lane: `optimizer_sweeps`
+- Data slice: `isolated local shard-000001 training path plus the fixed public validation shard`
+- Output path: `logs/<runner-generated>.txt`, `results/telemetry/`
+- Iteration target: `parametergolf-2s4`
+- What I'm testing: whether the canonical LR-down10 tuple still improves the baseline when rerun on the confirmatory shard instead of the proxy shard.
+- Expected outcome: a clean confirmatory training run that is good enough to compare against the promoted baseline and then re-score under the current sliding-window evaluation accounting.
+- Checkpoint path: `logs/<runner-generated>_mlx_model.int8.ptz`
+- Checkpoint cadence: none - `train_gpt_mlx.py` does not write resumable intermediate checkpoints on this path
+- Log path: `logs/<runner-generated>.txt`
+- Resume command: `tmux attach -t pg-optconfirm-2s4`
+- Main confound to watch: the proxy gain may disappear or reverse on the isolated confirmatory shard even if the batch-local and canonical proxy both looked positive.
+- Implementation verified: YES - the isolated shard path and tokenizer model both exist locally, and the launch matches the frozen confirmatory baseline shape except for the atomic LR change.
+- Status: LAUNCHING
+
+## [2026-03-21T00:06:50Z] PRE-RUN: lr-scale-down10-confirmatory
+- Command: `DATA_PATH=./data/datasets/fineweb10B_sp1024_confirmatory_shard1 ITERATIONS=1000 MATRIX_LR=0.036 RUN_ID=20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory SCALAR_LR=0.036 TIED_EMBED_LR=0.045 TOKENIZER_PATH=./data/tokenizers/fineweb_1024_bpe.model TRAIN_BATCH_TOKENS=8192 TRAIN_LOG_EVERY=50 VAL_BATCH_SIZE=524288 VAL_LOSS_EVERY=0 /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/train_gpt_mlx.py`
+- Device: `local-m4`
+- Lane: `optimizer_sweeps`
+- Issue: `parametergolf-2s4`
+- Horizon: `confirmatory`
+- Topic: `lr-scale confirmatory`
+- Log path: `logs/20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory.txt`
+- What I'm testing: Confirm the canonical LR-down10 optimizer tuple on isolated shard 000001 before any promotion discussion.
+
+## [2026-03-21T00:33:13Z] POST-RUN: lr-scale-down10-confirmatory
+- Run ID: `20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory.txt`
+- Metric rows ingested: `34`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260321-003313-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted
+
+## [2026-03-20T19:34:20-0500] PRE-RUN: lr-scale-down10-confirmatory-accounting-16m
+- tmux session: `pg-optconfirm-eval-2s4`
+- Script: `scripts/experiment_runner.py`
+- Command: `tmux new-session -d -s pg-optconfirm-eval-2s4 'cd /Users/sohailmo/parametergolf && .venv/bin/python scripts/experiment_runner.py launch --lane optimizer_sweeps --label lr-scale-down10-confirmatory-accounting-16m --issue-id parametergolf-2s4 --topic "current evaluation accounting" --script-path scripts/eval_mlx_checkpoint.py --script-arg=--checkpoint-path --script-arg=logs/20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory_mlx_model.int8.ptz --script-arg=--stride --script-arg=1024 --script-arg=--stride --script-arg=64 --script-arg=--window-batch-seqs --script-arg=16 --script-arg=--max-targets --script-arg=16777216 --device local-m4 --horizon confirmatory --phase pre --notes "Rescore the optimizer confirmatory checkpoint under the current 16M-target flat-stream stride-1024 versus stride-64 accounting reference." --skip-review > scratch/optimizer-confirmatory-eval-2s4.stdout 2>&1; printf \"\\n__EXIT_CODE__=%s\\n\" $? >> scratch/optimizer-confirmatory-eval-2s4.stdout'`
+- Device: `mlx`
+- Lane: `optimizer_sweeps`
+- Data slice: `16,777,216` validation-target prefix on the fixed public flat validation stream
+- Output path: `logs/<runner-generated>.txt`, `results/telemetry/`
+- Iteration target: `parametergolf-2s4`
+- What I'm testing: whether the optimizer confirmatory checkpoint still looks strong under the repo's current stride-`64` sliding-window accounting reference rather than only under the training script's default end-of-run validation.
+- Expected outcome: a two-metric comparison for the new checkpoint that can be read directly against the promoted baseline's `2.02398643` non-overlap and `2.02013120` stride-`64` reference numbers.
+- Checkpoint path: `logs/20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory_mlx_model.int8.ptz`
+- Checkpoint cadence: N/A
+- Log path: `logs/<runner-generated>.txt`
+- Resume command: `tmux attach -t pg-optconfirm-eval-2s4`
+- Main confound to watch: this rescore is evidence for the optimizer candidate, not a separate evaluation-lane claim, so it must stay tied to the same atomic LR change in the write-up.
+- Implementation verified: YES - the confirmatory int8 checkpoint exists, and the accounting settings match the current `16M` stride-`1024` versus stride-`64` repo reference.
+- Status: LAUNCHING
+
+## [2026-03-21T00:34:51Z] PRE-RUN: lr-scale-down10-confirmatory-accounting-16m
+- Command: `RUN_ID=20260321-003451-optimizer-sweeps-lr-scale-down10-confirmatory-accounting-16m /Users/sohailmo/parametergolf/.venv/bin/python /Users/sohailmo/parametergolf/scripts/eval_mlx_checkpoint.py --checkpoint-path logs/20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory_mlx_model.int8.ptz --stride 1024 --stride 64 --window-batch-seqs 16 --max-targets 16777216`
+- Device: `local-m4`
+- Lane: `optimizer_sweeps`
+- Issue: `parametergolf-2s4`
+- Horizon: `confirmatory`
+- Topic: `current evaluation accounting`
+- Log path: `logs/20260321-003451-optimizer-sweeps-lr-scale-down10-confirmatory-accounting-16m.txt`
+- What I'm testing: Rescore the optimizer confirmatory checkpoint under the current 16M-target flat-stream stride-1024 versus stride-64 accounting reference.
+
+## [2026-03-21T01:12:24Z] POST-RUN: lr-scale-down10-confirmatory-accounting-16m
+- Run ID: `20260321-003451-optimizer-sweeps-lr-scale-down10-confirmatory-accounting-16m`
+- Outcome: `SUCCESS`
+- Log path: `logs/20260321-003451-optimizer-sweeps-lr-scale-down10-confirmatory-accounting-16m.txt`
+- Metric rows ingested: `6`
+- Dashboard: `/Users/sohailmo/parametergolf/results/figures/renders/20260321-011224-dashboard/index.html`
+- Next step: inspect the run, then promote with `scripts/experiment_runner.py promote` if warranted

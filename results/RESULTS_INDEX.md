@@ -33,7 +33,9 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Artifact | Lane | Status | Path |
 |---|---|---|---|
 | Canonical `500`-step proxy rerun of the first bounded autoresearch LR-down10 winner, showing a real but much smaller gain than the batch-local search implied | optimizer_sweeps | pass | `results/optimizer_sweeps/20260320-lr-scale-down10-canonical-proxy.md` |
+| Shard-`000001` confirmatory rerun of the LR-down10 optimizer tuple plus the current `16M` accounting rescore, showing the gain survives both the confirmatory split and the stride-`64` reference frame | optimizer_sweeps | pass | `results/optimizer_sweeps/20260320-lr-scale-down10-confirmatory.md` |
 
+| scale the tied/embed/matrix/scalar learning-rate tuple down 10x to 0.045/0.036/0.036 on the frozen shard-000001 sp1024 MLX baseline path | optimizer_sweeps | pass | `results/optimizer_sweeps/20260320-lr-scale-down10-confirmatory.md` |
 ## Architecture
 
 | Artifact | Lane | Status | Path |
@@ -61,7 +63,6 @@ Register every durable artifact under `results/` here. Never delete entries; mar
 | Dynamic-eval and TTT review grounded against `researchdocs/dynamiceval.md`, the official README, and PR `#77`/`#85` | evaluation | pass | `results/evaluation/20260319-dynamic-eval-review.md` |
 | Post-baseline lane selection choosing flat-stream sliding-window accounting as the first atomic evaluation experiment | evaluation | planning | `results/evaluation/20260320-post-baseline-lane-selection.md` |
 | First flat-stream sliding-window accounting proxy on `baseline-sp1024-mlx-confirmed-s1`, including the aborted full-val budget mistake and the bounded `1,048,576`-target comparison | evaluation | partial | `results/evaluation/20260320-flat-stream-sliding-window-proxy-1m.md` |
-
 | apply flat-stream stride-64 sliding-window accounting on a 16,777,216-target confirmatory prefix | evaluation | pass | `results/evaluation/20260320-flat-stream-sliding-window-confirmatory-16m.md` |
 ## Autoresearch
 

@@ -190,3 +190,14 @@
 - [Reducing Hyperparameter Tuning Costs in ML, Vision and Language Model Training Pipelines via Memoization-Awareness](https://arxiv.org/abs/2411.03731v1)
 - [Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining](https://arxiv.org/abs/2503.04715v7)
 - [On Hyperparameter Optimization of Machine Learning Algorithms: Theory and Practice](https://arxiv.org/abs/2007.15745v3)
+
+## 2026-03-21T00:05:27Z arXiv review
+- Lane: `optimizer_sweeps`
+- Phase: `pre`
+- Topic: `lr-scale confirmatory`
+- New paper IDs: `2508.20577v1`, `2201.12469v1`, `2202.02664v2`, `2411.02939v1`, `2408.00690v2`
+- [MERIT: Maximum-normalized Element-wise Ratio for Language Model Large-batch Training](https://arxiv.org/abs/2508.20577v1)
+- [ScaLA: Accelerating Adaptation of Pre-Trained Transformer-Based Language Models via Efficient Large-Batch Adversarial Noise](https://arxiv.org/abs/2201.12469v1)
+- [No Parameters Left Behind: Sensitivity Guided Adaptive Learning Rate for Training Large Transformer Models](https://arxiv.org/abs/2202.02664v2)
+- [A Post-Training Enhanced Optimization Approach for Small Language Models](https://arxiv.org/abs/2411.02939v1)
+- [Improving Text Embeddings for Smaller Language Models Using Contrastive Fine-tuning](https://arxiv.org/abs/2408.00690v2)

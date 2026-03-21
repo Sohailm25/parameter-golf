@@ -36,7 +36,9 @@
         212,
         213,
         214,
-        220
+        220,
+        268,
+        271
       ],
       "status": "candidate",
       "title": "Depth recurrence with iteration awareness",
@@ -65,7 +67,8 @@
         221,
         222,
         225,
-        231
+        231,
+        274
       ],
       "status": "candidate",
       "title": "Long-context seq4096 train/eval lane",
@@ -83,7 +86,8 @@
         183,
         199,
         212,
-        220
+        220,
+        260
       ],
       "status": "candidate",
       "title": "Document-isolated sliding-window accounting",
@@ -173,6 +177,7 @@
         194,
         198,
         199,
+        201,
         205,
         206,
         212,
@@ -184,10 +189,24 @@
         222,
         223,
         225,
+        230,
         231,
         233,
         236,
-        243
+        243,
+        250,
+        251,
+        259,
+        260,
+        264,
+        265,
+        268,
+        273,
+        281,
+        282,
+        287,
+        289,
+        290
       ],
       "status": "candidate",
       "title": "Sliding-window context accounting",
@@ -212,13 +231,19 @@
         182,
         186,
         187,
+        201,
         204,
         215,
         217,
         231,
         241,
         243,
-        244
+        244,
+        265,
+        272,
+        274,
+        281,
+        284
       ],
       "status": "candidate",
       "title": "Initialization and NTK-aware RoPE lane",
@@ -317,7 +342,28 @@
         236,
         238,
         243,
-        246
+        246,
+        249,
+        250,
+        251,
+        252,
+        254,
+        256,
+        264,
+        265,
+        268,
+        271,
+        272,
+        273,
+        277,
+        281,
+        282,
+        284,
+        286,
+        287,
+        288,
+        289,
+        290
       ],
       "status": "candidate",
       "title": "Selective int6 plus fp16 embedding passthrough",
@@ -360,7 +406,8 @@
         167,
         200,
         217,
-        235
+        235,
+        251
       ],
       "status": "candidate",
       "title": "Tokenizer and vocabulary scaling",
@@ -400,15 +447,21 @@
         212,
         215,
         225,
-        234
+        234,
+        260,
+        263,
+        276,
+        283,
+        287,
+        288
       ],
       "status": "candidate",
       "title": "Local sweep tooling and autoresearch ingestion",
       "why_it_matters": "PRs #66 and #80 show that better local tooling can change iteration speed even when absolute BPB is not competitive yet."
     }
   },
-  "last_full_scan_at": "2026-03-20T18:30:06Z",
-  "last_reviewed_updated_at": "2026-03-20T18:29:47Z",
+  "last_full_scan_at": "2026-03-21T00:05:22Z",
+  "last_reviewed_updated_at": "2026-03-21T00:01:11Z",
   "pull_requests": {
     "102": {
       "author": "unnir",
@@ -1522,7 +1575,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0172.md",
       "number": 172,
       "status": "reviewed",
@@ -1544,7 +1597,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0173.md",
       "number": 173,
       "status": "reviewed",
@@ -1562,7 +1615,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0174.md",
       "number": 174,
       "status": "reviewed",
@@ -1584,7 +1637,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0175.md",
       "number": 175,
       "status": "reviewed",
@@ -1604,7 +1657,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0176.md",
       "number": 176,
       "status": "reviewed",
@@ -1622,7 +1675,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0177.md",
       "number": 177,
       "status": "reviewed",
@@ -1662,12 +1715,12 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0179.md",
       "number": 179,
       "status": "reviewed",
       "title": "Record: 11L, int6+zstd, decoupled WD (val_bpb = 1.1472)",
-      "updated_at": "2026-03-20T07:15:40Z",
+      "updated_at": "2026-03-20T23:29:01Z",
       "url": "https://github.com/openai/parameter-golf/pull/179"
     },
     "180": {
@@ -1696,7 +1749,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "68a361890813785f0f76d1b626ae072ea60177bd",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0181.md",
       "number": 181,
       "status": "reviewed",
@@ -1711,17 +1764,17 @@
         "init-ntk-overtone-rope"
       ],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "7549fee12b415f1a279baaa1729ddd0ab53a2f27",
+      "head_sha": "089a2ea3762673f56af1014dccd69de901e1ff28",
       "lane_tags": [
         "architecture",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0182.md",
       "number": 182,
       "status": "reviewed",
       "title": "Non-record: Linearized Neural Memory + TTT (val_bpb=1.1844)",
-      "updated_at": "2026-03-20T08:34:03Z",
+      "updated_at": "2026-03-20T22:35:55Z",
       "url": "https://github.com/openai/parameter-golf/pull/182"
     },
     "183": {
@@ -1736,7 +1789,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0183.md",
       "number": 183,
       "status": "reviewed",
@@ -1750,7 +1803,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "bdaa22a14366916994fcc4c49b0e1302e12c9d8b",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0185.md",
       "number": 185,
       "status": "reviewed",
@@ -1774,7 +1827,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0186.md",
       "number": 186,
       "status": "reviewed",
@@ -1796,7 +1849,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0187.md",
       "number": 187,
       "status": "reviewed",
@@ -1810,7 +1863,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "3a64757524b1d0a704034192dc932e1f13b8b251",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0188.md",
       "number": 188,
       "status": "reviewed",
@@ -1830,7 +1883,7 @@
         "autoresearch",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0189.md",
       "number": 189,
       "status": "reviewed",
@@ -1864,7 +1917,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0190.md",
       "number": 190,
       "status": "reviewed",
@@ -1884,7 +1937,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0191.md",
       "number": 191,
       "status": "reviewed",
@@ -1904,7 +1957,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0192.md",
       "number": 192,
       "status": "reviewed",
@@ -1918,7 +1971,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "3c4e03c5c62ce335501a1c7211485b3f5c6ae778",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0193.md",
       "number": 193,
       "status": "reviewed",
@@ -1933,17 +1986,17 @@
         "quant-selective-int6-fp16-embed"
       ],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "9b9dbb0067e42dc7f3941bfe49d0cc13ff30b986",
+      "head_sha": "343081c57bb3430a136db09100f708838a235177",
       "lane_tags": [
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0194.md",
       "number": 194,
       "status": "reviewed",
       "title": "11L Int6 QAT + Per-Dim SmearGate + SWA: 1.1480 BPB (3-seed mean)",
-      "updated_at": "2026-03-20T11:38:50Z",
+      "updated_at": "2026-03-20T20:27:25Z",
       "url": "https://github.com/openai/parameter-golf/pull/194"
     },
     "195": {
@@ -1952,7 +2005,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "74bf8e5c8d61d67b6a7b7969e32872700125abb6",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0195.md",
       "number": 195,
       "status": "reviewed",
@@ -1966,7 +2019,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "80065c1c8efd2b6a151d475011dea5edbaa4522a",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0196.md",
       "number": 196,
       "status": "reviewed",
@@ -1980,7 +2033,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "b7a199376e2f888febe1d4cb69085ada34cdc4db",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0197.md",
       "number": 197,
       "status": "reviewed",
@@ -2002,7 +2055,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0198.md",
       "number": 198,
       "status": "reviewed",
@@ -2024,7 +2077,7 @@
         "autoresearch",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0199.md",
       "number": 199,
       "status": "reviewed",
@@ -2062,7 +2115,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0200.md",
       "number": 200,
       "status": "reviewed",
@@ -2073,19 +2126,23 @@
     "201": {
       "author": "machdragon",
       "candidate_experiment_ids": [
-        "quant-selective-int6-fp16-embed"
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed",
+        "init-ntk-overtone-rope"
       ],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "3693d956c8811155caaae8d9a8fdc595338d9741",
+      "head_sha": "31c16a6abb90a4560f6fc842854c5b46737e8f57",
       "lane_tags": [
+        "architecture",
+        "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0201.md",
       "number": 201,
       "status": "reviewed",
-      "title": "Staging: LAWA-EMA frontier fork (pr162 base, SWA\u2192LAWA)",
-      "updated_at": "2026-03-20T18:27:52Z",
+      "title": "LAWA-EMA frontier fork (pr198 base, SWA -> LAWA val_bpb=1.1551)",
+      "updated_at": "2026-03-20T19:22:15Z",
       "url": "https://github.com/openai/parameter-golf/pull/201"
     },
     "203": {
@@ -2098,7 +2155,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0203.md",
       "number": 203,
       "status": "reviewed",
@@ -2120,7 +2177,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0204.md",
       "number": 204,
       "status": "reviewed",
@@ -2140,7 +2197,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0205.md",
       "number": 205,
       "status": "reviewed",
@@ -2160,7 +2217,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0206.md",
       "number": 206,
       "status": "reviewed",
@@ -2178,7 +2235,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0208.md",
       "number": 208,
       "status": "reviewed",
@@ -2198,7 +2255,7 @@
         "autoresearch",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0209.md",
       "number": 209,
       "status": "reviewed",
@@ -2236,7 +2293,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0211.md",
       "number": 211,
       "status": "reviewed",
@@ -2261,7 +2318,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0212.md",
       "number": 212,
       "status": "reviewed",
@@ -2279,7 +2336,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0213.md",
       "number": 213,
       "status": "reviewed",
@@ -2297,7 +2354,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0214.md",
       "number": 214,
       "status": "reviewed",
@@ -2321,7 +2378,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0215.md",
       "number": 215,
       "status": "reviewed",
@@ -2339,7 +2396,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0216.md",
       "number": 216,
       "status": "reviewed",
@@ -2363,7 +2420,7 @@
         "quantization",
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0217.md",
       "number": 217,
       "status": "reviewed",
@@ -2377,7 +2434,7 @@
       "first_seen_at": "2026-03-20T15:44:19Z",
       "head_sha": "9d6b92ebe41cdb7baf8464eaf23ea1e13a750b5a",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0218.md",
       "number": 218,
       "status": "reviewed",
@@ -2397,7 +2454,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0219.md",
       "number": 219,
       "status": "reviewed",
@@ -2418,7 +2475,7 @@
         "architecture",
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0220.md",
       "number": 220,
       "status": "reviewed",
@@ -2433,16 +2490,16 @@
         "ctx-seq4096-train-eval"
       ],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "15f88066637ca0945ff484fa1ef36588d5af4c5b",
+      "head_sha": "f8aaba8575644ae5e783c4d040f85e40a27822e1",
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0221.md",
       "number": 221,
       "status": "reviewed",
       "title": "Submission: 10L + Sliding Window eval (mean val_bpb=1.1899)",
-      "updated_at": "2026-03-20T15:44:20Z",
+      "updated_at": "2026-03-20T23:20:43Z",
       "url": "https://github.com/openai/parameter-golf/pull/221"
     },
     "222": {
@@ -2458,7 +2515,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0222.md",
       "number": 222,
       "status": "reviewed",
@@ -2478,7 +2535,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0223.md",
       "number": 223,
       "status": "reviewed",
@@ -2490,14 +2547,14 @@
       "author": "Complexity-ML",
       "candidate_experiment_ids": [],
       "first_seen_at": "2026-03-20T15:44:19Z",
-      "head_sha": "823d3bbda3f005ba8a1f51508ca3fe4e38fd3078",
+      "head_sha": "2b4ff01a0e28dbeebed594917bb845f65ee7ca15",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0224.md",
       "number": 224,
       "status": "reviewed",
       "title": "Complexity MoE + PID Dynamics (Token-Routed I64)",
-      "updated_at": "2026-03-20T18:24:24Z",
+      "updated_at": "2026-03-20T18:34:49Z",
       "url": "https://github.com/openai/parameter-golf/pull/224"
     },
     "225": {
@@ -2516,7 +2573,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0225.md",
       "number": 225,
       "status": "reviewed",
@@ -2530,7 +2587,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "714530f059018fb971bcf26fcafbb4aae1470a40",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0226.md",
       "number": 226,
       "status": "reviewed",
@@ -2544,7 +2601,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "109f2619bf1d81a2b636d6e1a02207e60cd32f31",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0227.md",
       "number": 227,
       "status": "reviewed",
@@ -2558,7 +2615,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "4204bffefcd3aa7ef425ab186b6d8899771dffb9",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0228.md",
       "number": 228,
       "status": "reviewed",
@@ -2572,7 +2629,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "969b3b8dad48173ae2bb213db56dfe874e0e9e36",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0229.md",
       "number": 229,
       "status": "reviewed",
@@ -2583,19 +2640,21 @@
     "230": {
       "author": "MatthewHRockwell",
       "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
         "quant-selective-int6-fp16-embed"
       ],
       "first_seen_at": "2026-03-20T18:13:45Z",
-      "head_sha": "d7a0a02c09263ef1e1214ceaa1a36eedbbe42174",
+      "head_sha": "f0ab434a41a6b89b1a72f18763ec135fb1e57136",
       "lane_tags": [
+        "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0230.md",
       "number": 230,
       "status": "reviewed",
-      "title": "Record: Int6 + MLP 3x + NorMuon + Weight Decay, val_bpb=1.1875",
-      "updated_at": "2026-03-20T16:44:50Z",
+      "title": "Record: Int6 + MLP 3x + NorMuon + SmearGate + BigramHash + OrthoInit + Sliding Window, val_bpb=1.1541",
+      "updated_at": "2026-03-20T21:40:43Z",
       "url": "https://github.com/openai/parameter-golf/pull/230"
     },
     "231": {
@@ -2613,7 +2672,7 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0231.md",
       "number": 231,
       "status": "reviewed",
@@ -2631,7 +2690,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0232.md",
       "number": 232,
       "status": "reviewed",
@@ -2649,7 +2708,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0233.md",
       "number": 233,
       "status": "reviewed",
@@ -2663,16 +2722,16 @@
         "tooling-local-sweeps-and-autoresearch"
       ],
       "first_seen_at": "2026-03-20T18:13:45Z",
-      "head_sha": "ccc5f2529f07dc65341af671881dc69bdc0e46e2",
+      "head_sha": "49695596a455de72a1de98d4f239e60a2a608ff3",
       "lane_tags": [
         "autoresearch"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0234.md",
       "number": 234,
       "status": "reviewed",
       "title": "feat(mlx,autoresearch): harden search reliability and mlx iteration safety",
-      "updated_at": "2026-03-20T17:51:08Z",
+      "updated_at": "2026-03-20T21:47:37Z",
       "url": "https://github.com/openai/parameter-golf/pull/234"
     },
     "235": {
@@ -2685,7 +2744,7 @@
       "lane_tags": [
         "tokenizer"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0235.md",
       "number": 235,
       "status": "reviewed",
@@ -2705,12 +2764,12 @@
         "evaluation",
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0236.md",
       "number": 236,
       "status": "reviewed",
-      "title": "Record: 11L Int6 + SmearGate + Batch Optimization (val_bpb=1.1400)",
-      "updated_at": "2026-03-20T18:13:18Z",
+      "title": "4 the Leaderboard: 11L Int6 + SmearGate + Batch Optimization (val_bpb=1.1400)",
+      "updated_at": "2026-03-20T18:40:36Z",
       "url": "https://github.com/openai/parameter-golf/pull/236"
     },
     "237": {
@@ -2723,7 +2782,7 @@
       "lane_tags": [
         "evaluation"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0237.md",
       "number": 237,
       "status": "reviewed",
@@ -2741,7 +2800,7 @@
       "lane_tags": [
         "quantization"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0238.md",
       "number": 238,
       "status": "reviewed",
@@ -2773,7 +2832,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "b2bcd556fea04e49b01a43f0644bcbc1143fc451",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0240.md",
       "number": 240,
       "status": "reviewed",
@@ -2791,7 +2850,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0241.md",
       "number": 241,
       "status": "reviewed",
@@ -2805,7 +2864,7 @@
       "first_seen_at": "2026-03-20T18:13:45Z",
       "head_sha": "ea6acc85aa0640a47af6a81e4239a01675f31484",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0242.md",
       "number": 242,
       "status": "reviewed",
@@ -2845,7 +2904,7 @@
       "lane_tags": [
         "architecture"
       ],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0244.md",
       "number": 244,
       "status": "reviewed",
@@ -2877,7 +2936,7 @@
       "first_seen_at": "2026-03-20T18:30:06Z",
       "head_sha": "c739b4ae8a4c7cb6e4a1d3b1fa5182c17c7b4304",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0247.md",
       "number": 247,
       "status": "reviewed",
@@ -2891,13 +2950,608 @@
       "first_seen_at": "2026-03-20T18:30:06Z",
       "head_sha": "f5027810bdfbb59e4488e5e0da55791e3ee9c7a1",
       "lane_tags": [],
-      "last_seen_at": "2026-03-20T18:30:06Z",
+      "last_seen_at": "2026-03-21T00:05:22Z",
       "notes_path": "research/pr_snapshots/pr-0248.md",
       "number": 248,
       "status": "reviewed",
       "title": "Non-record: local RTX 4070 SP1024 8x512 KV4 500-step run",
       "updated_at": "2026-03-20T18:29:47Z",
       "url": "https://github.com/openai/parameter-golf/pull/248"
+    },
+    "249": {
+      "author": "kvmukilan",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "f635c664e2856872e450c8368de2a9fa6933d3fe",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0249.md",
+      "number": 249,
+      "status": "reviewed",
+      "title": "non-record: int6 3xMLP + cosine warmdown (1.1704 bpb)",
+      "updated_at": "2026-03-20T18:34:10Z",
+      "url": "https://github.com/openai/parameter-golf/pull/249"
+    },
+    "250": {
+      "author": "Complexity-ML",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "f4eea7d66c7ef8c411542706a9dfd7b71df04ec5",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0250.md",
+      "number": 250,
+      "status": "reviewed",
+      "title": "Complexity MoE v4: Token-Routed I64 + PID + CUDA Scatter + Int6 (26.5M params)",
+      "updated_at": "2026-03-20T23:33:31Z",
+      "url": "https://github.com/openai/parameter-golf/pull/250"
+    },
+    "251": {
+      "author": "kshitizz36",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "tok-vocab-scaling",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "e4d930b0801d41472d3c73e8e7a46f8a26fda0e5",
+      "lane_tags": [
+        "evaluation",
+        "quantization",
+        "tokenizer"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0251.md",
+      "number": 251,
+      "status": "reviewed",
+      "title": "Add SP4096 11L432 MLP3x Int6+Zstd Momentum99 record (val_bpb=1.1596)",
+      "updated_at": "2026-03-20T21:56:51Z",
+      "url": "https://github.com/openai/parameter-golf/pull/251"
+    },
+    "252": {
+      "author": "greqone",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "555a124302eb6f12b2006100af0316369996ec44",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0252.md",
+      "number": 252,
+      "status": "reviewed",
+      "title": "Add qscale int6 bigram128 cross-provider record draft",
+      "updated_at": "2026-03-20T19:02:49Z",
+      "url": "https://github.com/openai/parameter-golf/pull/252"
+    },
+    "254": {
+      "author": "timowhite88",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "479b8bcfa8ea0e5e7b711aff7f54fafb9b72b0c2",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0254.md",
+      "number": 254,
+      "status": "reviewed",
+      "title": "Record: FarnsworthEngine v1 \u2014 TTT + 11L Int6 MLP3x, val_bpb=1.1303",
+      "updated_at": "2026-03-20T23:59:31Z",
+      "url": "https://github.com/openai/parameter-golf/pull/254"
+    },
+    "256": {
+      "author": "IvGolovach",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "0406102a5cacb934c9fb96cb611e0e2fb2c6dd69",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0256.md",
+      "number": 256,
+      "status": "reviewed",
+      "title": "DenseContextQuantTrim 8xH100: 1.1779 val_bpb",
+      "updated_at": "2026-03-20T19:25:23Z",
+      "url": "https://github.com/openai/parameter-golf/pull/256"
+    },
+    "258": {
+      "author": "riatzukiza",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "f98375ec012af0026cb798b895d9dd061e30591c",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0258.md",
+      "number": 258,
+      "status": "reviewed",
+      "title": "Non-record: local RTX 4070 SP1024 7x512 KV4 500-step run",
+      "updated_at": "2026-03-20T19:34:39Z",
+      "url": "https://github.com/openai/parameter-golf/pull/258"
+    },
+    "259": {
+      "author": "outsourc-e",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "e808e2f8bc812d385297df2e4c4f24e0ccc7625f",
+      "lane_tags": [
+        "evaluation"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0259.md",
+      "number": 259,
+      "status": "reviewed",
+      "title": "submission: QK Gain Init 1.2 + Sliding Window Eval (stride=64)",
+      "updated_at": "2026-03-20T19:37:10Z",
+      "url": "https://github.com/openai/parameter-golf/pull/259"
+    },
+    "260": {
+      "author": "Kevxn97",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "eval-document-isolated-sliding-window",
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "4e4fa1074e689174e572e7e8d720fdb7a544f243",
+      "lane_tags": [
+        "autoresearch",
+        "evaluation"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0260.md",
+      "number": 260,
+      "status": "reviewed",
+      "title": "[codex] Validate sliding-window post-quant evaluation on 1xH100 proxy",
+      "updated_at": "2026-03-20T19:51:11Z",
+      "url": "https://github.com/openai/parameter-golf/pull/260"
+    },
+    "261": {
+      "author": "MnemoTek",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "c74a5a62aaf25454eaab0310c123fd0b972b2e7c",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0261.md",
+      "number": 261,
+      "status": "reviewed",
+      "title": "Create main.pyInitial compact language model baseline",
+      "updated_at": "2026-03-20T19:58:43Z",
+      "url": "https://github.com/openai/parameter-golf/pull/261"
+    },
+    "263": {
+      "author": "Dannybc123",
+      "candidate_experiment_ids": [
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "046b7d2fdcb161ab7e4c082057fc7296ba01df62",
+      "lane_tags": [
+        "autoresearch"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0263.md",
+      "number": 263,
+      "status": "reviewed",
+      "title": "Non-record: TTT + QAT on Consumer GPU (val_bpb=1.5382)",
+      "updated_at": "2026-03-20T20:03:55Z",
+      "url": "https://github.com/openai/parameter-golf/pull/263"
+    },
+    "264": {
+      "author": "stukenov",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "ab0777880a9b931afc62d7fcc332936ccaaf90fd",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0264.md",
+      "number": 264,
+      "status": "reviewed",
+      "title": "11L Int5-MLP + TTT-SGD + SmearGate + SWA (1.1455 BPB)",
+      "updated_at": "2026-03-21T00:01:01Z",
+      "url": "https://github.com/openai/parameter-golf/pull/264"
+    },
+    "265": {
+      "author": "unnir",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed",
+        "init-ntk-overtone-rope"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "a81f85bd7f632e3e48ef6b1da0017b81d25998a7",
+      "lane_tags": [
+        "architecture",
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0265.md",
+      "number": 265,
+      "status": "reviewed",
+      "title": "Record: 11L + Efficient Partial XSA (val_bpb: 1.1307) ",
+      "updated_at": "2026-03-20T23:59:29Z",
+      "url": "https://github.com/openai/parameter-golf/pull/265"
+    },
+    "266": {
+      "author": "User123331",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "9478af843422d11cbcf67d79924a73150d86f8ee",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0266.md",
+      "number": 266,
+      "status": "reviewed",
+      "title": "Non-record: Mixture of Softmax K=2 R=64 (1xH100, 10min, 1.3932 bpb)",
+      "updated_at": "2026-03-20T21:28:50Z",
+      "url": "https://github.com/openai/parameter-golf/pull/266"
+    },
+    "267": {
+      "author": "andrewgcodes",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "78a2c049df1789577a8644a5e07a67044de6ccdd",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0267.md",
+      "number": 267,
+      "status": "reviewed",
+      "title": "Record: val_bpb: 1.14020 [tested 3x on 8xh100]",
+      "updated_at": "2026-03-20T21:20:08Z",
+      "url": "https://github.com/openai/parameter-golf/pull/267"
+    },
+    "268": {
+      "author": "brn-mwai",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed",
+        "arch-depth-recurrence-iteration-embeddings"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "0db1160f2ec64c3088e9b8a79abfcfc3b8dad814",
+      "lane_tags": [
+        "architecture",
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0268.md",
+      "number": 268,
+      "status": "reviewed",
+      "title": "Record: 11L Int6 + SmearGate + BigramHash + Depth Recurrence",
+      "updated_at": "2026-03-21T00:00:18Z",
+      "url": "https://github.com/openai/parameter-golf/pull/268"
+    },
+    "271": {
+      "author": "xexyz",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed",
+        "arch-depth-recurrence-iteration-embeddings"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "3c3e5572450b3959c2c918533bf09d7ac0116ebf",
+      "lane_tags": [
+        "architecture",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0271.md",
+      "number": 271,
+      "status": "reviewed",
+      "title": "Non-record: HyperparamTuned KV2 + FP16 Embed",
+      "updated_at": "2026-03-20T21:24:35Z",
+      "url": "https://github.com/openai/parameter-golf/pull/271"
+    },
+    "272": {
+      "author": "simon-marcus",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed",
+        "init-ntk-overtone-rope"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "a217105d80a20205f63f47d069e18ff864a7d7d2",
+      "lane_tags": [
+        "architecture",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0272.md",
+      "number": 272,
+      "status": "reviewed",
+      "title": "Non-record: 10L mixed int5/int6 export reaches ~10.4MB with strong throughput",
+      "updated_at": "2026-03-20T21:32:33Z",
+      "url": "https://github.com/openai/parameter-golf/pull/272"
+    },
+    "273": {
+      "author": "dentity007",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "d7f459c077d280918698ff4bd0425e9fabd4343f",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0273.md",
+      "number": 273,
+      "status": "reviewed",
+      "title": "Non-record: 10L Int6 QAT + SmearGate + SWA (val_bpb=1.1575)",
+      "updated_at": "2026-03-20T21:38:53Z",
+      "url": "https://github.com/openai/parameter-golf/pull/273"
+    },
+    "274": {
+      "author": "haikosys",
+      "candidate_experiment_ids": [
+        "ctx-seq4096-train-eval",
+        "init-ntk-overtone-rope"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "eb9be9d5f9214ae10a1dbe3a2ee08ca66147f55e",
+      "lane_tags": [
+        "architecture",
+        "evaluation"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0274.md",
+      "number": 274,
+      "status": "reviewed",
+      "title": "[Non-record] Seq2048 + EMA + Council-Optimized Warmdown",
+      "updated_at": "2026-03-20T23:26:18Z",
+      "url": "https://github.com/openai/parameter-golf/pull/274"
+    },
+    "276": {
+      "author": "riatzukiza",
+      "candidate_experiment_ids": [
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "c4ed3db6e7c1aaa8c6f62c08442538bfc275b6f3",
+      "lane_tags": [
+        "autoresearch"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0276.md",
+      "number": 276,
+      "status": "reviewed",
+      "title": "Non-record: local RTX 4070 shared-depth RMS interface v0",
+      "updated_at": "2026-03-20T22:08:17Z",
+      "url": "https://github.com/openai/parameter-golf/pull/276"
+    },
+    "277": {
+      "author": "mohosy",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "a3817a1759d9bac43fcbb546cf83f454d64a82a3",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0277.md",
+      "number": 277,
+      "status": "reviewed",
+      "title": "Non-record: 11L Int6 + XSA + TTT + SmearGate + BigramHash (pending compute)",
+      "updated_at": "2026-03-20T23:59:20Z",
+      "url": "https://github.com/openai/parameter-golf/pull/277"
+    },
+    "279": {
+      "author": "Evreu1pro",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "311e5c0540802a1282197b858df44ddbb878f7c8",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0279.md",
+      "number": 279,
+      "status": "reviewed",
+      "title": "Title: AtomLogic v3.2 Universal SOTA - 1.15 BPB Target",
+      "updated_at": "2026-03-20T22:27:27Z",
+      "url": "https://github.com/openai/parameter-golf/pull/279"
+    },
+    "281": {
+      "author": "charmquark1984",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed",
+        "init-ntk-overtone-rope"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "4d12c598caeb01a3e72a6d6703fdc1b3e092ebda",
+      "lane_tags": [
+        "architecture",
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0281.md",
+      "number": 281,
+      "status": "reviewed",
+      "title": "Non-record: val_bpb=1.1374, FA2+SWA adaptation of Farnsworth",
+      "updated_at": "2026-03-21T00:00:20Z",
+      "url": "https://github.com/openai/parameter-golf/pull/281"
+    },
+    "282": {
+      "author": "Cwarren15-A",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "2d65f392bbf94877f8fe3ff045a147e8f7961056",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0282.md",
+      "number": 282,
+      "status": "reviewed",
+      "title": "Phase 1: Int6 quant + zstd + sliding window eval + 10L 3xMLP",
+      "updated_at": "2026-03-20T22:46:54Z",
+      "url": "https://github.com/openai/parameter-golf/pull/282"
+    },
+    "283": {
+      "author": "Cwarren15-A",
+      "candidate_experiment_ids": [
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "71a5803ca0a82b46d851c7604dee334eaca2b822",
+      "lane_tags": [
+        "autoresearch"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0283.md",
+      "number": 283,
+      "status": "reviewed",
+      "title": "Tier 6: PPM-C eval-time context mixer (standalone + neural mixing)",
+      "updated_at": "2026-03-20T22:59:21Z",
+      "url": "https://github.com/openai/parameter-golf/pull/283"
+    },
+    "284": {
+      "author": "DanishjeetSingh",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed",
+        "init-ntk-overtone-rope"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "217b7a9c40753561d17c2a5b1c9d9f45dd0f07da",
+      "lane_tags": [
+        "architecture",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0284.md",
+      "number": 284,
+      "status": "reviewed",
+      "title": "Add non-record local A100 PR60-stack reproduction",
+      "updated_at": "2026-03-20T23:07:05Z",
+      "url": "https://github.com/openai/parameter-golf/pull/284"
+    },
+    "285": {
+      "author": "DanishjeetSingh",
+      "candidate_experiment_ids": [],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "91ce9ca43d0db6650d91885f6c91fdfb56a08808",
+      "lane_tags": [],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0285.md",
+      "number": 285,
+      "status": "reviewed",
+      "title": "Add non-record local A100 TTT eval-stride0 submission",
+      "updated_at": "2026-03-20T23:08:11Z",
+      "url": "https://github.com/openai/parameter-golf/pull/285"
+    },
+    "286": {
+      "author": "chris-buckley",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "3a456b975ff12b7b0ff8add8e4a9ed5f86946724",
+      "lane_tags": [
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0286.md",
+      "number": 286,
+      "status": "reviewed",
+      "title": "Record: 10L Int5-MLP + SmearGate + BigramHash + Late QAT (val_bpb=1.1628)",
+      "updated_at": "2026-03-20T23:18:44Z",
+      "url": "https://github.com/openai/parameter-golf/pull/286"
+    },
+    "287": {
+      "author": "jfprincz",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed",
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "d7583288464f252eeec6657c80f4cd3a74c0e5c5",
+      "lane_tags": [
+        "autoresearch",
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0287.md",
+      "number": 287,
+      "status": "reviewed",
+      "title": "Record: 11L XSA + EMA + Int6 MLP3x + WD=0.04 (val_bpb: 1.1271)",
+      "updated_at": "2026-03-20T23:59:26Z",
+      "url": "https://github.com/openai/parameter-golf/pull/287"
+    },
+    "288": {
+      "author": "trasnake87",
+      "candidate_experiment_ids": [
+        "quant-selective-int6-fp16-embed",
+        "tooling-local-sweeps-and-autoresearch"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "8f4401b40327be24780c88c5de5d4a6cb3509b1b",
+      "lane_tags": [
+        "autoresearch",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0288.md",
+      "number": 288,
+      "status": "reviewed",
+      "title": "Non-record: Content-Dependent SmearGate (1.6795 BPB, RTX 4070)",
+      "updated_at": "2026-03-20T23:38:53Z",
+      "url": "https://github.com/openai/parameter-golf/pull/288"
+    },
+    "289": {
+      "author": "integrate-your-mind",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "a84d7fd2bb93803fefe2a11d7f5fad208ecb00b3",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0289.md",
+      "number": 289,
+      "status": "reviewed",
+      "title": "SmearGate + BigramHash + Int6 + SWA + U-Net Skips (1.1518 BPB)",
+      "updated_at": "2026-03-21T00:00:38Z",
+      "url": "https://github.com/openai/parameter-golf/pull/289"
     },
     "29": {
       "author": "nidhilak-Aquarius",
@@ -2918,6 +3572,26 @@
       "title": "[WIP] Recurrent MQA Transformer \u2014 depth recurrence + weight tying (nidhilak-Aquarius)",
       "updated_at": "2026-03-19T14:23:14Z",
       "url": "https://github.com/openai/parameter-golf/pull/29"
+    },
+    "290": {
+      "author": "ibarrajo",
+      "candidate_experiment_ids": [
+        "eval-sliding-window-context-accounting",
+        "quant-selective-int6-fp16-embed"
+      ],
+      "first_seen_at": "2026-03-21T00:05:22Z",
+      "head_sha": "84e656ec981fa41b6d17c1cc13b245c3af2026b1",
+      "lane_tags": [
+        "evaluation",
+        "quantization"
+      ],
+      "last_seen_at": "2026-03-21T00:05:22Z",
+      "notes_path": "research/pr_snapshots/pr-0290.md",
+      "number": 290,
+      "status": "reviewed",
+      "title": "Record: 11L + Partial XSA + TTT + BatchOpt (val_bpb=1.1354)",
+      "updated_at": "2026-03-21T00:01:11Z",
+      "url": "https://github.com/openai/parameter-golf/pull/290"
     },
     "31": {
       "author": "JackYoung27",
@@ -4034,8 +4708,11 @@
     "014814cee12d7b8814e687dc25c09ae70bc69981",
     "02eb5d1febf8ee5bc0b25ed66c835bdebe3c6617",
     "039d987931db3e1770e564f0875299f5470c813a",
+    "0406102a5cacb934c9fb96cb611e0e2fb2c6dd69",
+    "046b7d2fdcb161ab7e4c082057fc7296ba01df62",
     "0484ec9da06d1dc64284e62e2e43fb3a44c9ce88",
     "0610e5f4a2d17134fe59d1400ed645ee71f704db",
+    "089a2ea3762673f56af1014dccd69de901e1ff28",
     "09187775abf16503ae9dcecc481288226c1cb98f",
     "09217fe7821d5d6cfb944af400984d52307fb8e2",
     "0aad0982206790b679f1dee9e5cfee7d58f646ac",
@@ -4043,35 +4720,42 @@
     "0d23304124424ca9bd4c159bc66002b83940d921",
     "0d4580aebf01a7c7e3321b039710ad9015fe8b24",
     "0d8b3f0911bb1a463b325d1f83c2dbc1cec7b574",
+    "0db1160f2ec64c3088e9b8a79abfcfc3b8dad814",
     "109f2619bf1d81a2b636d6e1a02207e60cd32f31",
     "11d2794d7c9fa8f1c632467fa64a02117ecde424",
     "13acc8545800aad5a0b6d421df0a38773c8490bf",
     "1524776662ca43c4fe2704a609b7592c87e021c4",
     "152b1616f7d1ff8739af2c5f5d46cc93494d6d04",
-    "15f88066637ca0945ff484fa1ef36588d5af4c5b",
     "1786739717ded4e58868719d833b030b44783a1d",
     "1a8be36c17e20b1fb53dbf4975e1d67f5b8a63e9",
     "1aa8dadd8232798f46e9e58df7517bfe8d28c73d",
     "210b0bad7dfb9d935e10584462ad8d983de7e29e",
+    "217b7a9c40753561d17c2a5b1c9d9f45dd0f07da",
     "2226dc8c74ed498033b1f97ba5f2a84079b9e7a0",
     "23f38c6d1b59cf8c67f5ddd3983a6161635b3098",
     "2790ac088cd3da716664fb6047990745f24e6c4f",
     "28d41a448c462c2d8092e769131c7b72306d917f",
     "2949401a6dc0b306d3a16a9e4d3fea70b0b97f83",
     "2a90936b788360b8138940166d3e9f1a0b69d646",
+    "2b4ff01a0e28dbeebed594917bb845f65ee7ca15",
     "2c12ff54420b2a2d94831ef013f0877e483a1284",
     "2cb39d943fa31e5fbef971b75a542248d7a20b27",
+    "2d65f392bbf94877f8fe3ff045a147e8f7961056",
     "2dbf8aa64a0910aedcfa916d441f509139203920",
     "304a43f7b6a631fe745ddaabdaa10fe205b116cc",
+    "311e5c0540802a1282197b858df44ddbb878f7c8",
     "3131670eaa558ac4cade159a2ab9ba44f650bb47",
+    "31c16a6abb90a4560f6fc842854c5b46737e8f57",
     "31e777e6073a5fc4b6a0f4cebbe9d5fe1f289dff",
-    "3693d956c8811155caaae8d9a8fdc595338d9741",
+    "343081c57bb3430a136db09100f708838a235177",
     "372bddea57f465c7217c5e26af2252a803221518",
     "37e6f39834561bc81cb2c4daf32402f93e2ae655",
     "395a7e2974df7fe4b52436180d389e4a20f76a57",
     "395b67ef6228375a6020924ddfc7321288913860",
+    "3a456b975ff12b7b0ff8add8e4a9ed5f86946724",
     "3a64757524b1d0a704034192dc932e1f13b8b251",
     "3aa2b2f9091bf42b4c3ce1e9ce8dd13b877e52a6",
+    "3c3e5572450b3959c2c918533bf09d7ac0116ebf",
     "3c458dcdd4c32353ad714d275a653da1597a3979",
     "3c4e03c5c62ce335501a1c7211485b3f5c6ae778",
     "3d1780d86d240318b336475bff1fbdbc4d64b0e1",
@@ -4084,15 +4768,20 @@
     "42de8368cdb5617293f98614caa98f594b7f50bd",
     "4371a15b4f919428f7f127b502378cc7b04633b0",
     "45db65acf24b1e6529c60c4439a26e41cccb3334",
+    "479b8bcfa8ea0e5e7b711aff7f54fafb9b72b0c2",
+    "49695596a455de72a1de98d4f239e60a2a608ff3",
     "4a65f694ab16f66ac37668474edb41f11f8fa08c",
     "4a685e4fdbeaec90f474bd75299500888c311757",
     "4bbdf43eb3cc174ea9a9d8de81748bd339b71caf",
+    "4d12c598caeb01a3e72a6d6703fdc1b3e092ebda",
     "4d22dc515a343ba077b8db8d623359e3a3d8f684",
+    "4e4fa1074e689174e572e7e8d720fdb7a544f243",
     "4f6750742803b7f905f58aa6d83ac0e5d1754563",
     "50225c568f6307636b49c30ac1f5dd9874b12211",
     "518817e842c3db63f2830b22aade05524e1c33de",
     "51de17135ee5cc055b40735a49d0a79bbd1ccbca",
     "54b67d4c91c679a3508edc4c054485c07cff4e14",
+    "555a124302eb6f12b2006100af0316369996ec44",
     "596027247e5397c88c99ff460c37b46dbfb1ef5d",
     "597924c0969d971ce1d44054fa2c79be67acf18f",
     "5ac580926351fbc5e51c84170068214b9bcbe3f9",
@@ -4113,9 +4802,10 @@
     "70c126be428e404f7876f1cd89816f810cd2b792",
     "710c4fd578a689a1c234e243db94c74d416bd167",
     "714530f059018fb971bcf26fcafbb4aae1470a40",
+    "71a5803ca0a82b46d851c7604dee334eaca2b822",
     "72b4293a348a8e37064805354d821b7478721cf0",
     "74bf8e5c8d61d67b6a7b7969e32872700125abb6",
-    "7549fee12b415f1a279baaa1729ddd0ab53a2f27",
+    "78a2c049df1789577a8644a5e07a67044de6ccdd",
     "78f6eff97505f64430b336045df0b3fee4c1cbcf",
     "79c32fdc16f0b76e8b4fe32b1a35811838e51781",
     "7b8633a99fee9efaf401c3e63c5ae83cbc085131",
@@ -4124,14 +4814,17 @@
     "7ff5e4491a3e909f006c0bf8dda3ca5117fd4a40",
     "80065c1c8efd2b6a151d475011dea5edbaa4522a",
     "81056de88bef19657026c76165477969c078d0a7",
-    "823d3bbda3f005ba8a1f51508ca3fe4e38fd3078",
     "83aee2852eb3375309580957f7d3ae6934488428",
+    "84e656ec981fa41b6d17c1cc13b245c3af2026b1",
     "87a6137f5287d78c38b4c9a4dbde490b0a3c9044",
     "88e6b76f7dd78b18bc337414a8b6f339d766adc7",
     "890d287c62f018b383b99e0a2f8fe3f649c0ff36",
     "8aea85b63bc4d333ff11e84f4ad81028178e03b9",
     "8e4f5d15ba6a82e8589a11d297c98a8b1de1c005",
+    "8f4401b40327be24780c88c5de5d4a6cb3509b1b",
+    "91ce9ca43d0db6650d91885f6c91fdfb56a08808",
     "944fc30d4d6e16d2825c796458edbb10295f49e6",
+    "9478af843422d11cbcf67d79924a73150d86f8ee",
     "9545c4d7446ed230219e570ed2dabf6359d7bd41",
     "95b7e0a5dc076eb476e7481be0ae1b38697b3610",
     "95b80a92f87df3b2acab38048443858a8c0f8e11",
@@ -4139,7 +4832,6 @@
     "978e90cd2bad14eef350e1a4ef8b64cfd59f631a",
     "99e72b1c02c0b485864c48710fab36dfe9475e6b",
     "9b03d736ab45fc8c41a0cb4985d1bc996d674e4f",
-    "9b9dbb0067e42dc7f3941bfe49d0cc13ff30b986",
     "9c4146af4b677f92bffa83282b4d3584a91b2d3b",
     "9c6a7403d9faa82b8dfbfd1e34a0d9319aa9a366",
     "9d6b92ebe41cdb7baf8464eaf23ea1e13a750b5a",
@@ -4149,11 +4841,16 @@
     "a0709872d51a15aa5f01a564c609a0d904c898ce",
     "a12277f9dd41756c5a557063bb4a1db4138d1e83",
     "a17ff66702d50731c5d6833145875687a2791016",
+    "a217105d80a20205f63f47d069e18ff864a7d7d2",
+    "a3817a1759d9bac43fcbb546cf83f454d64a82a3",
     "a50fff562f0d343e695eea26b49f108b994a4028",
     "a56bb8cce5768a787fe9a3fe2454a51520535946",
     "a6e0704f3ba119f7996ce7573ca100da3938118e",
+    "a81f85bd7f632e3e48ef6b1da0017b81d25998a7",
+    "a84d7fd2bb93803fefe2a11d7f5fad208ecb00b3",
     "aa70710367d71a3b7a5ae7a8ed672d3750c09e79",
     "aaeb0a9abfde47a0bb4ee41f3b9a7d398df539cf",
+    "ab0777880a9b931afc62d7fcc332936ccaaf90fd",
     "ac5a14df9f8167101fc52164312bc865322cfd28",
     "af51720b0d3c73d74fa4b427d45730c872425370",
     "afdc3d5693b50ceac789fc8c880bf72906dd9f91",
@@ -4179,13 +4876,14 @@
     "c1297c99cb32dad9c1a091b276b56ddd359ee05e",
     "c1bde37a62073fbb15c57d338dc59659dd303950",
     "c46ed52f757495d8f8999fda0662db5428880fc6",
+    "c4ed3db6e7c1aaa8c6f62c08442538bfc275b6f3",
     "c4f56326f8547635794b4046a484bc67b190effb",
     "c60b5a892e38278d78a932291a7e3faedc27adb3",
     "c6ad6cccc6c1be94e912669f9817b7697d0e94dd",
     "c739b4ae8a4c7cb6e4a1d3b1fa5182c17c7b4304",
+    "c74a5a62aaf25454eaab0310c123fd0b972b2e7c",
     "c887ef4354609c26532212f5ea6ead752c65988c",
     "cb598b3fe774fbe50c946a810b652284ca6ae987",
-    "ccc5f2529f07dc65341af671881dc69bdc0e46e2",
     "cfc27f512d4fae3ce205b3104177a1ba987a5d7d",
     "d154c86cfd8647c39245e2c695ddd67dac1cf6df",
     "d21e7fb3389f057790581b61bb1bef04fe16d5aa",
@@ -4195,9 +4893,10 @@
     "d465c9851e57d36426f3682a47ad4d613a2e6d16",
     "d5762bac5f7ce4ec928c0849280f554ff3c67e69",
     "d61c36090fdcfdf4050ce2b21cb197bba3187851",
+    "d7583288464f252eeec6657c80f4cd3a74c0e5c5",
     "d769143079d862fc6df01fb3fc292ce322e8a1df",
-    "d7a0a02c09263ef1e1214ceaa1a36eedbbe42174",
     "d7c753ff6070de90c04b05369c5f1a68a712d8cb",
+    "d7f459c077d280918698ff4bd0425e9fabd4343f",
     "da4e9efe6d4656e65c1fdd00a96ca13a279bc647",
     "dba0d61fc2c5054d8db0e3f65d667ea957ea29c7",
     "dcac9b57735919023dc6debc72f2c6cf37efc1a1",
@@ -4209,16 +4908,23 @@
     "e25aee67b22361b15da1480e394f554d52c6d2fc",
     "e2ba831a263f6b8e1ff14f965f6bf988ab270b4d",
     "e3655fde38c06a93533037029fa85240b2a7fa7f",
+    "e4d930b0801d41472d3c73e8e7a46f8a26fda0e5",
     "e6bd4d200de10d84ac3993f49f0941055d9ea3d3",
+    "e808e2f8bc812d385297df2e4c4f24e0ccc7625f",
     "ea3b4b4855a12b883a387afa4aa201b5459225f3",
     "ea6acc85aa0640a47af6a81e4239a01675f31484",
+    "eb9be9d5f9214ae10a1dbe3a2ee08ca66147f55e",
     "ed1454e73e22d60d9e54450a9a90fd8cd196d413",
     "ed1654a7b9a1c73086abd90e7db953343d7fbfc9",
     "ee15b370efa7d2fafd3c3b9fc38e3f6ee3c52356",
+    "f0ab434a41a6b89b1a72f18763ec135fb1e57136",
     "f4ae4d7e6f86a4cc6b0e6daaa0d3f2631a8977d0",
+    "f4eea7d66c7ef8c411542706a9dfd7b71df04ec5",
     "f5027810bdfbb59e4488e5e0da55791e3ee9c7a1",
     "f635c664e2856872e450c8368de2a9fa6933d3fe",
     "f85c8379c6b210df2dbaecf9083f7b60adeecb85",
+    "f8aaba8575644ae5e783c4d040f85e40a27822e1",
+    "f98375ec012af0026cb798b895d9dd061e30591c",
     "fa293060e34a5cc455e6392fbcb337c4f1a5b42f",
     "fb1b0345b4dd831035f5f2783ff73f5642b48219",
     "fc3c1431ac22bb2e9fa3a11f2963939dfb3ca27a",
@@ -4423,6 +5129,39 @@
     244,
     246,
     247,
-    248
+    248,
+    249,
+    250,
+    251,
+    252,
+    254,
+    256,
+    258,
+    259,
+    260,
+    261,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    271,
+    272,
+    273,
+    274,
+    276,
+    277,
+    279,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290
   ]
 }

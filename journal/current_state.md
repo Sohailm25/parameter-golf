@@ -37,16 +37,19 @@
 - `parametergolf-gci` is now closed after the first bounded LR-scale batch and the canonical rerun of the down-10 winner.
 - The batch-local down-10 result was directionally useful but numerically untrustworthy: `2.10816927` batch-local shrank to `2.17839092` on the canonical rerun.
 - Even after that shrinkage, the canonical down-10 rerun still beat both the in-batch control and the archived baseline proxy, so the optimizer lane now has a real confirmatory follow-up instead of only a search hunch.
+- `parametergolf-2s4` is now closed after the shard-`000001` confirmatory rerun of the same LR-down10 tuple.
+- The confirmatory LR-down10 training run finished at `1.96768084` BPB with a `12942464`-byte int8 artifact, beating the promoted baseline confirmatory run by `0.04168550` BPB while shrinking the artifact.
+- The matching `16M` current-accounting rescore also held up: `1.98197651` non-overlap and `1.97787760` stride-`64`, which preserves `~0.042` BPB gains versus the baseline checkpoint under the repo's current scoring reference.
+- The repo now has a promoted optimizer iteration, `opt-lrscale-down10-confirmed-s1`, and that iteration is now mirrored into `iterations/golden/`.
 - The local arXiv cache now materializes PDF/text files for retained papers, but the downloaded files are machine-local cache files rather than versioned artifacts.
 
 ## What Is Missing
 
-- No bounded `autoresearch` batch has been executed yet.
 - No post-baseline document-isolated or full-cache evaluation result has been confirmed yet.
-- No optimizer_sweeps confirmatory rerun has been completed yet.
+- No next atomic issue is open yet after promoting the optimizer confirmatory candidate.
 
 ## Next Delta To Close
 
-1. Execute `parametergolf-2s4`, the confirmatory shard-`000001` rerun for the canonical LR-down10 tuple.
-2. Decide whether document-isolated evaluation should follow immediately or only after a separate docs-cache materialization step.
-3. Decide whether a full-cache flat-stream run is still necessary before moving to the next lane.
+1. Decide whether document-isolated sliding-window accounting still deserves to be the next atomic lane, or whether a different non-eval lane should jump ahead after the optimizer promotion.
+2. If document-isolated evaluation stays next, open the missing docs-cache materialization task rather than bundling new data plumbing into the accounting claim itself.
+3. Keep the official PR/X/arXiv frontier fresh before opening the next lane issue.
