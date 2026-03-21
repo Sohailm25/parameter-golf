@@ -12,7 +12,7 @@
 - `known`: `origin` now points at `https://github.com/Sohailm25/parameter-golf.git`.
 - `known`: `bd` is initialized locally with issue prefix `parametergolf`.
 - `known`: the scaffold task `parametergolf-70m` is closed, the official challenge code now lives directly in this workspace root, and the stale import-strategy task should be treated as resolved.
-- `known`: after the first bounded autoresearch optimizer batch landed, the next ready task is `parametergolf-2s4`.
+- `known`: `parametergolf-2s4` is now closed after the shard-`000001` confirmatory rerun and the matching `16M` current-accounting rescore for the LR-down10 optimizer tuple.
 - `known`: `bd` git hooks and `pre-commit` are installed locally, and the current scaffold test suite is green.
 - `known`: the imported `researchdocs/` conversation artifacts were reviewed before scaffold changes.
 - `known`: the official README confirms a decimal `16,000,000` byte artifact cap, a separate `10` minute evaluation budget on `8xH100`, tokenizer scrutiny, and a required `0.005` nat improvement at `p < 0.01` for new records.
@@ -58,7 +58,10 @@
 - `observed`: the paper cache under `background-work/papers/files/arxiv/` and `background-work/papers/files/arxiv_text/` is machine-local and gitignored except for the tracked `.gitkeep` directory placeholders.
 - `known`: the current deduped backlog includes ten candidate lanes, now with `eval-document-reset-ttt` split out from pure document-isolated sliding-window accounting.
 - `known`: the experiment stack now has three horizons: smoke/elimination, medium-horizon proxy, and confirmatory.
-- `known`: the current golden set now mirrors `baseline-sp1024-mlx-confirmed-s1` as the best-known integrated candidate.
+- `observed`: the shard-`000001` confirmatory LR-down10 run (`20260321-000650-optimizer-sweeps-lr-scale-down10-confirmatory`) finished at `final_int8_zlib_roundtrip_exact val_bpb=1.96768084` with a `12942464`-byte artifact, improving the promoted baseline confirmatory run by `0.04168550` BPB while shrinking the artifact by `699815` bytes.
+- `observed`: the companion `16,777,216`-target accounting rescore (`20260321-003451-optimizer-sweeps-lr-scale-down10-confirmatory-accounting-16m`) scored `val_bpb=1.98197651` under non-overlap and `val_bpb=1.97787760` under stride-`64`, preserving `~0.042` BPB gains versus the baseline checkpoint under both accounting modes.
+- `known`: the optimizer result is now promoted as iteration `opt-lrscale-down10-confirmed-s1`, archived under `iterations/archive/`, and mirrored into `iterations/golden/`.
+- `known`: the current golden set now mirrors `opt-lrscale-down10-confirmed-s1` as the best-known integrated candidate.
 - `known`: the first serious post-baseline lane should start with evaluation accounting, specifically flat-stream sliding-window comparison before document isolation or TTT.
 - `known`: `parametergolf-2km` now resolves the `autoresearch` boundary in favor of an in-repo sidecar search loop, not a sibling workspace.
 - `known`: the first bounded `autoresearch` phase is scoped to `optimizer_sweeps`, with `train_gpt_mlx.py` as the only mutable file and one optimizer/schedule subspace per batch.
@@ -70,6 +73,6 @@
 
 ## Immediate Next Steps
 
-1. Resolve `parametergolf-2s4`: confirm the canonical LR-down10 tuple on the isolated shard `000001` path and keep current evaluation accounting visible before any promotion discussion.
-2. Decide whether document-isolated evaluation should follow that confirmatory optimizer check or whether the repo should advance directly to another high-signal non-eval lane.
+1. Decide whether the next atomic issue should materialize the missing local docs cache for document-isolated sliding-window accounting or whether the repo should pivot to a different non-eval lane.
+2. Use `opt-lrscale-down10-confirmed-s1` as the new training-path parent and keep `eval-flat-sw64-confirmed-16m` as the current scoring reference unless a later iteration explicitly replaces them.
 3. Keep the PR, X, and arXiv hook state/logs current at the start of each iteration.

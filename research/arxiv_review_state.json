@@ -1,6 +1,6 @@
 {
   "last_drained_queries": [],
-  "last_full_scan_at": "2026-03-20T18:30:10Z",
+  "last_full_scan_at": "2026-03-21T00:05:27Z",
   "papers": {
     "1904.08378v1": {
       "arxiv_id": "1904.08378v1",
@@ -53,6 +53,61 @@
       "title": "On Hyperparameter Optimization of Machine Learning Algorithms: Theory and Practice",
       "updated": "2022-10-05T03:06:52Z",
       "url": "https://arxiv.org/abs/2007.15745v3"
+    },
+    "2201.12469v1": {
+      "arxiv_id": "2201.12469v1",
+      "authors": [
+        "Minjia Zhang",
+        "Niranjan Uma Naresh",
+        "Yuxiong He"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-21T00:05:27Z",
+      "last_seen_at": "2026-03-21T00:05:27Z",
+      "notes_path": "research/arxiv_snapshots/2201.12469v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2201.12469v1.pdf",
+      "published": "2022-01-29T01:47:01Z",
+      "source_queries": [
+        "\"large batch\" language model optimization"
+      ],
+      "summary": "In recent years, large pre-trained Transformer-based language models have led to dramatic improvements in many natural language understanding tasks. To train these models with increasing sizes, many neural network practitioners attempt to increase the batch sizes in order to leverage multiple GPUs to improve training speed. However, increasing the batch size often makes the optimization more difficult, leading to slow convergence or poor generalization that can require orders of magnitude more training time to achieve the same model quality. In this paper, we explore the steepness of the loss landscape of large-batch optimization for adapting pre-trained Transformer-based language models to domain-specific tasks and find that it tends to be highly complex and irregular, posing challenges to generalization on downstream tasks. To tackle this challenge, we propose ScaLA, a novel and efficient method to accelerate the adaptation speed of pre-trained transformer networks. Different from prior methods, we take a sequential game-theoretic approach by adding lightweight adversarial noise into large-batch optimization, which significantly improves adaptation speed while preserving model generalization. Experiment results show that ScaLA attains 2.7--9.8$\\times$ adaptation speedups over the baseline for GLUE on BERT-base and RoBERTa-large, while achieving comparable and sometimes higher accuracy than the state-of-the-art large-batch optimization methods. Finally, we also address the theoretical aspect of large-batch optimization with adversarial noise and provide a theoretical convergence rate analysis for ScaLA using techniques for analyzing non-convex saddle-point problems.",
+      "text_path": "background-work/papers/files/arxiv_text/2201.12469v1.txt",
+      "title": "ScaLA: Accelerating Adaptation of Pre-Trained Transformer-Based Language Models via Efficient Large-Batch Adversarial Noise",
+      "updated": "2022-01-29T01:47:01Z",
+      "url": "https://arxiv.org/abs/2201.12469v1"
+    },
+    "2202.02664v2": {
+      "arxiv_id": "2202.02664v2",
+      "authors": [
+        "Chen Liang",
+        "Haoming Jiang",
+        "Simiao Zuo",
+        "Pengcheng He",
+        "Xiaodong Liu",
+        "Jianfeng Gao",
+        "Weizhu Chen",
+        "Tuo Zhao"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "first_seen_at": "2026-03-21T00:05:27Z",
+      "last_seen_at": "2026-03-21T00:05:27Z",
+      "notes_path": "research/arxiv_snapshots/2202.02664v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2202.02664v2.pdf",
+      "published": "2022-02-06T00:22:28Z",
+      "source_queries": [
+        "learning rate schedule transformer training"
+      ],
+      "summary": "Recent research has shown the existence of significant redundancy in large Transformer models. One can prune the redundant parameters without significantly sacrificing the generalization performance. However, we question whether the redundant parameters could have contributed more if they were properly trained. To answer this question, we propose a novel training strategy that encourages all parameters to be trained sufficiently. Specifically, we adaptively adjust the learning rate for each parameter according to its sensitivity, a robust gradient-based measure reflecting this parameter's contribution to the model performance. A parameter with low sensitivity is redundant, and we improve its fitting by increasing its learning rate. In contrast, a parameter with high sensitivity is well-trained, and we regularize it by decreasing its learning rate to prevent further overfitting. We conduct extensive experiments on natural language understanding, neural machine translation, and image classification to demonstrate the effectiveness of the proposed schedule. Analysis shows that the proposed schedule indeed reduces the redundancy and improves generalization performance.",
+      "text_path": "background-work/papers/files/arxiv_text/2202.02664v2.txt",
+      "title": "No Parameters Left Behind: Sensitivity Guided Adaptive Learning Rate for Training Large Transformer Models",
+      "updated": "2022-02-14T15:34:13Z",
+      "url": "https://arxiv.org/abs/2202.02664v2"
     },
     "2212.02475v1": {
       "arxiv_id": "2212.02475v1",
@@ -160,6 +215,54 @@
       "title": "STARLING: Self-supervised Training of Text-based Reinforcement Learning Agent with Large Language Models",
       "updated": "2024-06-09T18:07:47Z",
       "url": "https://arxiv.org/abs/2406.05872v1"
+    },
+    "2408.00690v2": {
+      "arxiv_id": "2408.00690v2",
+      "authors": [
+        "Trapoom Ukarapol",
+        "Zhicheng Lee",
+        "Amy Xin"
+      ],
+      "categories": [
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-21T00:05:27Z",
+      "last_seen_at": "2026-03-21T00:05:27Z",
+      "notes_path": "research/arxiv_snapshots/2408.00690v2.md",
+      "pdf_path": "background-work/papers/files/arxiv/2408.00690v2.pdf",
+      "published": "2024-08-01T16:31:35Z",
+      "source_queries": [
+        "small language model optimization"
+      ],
+      "summary": "While Large Language Models show remarkable performance in natural language understanding, their resource-intensive nature makes them less accessible. In contrast, smaller language models such as MiniCPM offer more sustainable scalability, but often underperform without specialized optimization. In this paper, we explore the enhancement of smaller language models through the improvement of their text embeddings. We select three language models, MiniCPM, Phi-2, and Gemma, to conduct contrastive fine-tuning on the NLI dataset. Our results demonstrate that this fine-tuning method enhances the quality of text embeddings for all three models across various benchmarks, with MiniCPM showing the most significant improvements of an average 56.33% performance gain. The contrastive fine-tuning code is publicly available at https://github.com/trapoom555/Language-Model-STS-CFT.",
+      "text_path": "background-work/papers/files/arxiv_text/2408.00690v2.txt",
+      "title": "Improving Text Embeddings for Smaller Language Models Using Contrastive Fine-tuning",
+      "updated": "2024-08-02T14:36:05Z",
+      "url": "https://arxiv.org/abs/2408.00690v2"
+    },
+    "2411.02939v1": {
+      "arxiv_id": "2411.02939v1",
+      "authors": [
+        "Keke Zhai"
+      ],
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "first_seen_at": "2026-03-21T00:05:27Z",
+      "last_seen_at": "2026-03-21T00:05:27Z",
+      "notes_path": "research/arxiv_snapshots/2411.02939v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2411.02939v1.pdf",
+      "published": "2024-11-05T09:32:26Z",
+      "source_queries": [
+        "small language model optimization"
+      ],
+      "summary": "This paper delves into the continuous post-training optimization methods for small language models, and proposes a continuous post-training alignment data construction method for small language models. The core of this method is based on the data guidance of large models, optimizing the diversity and accuracy of alignment data. In addition, to verify the effectiveness of the methods in this paper, we used Qwen2-0.5B-Instruct model as the baseline model for small language models, using the alignment dataset constructed by our proposed method, we trained and compared several groups of experiments, including SFT (Supervised Fine Tuning) post-training experiment and KTO (Kahneman Tversky optimization) post-training experiment, as well as SFT-KTO two-stage post-training experiment and model weight fusion experiment. Finally, we evaluated and analyzed the performance of post-training models, and confirmed that the continuous post-training optimization method proposed by us can significantly improve the performance of small language models.",
+      "text_path": "background-work/papers/files/arxiv_text/2411.02939v1.txt",
+      "title": "A Post-Training Enhanced Optimization Approach for Small Language Models",
+      "updated": "2024-11-05T09:32:26Z",
+      "url": "https://arxiv.org/abs/2411.02939v1"
     },
     "2411.03731v1": {
       "arxiv_id": "2411.03731v1",
@@ -311,6 +414,35 @@
       "updated": "2025-08-19T09:45:25Z",
       "url": "https://arxiv.org/abs/2503.04715v7"
     },
+    "2508.20577v1": {
+      "arxiv_id": "2508.20577v1",
+      "authors": [
+        "Yang Luo",
+        "Zangwei Zheng",
+        "Ziheng Qin",
+        "Zirui Zhu",
+        "Yong Liu",
+        "Yang You"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "first_seen_at": "2026-03-21T00:05:27Z",
+      "last_seen_at": "2026-03-21T00:05:27Z",
+      "notes_path": "research/arxiv_snapshots/2508.20577v1.md",
+      "pdf_path": "background-work/papers/files/arxiv/2508.20577v1.pdf",
+      "published": "2025-08-28T09:14:23Z",
+      "source_queries": [
+        "\"large batch\" language model optimization"
+      ],
+      "summary": "Large-batch training has become a cornerstone in accelerating the training of deep neural networks, yet it poses challenges in optimization and generalization. Existing optimizers like AdamW present performance degradation during language models' large-batch training, due to the information bottleneck in attention layers caused by the sharp increase of max attention logit. While the LAMB optimizer partially addresses this issue, some attention layers still face this issue. The reason is that $l_2$-norm-based trust ratios in LAMB are less effective in directly influencing the max value of query/key weights. Furthermore, the weight-wise trust ratio in LAMB is error-prone as it overlooks relationships of weight values within rows or columns. Building on these observations, we propose a novel optimizer, MERIT, which leverages the max-norm to calculate the trust ratio to constrain the max attention logit more effectively. Moreover, we further construct element-wise trust ratios to provide more robust update scaling by focusing on local weight structures. Extensive experiments of large-batch training across various sizes of GPT-2 models demonstrate the superior performance of MERIT. Notably, during the training of GPT-2 Medium, MERIT enables a 6k batch size without any performance degradation compared to the standard batch size (480) with 48B training tokens. This work highlights the importance of considering the max attention logit and finer-granularity trust ratio in large-batch training. It successfully improves the training stability and paves the way for larger batch usage, enabling faster development and iteration of large language models. Code is available at https://github.com/NUS-HPC-AI-Lab/MERIT.",
+      "text_path": "background-work/papers/files/arxiv_text/2508.20577v1.txt",
+      "title": "MERIT: Maximum-normalized Element-wise Ratio for Language Model Large-batch Training",
+      "updated": "2025-08-28T09:14:23Z",
+      "url": "https://arxiv.org/abs/2508.20577v1"
+    },
     "2510.00071v2": {
       "arxiv_id": "2510.00071v2",
       "authors": [
@@ -403,15 +535,20 @@
   "seen_paper_ids": [
     "1904.08378v1",
     "2007.15745v3",
+    "2201.12469v1",
+    "2202.02664v2",
     "2212.02475v1",
     "2305.18466v3",
     "2403.01518v1",
     "2406.05872v1",
+    "2408.00690v2",
+    "2411.02939v1",
     "2411.03731v1",
     "2412.00534v1",
     "2502.07985v2",
     "2502.17521v2",
     "2503.04715v7",
+    "2508.20577v1",
     "2510.00071v2",
     "2512.23675v2",
     "2603.07392v1"

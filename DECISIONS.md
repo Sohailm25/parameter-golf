@@ -139,3 +139,10 @@
 - Decision: preserve the batch as a mixed autoresearch artifact, but treat the canonical rerun as the only metric source of truth for the candidate. Batch-local autoresearch runs can nominate a direction; they do not get to rank candidates for this repo by themselves.
 - Rationale: the down-10 tuple still improved the real proxy, but the batch-local magnitude was overstated by `0.07022165` BPB. Without the canonical rerun, the repo would have overclaimed badly.
 - Impact: future bounded autoresearch passes should keep using the same search pattern, but any promising candidate must be judged by its `scripts/experiment_runner.py launch` rerun before follow-up prioritization or promotion discussion.
+
+## [2026-03-20T20:15:00-0500] DECISION: Promote the LR-down10 optimizer tuple as the new golden training candidate
+
+- Trigger: `parametergolf-2s4` finished with a shard-`000001` confirmatory training result of `1.96768084` BPB, a `12942464`-byte artifact, and a matching `16M` accounting rescore of `1.98197651` non-overlap / `1.97787760` stride-`64`.
+- Decision: promote the atomic LR change as iteration `opt-lrscale-down10-confirmed-s1` and mirror it into `iterations/golden/`.
+- Rationale: the candidate now clears every gate the repo required after the batch-local exaggeration scare: canonical proxy win, shard-`000001` confirmatory win, artifact-size audit, and current-accounting visibility. The improvement is large enough that keeping the old baseline as golden would be artificially conservative.
+- Impact: the repo's default training-path parent is no longer `baseline-sp1024-mlx-confirmed-s1`; future training-path experiments should compare against `opt-lrscale-down10-confirmed-s1`, while the existing evaluation iteration remains the scoring reference until superseded.
